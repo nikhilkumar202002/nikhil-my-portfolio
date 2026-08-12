@@ -2,6 +2,7 @@
 
 @theme inline {
   --font-sans: var(--font-helvetica-neue);
+  --color-primary: #FB6C00;
 }
 
 .container {

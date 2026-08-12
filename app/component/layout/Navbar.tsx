@@ -1,9 +1,44 @@
-import React from 'react'
+import Link from "next/link";
+
+const navItems = [
+  { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
+  { label: "Service", href: "#service" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <nav className="w-full border-b border-black/10 bg-white">
+      <div className="container flex h-10 items-center gap-4 text-[14px] leading-none">
+        <Link
+          href="/"
+          className="shrink-0 whitespace-nowrap font-medium text-black"
+        >
+          Nikhil Kumar S <span className="text-primary">Visualist</span>
+        </Link>
 
-export default Navbar
+        <div className="flex flex-1 items-center justify-center gap-6 md:gap-14 text-zinc-600">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="whitespace-nowrap transition-colors hover:text-black"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        <Link
+          href="#hire-me"
+          className="shrink-0 whitespace-nowrap font-medium text-primary transition-colors hover:opacity-80"
+        >
+          Hire Me
+        </Link>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
