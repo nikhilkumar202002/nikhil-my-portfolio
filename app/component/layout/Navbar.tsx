@@ -10,7 +10,7 @@ const navItems = [
 const Navbar = () => {
   return (
     <nav className="w-full border-b border-black/10 bg-white">
-      <div className="container">
+      <div className="site-container">
         <div className="flex h-10 items-center gap-4 text-[14px] leading-none">
           <Link
             href="/"
@@ -19,7 +19,7 @@ const Navbar = () => {
             Nikhil Kumar S <span className="text-primary">Visualist</span>
           </Link>
 
-          <div className="flex flex-1 items-center justify-center gap-6 text-zinc-600 md:gap-14">
+          <div className="ml-auto flex items-center gap-6 text-zinc-600 md:gap-14">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -29,14 +29,14 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
-          </div>
 
-          <Link
-            href="#hire-me"
-            className="shrink-0 whitespace-nowrap font-medium text-primary transition-colors hover:opacity-80"
-          >
-            Hire Me
-          </Link>
+            <Link
+              href="#hire-me"
+              className="shrink-0 whitespace-nowrap font-medium text-primary transition-colors hover:opacity-80"
+            >
+              Hire Me
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
