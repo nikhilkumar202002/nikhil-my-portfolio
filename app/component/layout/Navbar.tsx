@@ -9,7 +9,7 @@ const navItems = [
 
 const Navbar = () => {
   return (
-    <nav className="w-full border-b border-black/10 bg-white">
+    <nav className="sticky top-0 z-50 w-full border-b border-black/10 bg-white">
       <div className="site-container">
         <div className="flex h-10 items-center gap-4 text-[14px] leading-none">
           <Link
