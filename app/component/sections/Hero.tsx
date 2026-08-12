@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="bg-[#F9F9F9]">
-      <div className="site-container min-h-[calc(100vh-2.5rem)] py-10 sm:py-12 lg:min-h-[calc(100vh-2.5rem)] lg:py-14">
-        <div className="grid min-h-[calc(100vh-2.5rem)] grid-cols-1 lg:grid-cols-[7fr_3fr]">
+    <section className="sticky top-10 h-[600px] bg-[#F9F9F9]">
+      <div className="site-container h-full py-10 sm:py-12 lg:py-14">
+        <div className="grid h-full grid-cols-1 lg:grid-cols-[7fr_3fr]">
           <div className="hidden lg:block" />
 
           <div className="flex items-end justify-end pb-8 sm:pb-10 lg:pb-14">
@@ -28,8 +28,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="flex items-end pb-8 sm:pb-10 lg:pb-14">
-            <h1 className="max-w-[11.5ch] text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-black">
+          <div className="flex items-end">
+            <h1 className="w-full text-[clamp(2.8rem,6.2vw,4.5rem)] font-medium leading-[0.95] tracking-[-0.02em] text-black">
               Purpose in Every <span className="text-primary">Pixel.</span>
               <br />
               <span className="text-primary">Impact</span> in Every Experience.
