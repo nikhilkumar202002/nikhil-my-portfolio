@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import PrimaryBtn from "../ui/PrimaryBtn";
 import "./Styles.css";
 
 const featuredWorks = [
@@ -108,6 +109,10 @@ const FeaturedPortfolio = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="featured-portfolio-cta">
+          <PrimaryBtn>View More Works</PrimaryBtn>
         </div>
       </div>
     </section>

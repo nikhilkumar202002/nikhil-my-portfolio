@@ -27,6 +27,12 @@
   gap: 14px 10px;
 }
 
+.featured-portfolio-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 .featured-work-card {
   display: flex;
   flex-direction: column;
@@ -81,7 +87,7 @@
 .featured-work-category {
   display: block;
   margin-bottom: 3px;
-  font-size: 8px;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: 0.04em;
   color: #7a7a7a;
@@ -90,7 +96,7 @@
 
 .featured-work-title {
   margin: 0;
-  font-size: 10px;
+  font-size: 20px;
   line-height: 1.15;
   font-weight: 400;
   color: #111111;
@@ -98,7 +104,7 @@
 
 .featured-work-year {
   flex-shrink: 0;
-  font-size: 8px;
+  font-size: 14px;
   line-height: 1;
   color: #fb6c00;
 }
@@ -117,13 +123,12 @@
     gap: 18px 12px;
   }
 
-  .featured-work-title {
-    font-size: 11px;
+  .featured-portfolio-cta {
+    margin-top: 22px;
   }
 
-  .featured-work-category,
-  .featured-work-year {
-    font-size: 9px;
+  .featured-work-title {
+    font-size: 20px;
   }
 
   .featured-work-cursor {
@@ -146,8 +151,12 @@
     gap: 22px 14px;
   }
 
+  .featured-portfolio-cta {
+    margin-top: 26px;
+  }
+
   .featured-work-title {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   .featured-work-cursor {
