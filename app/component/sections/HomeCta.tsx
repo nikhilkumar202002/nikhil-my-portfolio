@@ -31,7 +31,7 @@ const HomeCta = () => {
           </p>
 
           <Link href="#about" className="home-cta-link">
-            Know More
+            Contact Me
           </Link>
         </div>
       </div>
