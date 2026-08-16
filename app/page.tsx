@@ -7,10 +7,9 @@ const page = () => {
   return (
     <>
       <Hero />
-
-      <AboutMe />
-      <SkillsFullFont />
       <FeaturedPortfolio />
+      <SkillsFullFont />
+      <AboutMe />
     </>
   );
 };

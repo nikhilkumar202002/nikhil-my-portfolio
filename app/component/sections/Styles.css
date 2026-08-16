@@ -30,7 +30,7 @@
 .featured-portfolio-cta {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 50px !important;
 }
 
 .featured-work-card {
@@ -371,17 +371,48 @@
 
 .skills-full-font-section {
   padding: 56px 0 64px;
-  background: #ffffff;
+  background: #f6f6f6;
 }
 
 .skills-full-font-sentence {
   margin: 0;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
   font-size: clamp(1.8rem, 4vw, 4rem);
   line-height: 1.05;
   font-weight: 400;
   letter-spacing: -0.05em;
   color: #111111;
+}
+
+.skills-full-font-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15em 0.35em;
+}
+
+.skills-full-font-text {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.skills-full-font-media {
+  position: relative;
+  flex: 0 0 auto;
+  display: block;
+  height: 1em;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.skills-full-font-media-img {
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (min-width: 640px) {
@@ -399,11 +430,13 @@
     padding: 88px 0 96px;
   }
 
-  .skills-full-font-header {
-    margin-bottom: 22px;
-  }
-
   .skills-full-font-sentence {
-    font-size: clamp(2.35rem, 2.8vw, 4.75rem);
+    font-size: clamp(3.25rem, 3.8vw, 7rem);
+  }
+}
+
+@media (min-width: 1440px) {
+  .skills-full-font-sentence {
+    font-size: clamp(3.75rem, 3.5vw, 8rem);
   }
 }
