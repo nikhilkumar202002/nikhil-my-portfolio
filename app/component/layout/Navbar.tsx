@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Work", href: "#work" },
@@ -8,8 +11,27 @@ const navItems = [
 ];
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-black/10 bg-white">
+    <nav
+      className={`fixed left-0 top-0 z-50 w-full transition-colors duration-200 ${
+        isScrolled
+          ? "border-b border-black/10 bg-white"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="site-container">
         <div className="flex h-10 items-center gap-4 text-[14px] leading-none">
           <Link
