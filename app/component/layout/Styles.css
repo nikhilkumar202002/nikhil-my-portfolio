@@ -1,6 +1,11 @@
 .footer-section {
   background: #000000;
   color: #ffffff;
+  overflow: hidden;
+}
+
+.footer-parallax-layer {
+  will-change: transform;
 }
 
 .footer-top {
