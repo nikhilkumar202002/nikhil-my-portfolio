@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Styles.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -14,51 +18,59 @@ const navLinks = [
 
 const Footer = () => {
   const footerRef = useRef<HTMLElement | null>(null);
-  const [parallax, setParallax] = useState(0);
 
-  useEffect(() => {
-    let frame = 0;
+  useLayoutEffect(() => {
+    const footer = footerRef.current;
 
-    const update = () => {
-      const footer = footerRef.current;
-      if (!footer) {
-        return;
+    if (!footer) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      const layer = footer.querySelector(".footer-parallax-layer");
+      const brand = footer.querySelector(".footer-brand");
+
+      const triggerConfig = {
+        trigger: footer,
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+        invalidateOnRefresh: true,
+      } as const;
+
+      if (layer) {
+        gsap.fromTo(
+          layer,
+          { y: 72, opacity: 0.9 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: triggerConfig,
+          },
+        );
       }
 
-      const rect = footer.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || 1;
-      const progress = Math.min(
-        Math.max((viewportHeight - rect.top) / viewportHeight, 0),
-        1,
-      );
+      if (brand) {
+        gsap.fromTo(
+          brand,
+          { y: 18 },
+          {
+            y: 0,
+            ease: "none",
+            scrollTrigger: triggerConfig,
+          },
+        );
+      }
+    }, footer);
 
-      setParallax(progress);
-    };
-
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
+    return () => ctx.revert();
   }, []);
-
-  const parallaxStyle = {
-    transform: `translate3d(0, ${(1 - parallax) * 18}px, 0)`,
-  };
 
   return (
     <footer ref={footerRef} className="footer-section">
       <div className="site-container">
-        <div className="footer-parallax-layer" style={parallaxStyle}>
+        <div className="footer-parallax-layer">
           <div className="footer-top">
             <div className="footer-grid">
               <nav aria-label="Footer navigation">
@@ -118,7 +130,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-bottom">
-            <div className="footer-brand">NIKHIL</div>
+            <div className="footer-brand">NIKHIL KUMAR S</div>
 
             <p className="footer-copy">
               © 2026 Nikhil Kumar. All Rights Reserved.
