@@ -68,7 +68,9 @@
   font-weight: 400;
   letter-spacing: 0px;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  opacity: 0;
 
 }
 

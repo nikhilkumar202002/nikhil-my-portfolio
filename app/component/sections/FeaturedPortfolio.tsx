@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import gsap from "gsap";
+import { useRef, type PointerEvent } from "react";
 import PrimaryBtn from "../ui/PrimaryBtn";
 import "./Styles.css";
 
@@ -45,8 +46,106 @@ const featuredWorks = [
 ] as const;
 
 const FeaturedPortfolio = () => {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const cursorMotionRef = useRef(
+    new Map<
+      number,
+      {
+        xTo: (value: number) => void;
+        yTo: (value: number) => void;
+      }
+    >(),
+  );
+
+  const getCursorMotion = (cursor: HTMLElement, index: number) => {
+    const existing = cursorMotionRef.current.get(index);
+
+    if (existing) {
+      return existing;
+    }
+
+    gsap.set(cursor, {
+      xPercent: -50,
+      yPercent: -50,
+      scale: 0.7,
+      autoAlpha: 0,
+    });
+
+    const xTo = gsap.quickTo(cursor, "x", {
+      duration: 0.35,
+      ease: "power3.out",
+    });
+    const yTo = gsap.quickTo(cursor, "y", {
+      duration: 0.35,
+      ease: "power3.out",
+    });
+
+    const motion = { xTo, yTo };
+    cursorMotionRef.current.set(index, motion);
+
+    return motion;
+  };
+
+  const handlePointerEnter = (
+    event: PointerEvent<HTMLElement>,
+    index: number,
+  ) => {
+    const cursor = event.currentTarget.querySelector<HTMLElement>(
+      ".featured-work-cursor",
+    );
+
+    if (!cursor) {
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const { xTo, yTo } = getCursorMotion(cursor, index);
+
+    xTo(event.clientX - rect.left);
+    yTo(event.clientY - rect.top);
+
+    gsap.to(cursor, {
+      autoAlpha: 1,
+      scale: 1,
+      duration: 0.25,
+      ease: "power2.out",
+    });
+  };
+
+  const handlePointerMove = (
+    event: PointerEvent<HTMLElement>,
+    index: number,
+  ) => {
+    const cursor = event.currentTarget.querySelector<HTMLElement>(
+      ".featured-work-cursor",
+    );
+
+    if (!cursor) {
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const motion = getCursorMotion(cursor, index);
+
+    motion.xTo(event.clientX - rect.left);
+    motion.yTo(event.clientY - rect.top);
+  };
+
+  const handlePointerLeave = (event: PointerEvent<HTMLElement>) => {
+    const cursor = event.currentTarget.querySelector<HTMLElement>(
+      ".featured-work-cursor",
+    );
+
+    if (!cursor) {
+      return;
+    }
+
+    gsap.to(cursor, {
+      autoAlpha: 0,
+      scale: 0.7,
+      duration: 0.2,
+      ease: "power2.out",
+    });
+  };
 
   return (
     <section id="work" className="featured-portfolio-section">
@@ -61,23 +160,9 @@ const FeaturedPortfolio = () => {
             <article key={`${work.image}-${index}`} className="featured-work-card">
               <div
                 className="featured-work-image"
-                onMouseEnter={(event) => {
-                  const rect = event.currentTarget.getBoundingClientRect();
-                  setActiveCard(index);
-                  setPointer({
-                    x: event.clientX - rect.left,
-                    y: event.clientY - rect.top,
-                  });
-                }}
-                onMouseMove={(event) => {
-                  const rect = event.currentTarget.getBoundingClientRect();
-                  setActiveCard(index);
-                  setPointer({
-                    x: event.clientX - rect.left,
-                    y: event.clientY - rect.top,
-                  });
-                }}
-                onMouseLeave={() => setActiveCard(null)}
+                onPointerEnter={(event) => handlePointerEnter(event, index)}
+                onPointerMove={(event) => handlePointerMove(event, index)}
+                onPointerLeave={handlePointerLeave}
               >
                 <Image
                   src={work.image}
@@ -87,17 +172,7 @@ const FeaturedPortfolio = () => {
                   className="featured-work-img"
                 />
 
-                {activeCard === index ? (
-                  <div
-                    className="featured-work-cursor"
-                    style={{
-                      left: pointer.x,
-                      top: pointer.y,
-                    }}
-                  >
-                    View
-                  </div>
-                ) : null}
+                <div className="featured-work-cursor">View</div>
               </div>
 
               <div className="featured-work-meta">
