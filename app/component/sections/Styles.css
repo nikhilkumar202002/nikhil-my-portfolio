@@ -368,3 +368,62 @@
     min-height: calc(100svh - 176px);
   }
 }
+
+.skills-full-font-section {
+  padding: 56px 0 64px;
+  background: #ffffff;
+}
+
+.skills-full-font-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.skills-full-font-label,
+.skills-full-font-count {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1;
+  color: #7a7a7a;
+}
+
+.skills-full-font-count {
+  text-align: right;
+}
+
+.skills-full-font-sentence {
+  margin: 0;
+  max-width: 100%;
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  color: #111111;
+}
+
+@media (min-width: 640px) {
+  .skills-full-font-section {
+    padding: 72px 0 80px;
+  }
+
+  .skills-full-font-sentence {
+    font-size: clamp(2.1rem, 3vw, 4.3rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-full-font-section {
+    padding: 88px 0 96px;
+  }
+
+  .skills-full-font-header {
+    margin-bottom: 22px;
+  }
+
+  .skills-full-font-sentence {
+    font-size: clamp(2.35rem, 2.8vw, 4.75rem);
+  }
+}
