@@ -17,7 +17,7 @@ type PrimaryBtnProps = {
 };
 
 const baseClasses =
-  "group inline-flex items-center justify-between gap-3 rounded-full border border-transparent bg-transparent px-0 py-0 text-sm font-medium text-black transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+  "group inline-flex items-center justify-between gap-3 border border-transparent bg-transparent px-0 py-0 text-sm font-medium text-black transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
 const PrimaryBtn = ({
   children,
