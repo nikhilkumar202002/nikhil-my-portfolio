@@ -112,8 +112,8 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="flex flex-1 flex-col justify-between py-6">
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-1 flex-col items-end justify-between py-6">
+            <div className="flex flex-col items-end gap-2 text-right">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
