@@ -374,26 +374,6 @@
   background: #ffffff;
 }
 
-.skills-full-font-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.skills-full-font-label,
-.skills-full-font-count {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1;
-  color: #7a7a7a;
-}
-
-.skills-full-font-count {
-  text-align: right;
-}
-
 .skills-full-font-sentence {
   margin: 0;
   max-width: 100%;

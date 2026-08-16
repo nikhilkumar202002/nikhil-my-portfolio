@@ -22,11 +22,6 @@ const SkillsFullFont = () => {
   return (
     <section id="service" className="skills-full-font-section">
       <div className="site-container">
-        <div className="skills-full-font-header">
-          <p className="skills-full-font-label">Skills</p>
-          <p className="skills-full-font-count">15 Core Capabilities</p>
-        </div>
-
         <p className="skills-full-font-sentence" aria-label="Skills">
           {skills.join(", ")}
         </p>
