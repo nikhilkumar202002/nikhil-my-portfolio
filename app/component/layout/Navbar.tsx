@@ -19,7 +19,7 @@ const Navbar = () => {
             Nikhil Kumar S <span className="text-primary">Visualist</span>
           </Link>
 
-          <div className="ml-auto flex items-center gap-6 text-zinc-600 md:gap-14">
+          <div className="ml-auto flex items-center gap-6 text-zinc-600 md:gap-25">
             {navItems.map((item) => (
               <Link
                 key={item.label}
