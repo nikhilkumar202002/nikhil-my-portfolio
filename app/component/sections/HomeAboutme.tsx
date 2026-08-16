@@ -44,14 +44,20 @@ const HomeAboutme = () => {
           </div>
 
           <div className="home-about-image-wrap">
-            <div className="home-about-image">
-              <Image
-                src="/images/profile-image.jpg"
-                alt="Nikhil Kumar standing outdoors"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="home-about-image-img"
-              />
+            <div className="home-about-image-grid">
+              <div className="home-about-image-panel">
+                <Image
+                  src="/images/profile-image.jpg"
+                  alt="Nikhil Kumar standing outdoors"
+                  fill
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="home-about-image-img"
+                />
+              </div>
+
+              <div className="home-about-secondary-panel" aria-hidden="true">
+                <span className="home-about-secondary-label">Visualizer</span>
+              </div>
             </div>
           </div>
         </div>

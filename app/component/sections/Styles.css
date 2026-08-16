@@ -213,8 +213,8 @@
 
 .home-about-title {
   margin: 0;
-  font-size: clamp(2rem, 3.2vw, 3rem);
-  line-height: 0.98;
+  font-size: 40px !important;
+  line-height: 42px;
   font-weight: 400;
   letter-spacing: -0.04em;
   color: #111111;
@@ -227,9 +227,10 @@
 .home-about-description {
   max-width: 34rem;
   margin: 18px 0 0;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 17px;
+  line-height: 1.3;
   color: #3f3f3f;
+  font-weight: 400;
 }
 
 .home-about-actions-wrap {
@@ -268,14 +269,50 @@
 .home-about-image-wrap {
   display: flex;
   justify-content: flex-end;
+  align-self: stretch;
 }
 
-.home-about-image {
-  position: relative;
+.home-about-image-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
   width: min(100%, 560px);
   aspect-ratio: 1 / 1;
   overflow: hidden;
+}
+
+.home-about-image-panel {
+  position: relative;
+  overflow: hidden;
   background: #f4f1ec;
+}
+
+.home-about-secondary-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 18px 10px;
+  background: #f2f2f2;
+}
+
+.home-about-secondary-label {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #111111;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+  .home-about-secondary-panel {
+    padding: 24px 14px;
+  }
+
+  .home-about-secondary-label {
+    font-size: 16px;
+  }
 }
 
 .home-about-image-img {
@@ -294,12 +331,22 @@
   .home-about-grid {
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
     gap: 40px;
-    align-items: center;
+    align-items: stretch;
     min-height: calc(100svh - 144px);
   }
 
   .home-about-copy {
     min-height: 100%;
+  }
+
+  .home-about-image-wrap {
+    align-self: stretch;
+  }
+
+  .home-about-image-grid {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
   }
 
   .home-about-title {
