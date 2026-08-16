@@ -175,3 +175,131 @@
     display: none;
   }
 }
+
+.home-about-section {
+  padding: 56px 0;
+  background: #ffffff;
+}
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.home-about-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.home-about-heading {
+  max-width: 40rem;
+}
+
+.home-about-label {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1;
+  color: #7a7a7a;
+}
+
+.home-about-title {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #111111;
+}
+
+.home-about-title span {
+  color: #fb6c00;
+}
+
+.home-about-description {
+  max-width: 34rem;
+  margin: 18px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #3f3f3f;
+}
+
+.home-about-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.home-about-primary-btn {
+  border: none;
+  background: #fb6c00;
+  color: #ffffff;
+  padding: 12px 20px;
+}
+
+.home-about-primary-btn:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.home-about-link {
+  font-size: 14px;
+  line-height: 1;
+  color: #111111;
+  transition: color 0.2s ease;
+}
+
+.home-about-link:hover {
+  color: #fb6c00;
+}
+
+.home-about-image-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home-about-image {
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f4f1ec;
+}
+
+.home-about-image-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 768px) {
+  .home-about-section {
+    padding: 72px 0;
+  }
+
+  .home-about-grid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 40px;
+    align-items: center;
+  }
+
+  .home-about-title {
+    font-size: clamp(2.25rem, 3vw, 3.5rem);
+  }
+
+  .home-about-actions {
+    margin-top: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-about-section {
+    padding: 88px 0;
+  }
+
+  .home-about-grid {
+    gap: 56px;
+  }
+}
