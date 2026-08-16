@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="sticky top-10 h-[600px] bg-[#F9F9F9]">
+    <section className="h-[600px] bg-[#F9F9F9]">
       <div className="site-container h-full py-10 sm:py-12 lg:py-14">
         <div className="grid h-full grid-cols-1 lg:grid-cols-[7fr_3fr]">
           <div className="hidden lg:block" />
