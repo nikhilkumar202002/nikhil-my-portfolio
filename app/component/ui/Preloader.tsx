@@ -120,6 +120,7 @@ const Preloader = () => {
         duration: 1.3,
         ease: "power3.inOut",
         onComplete: () => {
+          window.dispatchEvent(new CustomEvent("preloader:complete"));
           setIsVisible(false);
         },
       });

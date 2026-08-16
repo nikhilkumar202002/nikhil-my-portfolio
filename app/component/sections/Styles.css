@@ -688,7 +688,7 @@
   width: max-content;
   font-size: clamp(4.6rem, 10.2vw, 9.6rem);
   font-weight: 300;
-  letter-spacing: -0.08em;
+  letter-spacing: -1px;
   line-height: 0.9;
   color: #e3e3e3;
   white-space: nowrap;
