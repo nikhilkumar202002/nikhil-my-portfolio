@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import gsap from "gsap";
+import { FiArrowUpRight } from "react-icons/fi";
 import { useRef, type PointerEvent } from "react";
 import PrimaryBtn from "../ui/PrimaryBtn";
 import "./Styles.css";
@@ -56,6 +57,9 @@ const FeaturedPortfolio = () => {
     >(),
   );
 
+  const getCardCursor = (card: HTMLElement) =>
+    card.querySelector<HTMLElement>(".featured-work-cursor");
+
   const getCursorMotion = (cursor: HTMLElement, index: number) => {
     const existing = cursorMotionRef.current.get(index);
 
@@ -89,9 +93,7 @@ const FeaturedPortfolio = () => {
     event: PointerEvent<HTMLElement>,
     index: number,
   ) => {
-    const cursor = event.currentTarget.querySelector<HTMLElement>(
-      ".featured-work-cursor",
-    );
+    const cursor = getCardCursor(event.currentTarget);
 
     if (!cursor) {
       return;
@@ -102,6 +104,13 @@ const FeaturedPortfolio = () => {
 
     xTo(event.clientX - rect.left);
     yTo(event.clientY - rect.top);
+
+    gsap.to(cursor, {
+      xPercent: -20,
+      yPercent: -20,
+      duration: 0.9,
+      ease: "power3.out",
+    });
 
     gsap.to(cursor, {
       autoAlpha: 1,
@@ -115,25 +124,33 @@ const FeaturedPortfolio = () => {
     event: PointerEvent<HTMLElement>,
     index: number,
   ) => {
-    const cursor = event.currentTarget.querySelector<HTMLElement>(
-      ".featured-work-cursor",
-    );
+    const cursor = getCardCursor(event.currentTarget);
 
     if (!cursor) {
       return;
     }
 
     const rect = event.currentTarget.getBoundingClientRect();
+    const cursorWidth = cursor.offsetWidth + 16;
+    const pointerX = event.clientX - rect.left;
+    const pointerY = event.clientY - rect.top;
+    const xPercent = pointerX > rect.width - cursorWidth ? -100 : -20;
+    const yPercent = pointerY > rect.height * 0.9 ? -120 : -20;
     const motion = getCursorMotion(cursor, index);
 
-    motion.xTo(event.clientX - rect.left);
-    motion.yTo(event.clientY - rect.top);
+    gsap.to(cursor, {
+      xPercent,
+      yPercent,
+      duration: 0.9,
+      ease: "power3.out",
+    });
+
+    motion.xTo(pointerX);
+    motion.yTo(pointerY);
   };
 
   const handlePointerLeave = (event: PointerEvent<HTMLElement>) => {
-    const cursor = event.currentTarget.querySelector<HTMLElement>(
-      ".featured-work-cursor",
-    );
+    const cursor = getCardCursor(event.currentTarget);
 
     if (!cursor) {
       return;
@@ -160,6 +177,7 @@ const FeaturedPortfolio = () => {
             <article key={`${work.image}-${index}`} className="featured-work-card">
               <div
                 className="featured-work-image"
+                data-cursor="Learn more"
                 onPointerEnter={(event) => handlePointerEnter(event, index)}
                 onPointerMove={(event) => handlePointerMove(event, index)}
                 onPointerLeave={handlePointerLeave}
@@ -172,7 +190,9 @@ const FeaturedPortfolio = () => {
                   className="featured-work-img"
                 />
 
-                <div className="featured-work-cursor">View</div>
+                <div className="featured-work-cursor" aria-hidden="true">
+                  <FiArrowUpRight className="featured-work-cursor-icon" />
+                </div>
               </div>
 
               <div className="featured-work-meta">
