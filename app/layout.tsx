@@ -15,7 +15,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${helveticaNeue.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">a
+      <body className="min-h-full flex flex-col font-sans">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
