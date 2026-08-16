@@ -15,7 +15,10 @@ const Hero = () => {
                 digital experiences.
               </p>
 
-              <div className="relative h-[170px] w-[160px] shrink-0 overflow-hidden sm:h-[190px] sm:w-[180px] lg:h-[210px] lg:w-[190px]">
+              <div
+                className="relative h-[170px] w-[160px] shrink-0 overflow-hidden sm:h-[190px] sm:w-[180px] lg:h-[210px] lg:w-[190px]"
+                data-preloader-hero-image
+              >
                 <Image
                   src="/images/profile-image.jpg"
                   alt="Nikhil Kumar S portrait"

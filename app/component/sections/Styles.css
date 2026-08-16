@@ -667,7 +667,7 @@
 }
 
 .preloader.is-closing {
-  opacity: 0;
+  opacity: 1;
 }
 
 .preloader-wordmark {
@@ -693,7 +693,7 @@
   color: #e3e3e3;
   white-space: nowrap;
   will-change: transform;
-  animation: preloader-marquee 18s linear infinite;
+  animation: preloader-marquee 26s linear infinite;
 }
 
 .preloader-wordmark-item {
@@ -733,6 +733,21 @@
 }
 
 .preloader-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.preloader-flight {
+  position: fixed;
+  z-index: 3;
+  overflow: hidden;
+  background: #f4f1ec;
+  box-shadow: 0 18px 36px rgba(17, 17, 17, 0.08);
+  pointer-events: none;
+  will-change: left, top, width, height, opacity, transform;
+}
+
+.preloader-flight-image {
   object-fit: cover;
   object-position: center;
 }
@@ -794,6 +809,7 @@
 
   .preloader-wordmark-track {
     gap: 2.25rem;
+    animation-duration: 30s;
   }
 
   .preloader-center-row {
