@@ -46,6 +46,34 @@ const featuredWorks = [
   },
 ] as const;
 
+const renderAnimatedTitle = (title: string) => {
+  const words = title.split(" ");
+
+  return words.map((word, wordIndex) => (
+    <span
+      key={`${title}-${word}-${wordIndex}`}
+      className="featured-work-title-word"
+    >
+      {Array.from(word).map((char, charIndex) => (
+        <span
+          key={`${title}-${wordIndex}-${charIndex}-${char}`}
+          className="featured-work-title-letter"
+          style={{ transitionDelay: `${(wordIndex * 7 + charIndex) * 12}ms` }}
+        >
+          <span className="featured-work-title-letter-top">{char}</span>
+          <span className="featured-work-title-letter-bottom">{char}</span>
+        </span>
+      ))}
+
+      {wordIndex < words.length - 1 ? (
+        <span className="featured-work-title-space" aria-hidden="true">
+          &nbsp;
+        </span>
+      ) : null}
+    </span>
+  ));
+};
+
 const FeaturedPortfolio = () => {
   const cursorMotionRef = useRef(
     new Map<
@@ -198,7 +226,11 @@ const FeaturedPortfolio = () => {
               <div className="featured-work-meta">
                 <div className="featured-work-copy">
                   <span className="featured-work-category">{work.category}</span>
-                  <h3 className="featured-work-title">{work.title}</h3>
+                  <h3 className="featured-work-title" aria-label={work.title}>
+                    <span className="featured-work-title-text" aria-hidden="true">
+                      {renderAnimatedTitle(work.title)}
+                    </span>
+                  </h3>
                 </div>
                 <span className="featured-work-year">{work.year}</span>
               </div>
