@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
+import { FiArrowRight } from "react-icons/fi";
 
 type PrimaryBtnProps = {
   children: React.ReactNode;
@@ -13,24 +14,6 @@ type PrimaryBtnProps = {
   rel?: string;
   disabled?: boolean;
   ariaLabel?: string;
-};
-
-const ArrowIcon = () => {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
-    </svg>
-  );
 };
 
 const baseClasses =
@@ -50,7 +33,10 @@ const PrimaryBtn = ({
   const content = (
     <>
       <span className="whitespace-nowrap">{children}</span>
-      <ArrowIcon />
+      <FiArrowRight
+        aria-hidden="true"
+        className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+      />
     </>
   );
 
