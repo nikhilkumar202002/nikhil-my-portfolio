@@ -7,81 +7,45 @@ import "./Styles.css";
 const services = [
   {
     label: "UI/UX Design",
-    images: [
-      {
-        src: "/images/249d1779c161e64afc73693bd4efffc4.webp",
-        alt: "Website mockup on a laptop",
-      },
-      {
-        src: "/images/90ff774dded2c8e8e90c82237929704e.webp",
-        alt: "Mobile interface design preview",
-      },
-    ],
+    image: {
+      src: "/service/ui-ux.webp",
+      alt: "UI/UX design preview",
+    },
   },
   {
     label: "Web Development",
-    images: [
-      {
-        src: "/images/90ff774dded2c8e8e90c82237929704e.webp",
-        alt: "Mobile interface design preview",
-      },
-      {
-        src: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
-        alt: "Website mockup on a desk",
-      },
-    ],
+    image: {
+      src: "/service/web-development.webp",
+      alt: "Web development preview",
+    },
   },
   {
     label: "WordPress",
-    images: [
-      {
-        src: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
-        alt: "Website mockup on a desk",
-      },
-      {
-        src: "/images/249d1779c161e64afc73693bd4efffc4.webp",
-        alt: "Website mockup on a laptop",
-      },
-    ],
+    image: {
+      src: "/service/wordpress.webp",
+      alt: "WordPress preview",
+    },
   },
   {
     label: "Digital Experiences",
-    images: [
-      {
-        src: "/images/249d1779c161e64afc73693bd4efffc4.webp",
-        alt: "Website mockup on a laptop",
-      },
-      {
-        src: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
-        alt: "Website mockup on a desk",
-      },
-    ],
+    image: {
+      src: "/service/digital-marketing.webp",
+      alt: "Digital marketing preview",
+    },
   },
   {
     label: "Graphics Designing",
-    images: [
-      {
-        src: "/images/90ff774dded2c8e8e90c82237929704e.webp",
-        alt: "Mobile interface design preview",
-      },
-      {
-        src: "/images/249d1779c161e64afc73693bd4efffc4.webp",
-        alt: "Website mockup on a laptop",
-      },
-    ],
+    image: {
+      src: "/service/graphics-designing.webp",
+      alt: "Graphics design preview",
+    },
   },
   {
     label: "App Development",
-    images: [
-      {
-        src: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
-        alt: "Website mockup on a desk",
-      },
-      {
-        src: "/images/90ff774dded2c8e8e90c82237929704e.webp",
-        alt: "Mobile interface design preview",
-      },
-    ],
+    image: {
+      src: "/service/app-development.webp",
+      alt: "App development preview",
+    },
   },
 ] as const;
 
@@ -126,24 +90,15 @@ const HomeServiceSection = () => {
             className="home-service-media home-service-media--animated"
             aria-label="Service previews"
           >
-            {activeService.images.map((image, index) => (
-              <div
-                key={`${activeService.label}-${image.src}`}
-                className={`home-service-media-card ${
-                  index === 0
-                    ? "home-service-media-card--wide"
-                    : "home-service-media-card--tall"
-                }`}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="home-service-media-img"
-                />
-              </div>
-            ))}
+            <div className="home-service-media-card home-service-media-card--single">
+              <Image
+                src={activeService.image.src}
+                alt={activeService.image.alt}
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="home-service-media-img"
+              />
+            </div>
           </div>
         </div>
       </div>
