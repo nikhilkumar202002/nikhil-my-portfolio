@@ -39,6 +39,12 @@ const featuredWorks = [
     title: "Gulf Cargo Logistics Website",
     year: "2025",
   },
+     {
+    image: "/porfolio/afrizon/afrizon-featured.webp",
+    category: "Next JS, UI/UX, Contract",
+    title: "Afrizon — Global Trade & Sustainable Growth",
+    year: "2026",
+  },
  
 ] as const;
 
