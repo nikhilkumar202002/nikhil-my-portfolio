@@ -8,6 +8,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Nikhil Kumar | Web Designer & Frontend Developer in India",
   description: "Nikhil Kumar is a Web Designer & Frontend Developer from India creating modern, responsive websites, UI/UX designs and WordPress solutions for businesses and brands worldwide.",
+  icons: {
+    icon: "/fav-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

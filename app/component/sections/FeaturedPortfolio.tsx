@@ -9,6 +9,12 @@ import "./Styles.css";
 
 const featuredWorks = [
   {
+    image: "/porfolio/gps/featured.webp",
+    category: "Next.js, UI/UX",
+    title: "GPS Trades & Services — Solar Energy Website",
+    year: "2026",
+  },
+  {
     image: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
     category: "UI/UX",
     title: "Hertzure Naturals Reimagining Ayurveda",
