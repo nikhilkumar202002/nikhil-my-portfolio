@@ -15,42 +15,31 @@ const featuredWorks = [
     year: "2026",
   },
   {
-    image: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
+    image: "/porfolio/GULF-CARGO/FEATURED.webp",
+    category: "React-Native, UI/UX, IOS, Android",
+    title: "Gulf Cargo Logistics Application",
+    year: "2025",
+  },
+  {
+    // image: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
     video: "/porfolio/adverto/featured-video.mp4",
-    category: "UI/UX",
-    title: "Hertzure Naturals Reimagining Ayurveda",
-    year: "2024",
+    category: "Next JS, UI/UX",
+    title: "Adverto — Creative Advertising Agency Website",
+    year: "2026",
   },
   {
-    image: "/images/249d1779c161e64afc73693bd4efffc4.webp",
-    category: "UI/UX",
-    title: "Hertzure Naturals Reimagining Ayurveda",
-    year: "2024",
+    image: "/porfolio/GULF-CARGO/web-admin-featured.webp",
+    category: "React JS, UI/UX, Redux, Laravel",
+    title: "Gulf Cargo Logistics Web Application",
+    year: "2025",
   },
-  {
-    image: "/images/90ff774dded2c8e8e90c82237929704e.webp",
-    category: "UI/UX",
-    title: "Hertzure Naturals Reimagining Ayurveda",
-    year: "2024",
+   {
+    image: "/porfolio/GULF-CARGO/main-website.webp",
+    category: "Next JS, UI/UX, Laravel",
+    title: "Gulf Cargo Logistics Website",
+    year: "2025",
   },
-  {
-    image: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
-    category: "UI/UX",
-    title: "Hertzure Naturals Reimagining Ayurveda",
-    year: "2024",
-  },
-  {
-    image: "/images/249d1779c161e64afc73693bd4efffc4.webp",
-    category: "UI/UX",
-    title: "Hertzure Naturals Reimagining Ayurveda",
-    year: "2024",
-  },
-  {
-    image: "/images/90ff774dded2c8e8e90c82237929704e.webp",
-    category: "UI/UX",
-    title: "Hertzure Naturals Reimagining Ayurveda",
-    year: "2024",
-  },
+ 
 ] as const;
 
 const LazyVideo = ({ src }: { src: string }) => {
@@ -246,7 +235,7 @@ const FeaturedPortfolio = () => {
       <div className="site-container">
         <div className="featured-portfolio-header">
           <h2>Featured Works</h2>
-          <p>Selected 6 Works</p>
+          <p>Selected 8 Works</p>
         </div>
 
         <div className="featured-works-grid">
@@ -266,7 +255,7 @@ const FeaturedPortfolio = () => {
                     src={work.image}
                     alt={work.title}
                     fill
-                    sizes="(min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="featured-work-img"
                   />
                 )}

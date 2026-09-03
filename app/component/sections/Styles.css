@@ -23,7 +23,7 @@
 
 .featured-works-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px 10px;
 }
 
@@ -102,7 +102,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
-  padding-top: 4px;
+  padding-top: 15px;
 }
 
 .featured-work-copy {
@@ -130,7 +130,7 @@
 .featured-work-title-text {
   display: inline-flex;
   flex-wrap: wrap;
-  line-height: 1.05;
+  line-height: 1.15;
 }
 
 .featured-work-title-word {
@@ -141,7 +141,8 @@
   position: relative;
   display: inline-block;
   overflow: hidden;
-  height: 1em;
+  height: 1.15em;
+  line-height: 1.15;
 }
 
 .featured-work-title-letter-top,
