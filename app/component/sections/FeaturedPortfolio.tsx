@@ -3,7 +3,7 @@
 import Image from "next/image";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
-import { useRef, type PointerEvent } from "react";
+import { useEffect, useRef, type PointerEvent } from "react";
 import PrimaryBtn from "../ui/PrimaryBtn";
 import "./Styles.css";
 
@@ -16,6 +16,7 @@ const featuredWorks = [
   },
   {
     image: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
+    video: "/porfolio/adverto/featured-video.mp4",
     category: "UI/UX",
     title: "Hertzure Naturals Reimagining Ayurveda",
     year: "2024",
@@ -51,6 +52,48 @@ const featuredWorks = [
     year: "2024",
   },
 ] as const;
+
+const LazyVideo = ({ src }: { src: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        video.src = src;
+        video.load();
+        observer.disconnect();
+      },
+      { rootMargin: "200px 0px" },
+    );
+
+    observer.observe(video);
+
+    return () => observer.disconnect();
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      className="featured-work-img featured-work-video"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="none"
+      aria-hidden="true"
+    />
+  );
+};
 
 const renderAnimatedTitle = (title: string) => {
   const words = title.split(" ");
@@ -216,13 +259,17 @@ const FeaturedPortfolio = () => {
                 onPointerMove={(event) => handlePointerMove(event, index)}
                 onPointerLeave={handlePointerLeave}
               >
-                <Image
-                  src={work.image}
-                  alt={work.title}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw"
-                  className="featured-work-img"
-                />
+                {"video" in work ? (
+                  <LazyVideo src={work.video} />
+                ) : (
+                  <Image
+                    src={work.image}
+                    alt={work.title}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw"
+                    className="featured-work-img"
+                  />
+                )}
 
                 <div className="featured-work-cursor" aria-hidden="true">
                   <FiArrowUpRight className="featured-work-cursor-icon" />
