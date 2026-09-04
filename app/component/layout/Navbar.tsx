@@ -128,7 +128,7 @@ const Navbar = () => {
 
             <div className="pb-6">
               <Link
-                href="#hire-me"
+                href="tel:+917356112021"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-flex whitespace-nowrap font-medium text-primary transition-opacity hover:opacity-80"
               >

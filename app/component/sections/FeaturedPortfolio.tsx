@@ -246,7 +246,10 @@ const FeaturedPortfolio = () => {
 
         <div className="featured-works-grid">
           {featuredWorks.map((work, index) => (
-            <article key={`${work.image}-${index}`} className="featured-work-card">
+            <article
+              key={`${"video" in work ? work.video : work.image}-${index}`}
+              className="featured-work-card"
+            >
               <div
                 className="featured-work-image"
                 data-cursor="Learn more"

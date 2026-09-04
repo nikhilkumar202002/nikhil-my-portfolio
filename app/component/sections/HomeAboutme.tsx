@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PrimaryBtn from "../ui/PrimaryBtn";
+import SkillLogoSlider from "../ui/SkillLogoSlider";
 import "./Styles.css";
 
 const HomeAboutme = () => {
@@ -30,7 +31,7 @@ const HomeAboutme = () => {
             <div className="home-about-actions-wrap">
               <div className="home-about-actions">
                 <PrimaryBtn
-                  href="#contact"
+                  href="tel:+917356112021"
                   className="home-about-primary-btn !bg-primary !text-white hover:!bg-black hover:!text-white"
                 >
                   Call Me
@@ -61,6 +62,8 @@ const HomeAboutme = () => {
             </div>
           </div>
         </div>
+
+        <SkillLogoSlider />
       </div>
     </section>
   );

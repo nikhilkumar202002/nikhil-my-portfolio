@@ -367,6 +367,7 @@
 
   .home-service-list {
     align-items: flex-start;
+    justify-self: start;
     text-align: left;
   }
 
@@ -377,6 +378,16 @@
 }
 
 @media (max-width: 639px) {
+  .featured-portfolio-header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .featured-works-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .home-service-section {
     padding: 52px 0 60px;
   }

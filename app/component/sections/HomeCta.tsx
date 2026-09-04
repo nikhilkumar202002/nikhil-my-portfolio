@@ -30,7 +30,7 @@ const HomeCta = () => {
             Available for freelance, contract, and collaboration opportunities.
           </p>
 
-          <Link href="#about" className="home-cta-link">
+          <Link href="tel:+917356112021" className="home-cta-link">
             Contact Me
           </Link>
         </div>

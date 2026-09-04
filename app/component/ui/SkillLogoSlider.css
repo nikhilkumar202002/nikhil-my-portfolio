@@ -1,0 +1,134 @@
+.skill-logo-slider {
+  --skill-logo-gap: 12px;
+  --skill-logo-item-width: calc((100vw - 40px - (var(--skill-logo-gap) * 5)) / 6);
+  width: 100%;
+  padding: 120px 0px 0px 0px;
+}
+
+.skill-logo-slider-grid {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: center;
+}
+
+.skill-logo-slider-heading {
+  margin: 0;
+  color: #111111;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: left;
+}
+
+.skill-logo-slider-viewport {
+  overflow: hidden;
+}
+
+.skill-logo-slider-track {
+  display: flex;
+  gap: var(--skill-logo-gap);
+  width: max-content;
+  animation: skill-logo-slider-scroll 28s linear infinite;
+}
+
+.skill-logo-slider:hover .skill-logo-slider-track {
+  animation-play-state: paused;
+}
+
+.skill-logo-slider-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: var(--skill-logo-item-width);
+  flex: 0 0 var(--skill-logo-item-width);
+  padding: 18px 0;
+  color: #111111;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.skill-logo-slider-mark {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.skill-logo-slider-image {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+@keyframes skill-logo-slider-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-logo-slider-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .skill-logo-slider {
+    --skill-logo-gap: 8px;
+    --skill-logo-item-width: calc((100vw - 40px - (var(--skill-logo-gap) * 2)) / 3);
+  }
+
+  .skill-logo-slider-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .skill-logo-slider-item {
+    gap: 0;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  .skill-logo-slider-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .skill-logo-slider-image {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (min-width: 768px) {
+  .skill-logo-slider {
+    --skill-logo-gap: 30px;
+    --skill-logo-item-width: calc((70vw - 63px - (var(--skill-logo-gap) * 5)) / 6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skill-logo-slider {
+    --skill-logo-item-width: calc((70vw - 133px - (var(--skill-logo-gap) * 5)) / 6);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .skill-logo-slider-mark {
+    width: 64px;
+    height: 64px;
+  }
+
+  .skill-logo-slider-image {
+    width: 54px;
+    height: 54px;
+  }
+}

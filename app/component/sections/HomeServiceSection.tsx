@@ -50,10 +50,8 @@ const services = [
 ] as const;
 
 const HomeServiceSection = () => {
-  const [hoveredServiceIndex, setHoveredServiceIndex] = useState<number | null>(
-    null,
-  );
-  const activeService = services[hoveredServiceIndex ?? 0];
+  const [hoveredServiceIndex, setHoveredServiceIndex] = useState(0);
+  const activeService = services[hoveredServiceIndex];
 
   return (
     <section id="service" className="home-service-section">
@@ -64,18 +62,14 @@ const HomeServiceSection = () => {
           <div
             className="home-service-list"
             aria-label="Services"
-            onMouseLeave={() => setHoveredServiceIndex(null)}
+            onMouseLeave={() => setHoveredServiceIndex(0)}
           >
             {services.map((service, index) => (
               <button
                 key={service.label}
                 type="button"
                 className={`home-service-item ${
-                  hoveredServiceIndex === null
-                    ? "is-default"
-                    : hoveredServiceIndex === index
-                      ? "is-primary"
-                      : "is-muted"
+                  hoveredServiceIndex === index ? "is-primary" : "is-muted"
                 }`}
                 onMouseEnter={() => setHoveredServiceIndex(index)}
                 onFocus={() => setHoveredServiceIndex(index)}
