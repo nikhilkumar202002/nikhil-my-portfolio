@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FiDownload } from "react-icons/fi";
 import PrimaryBtn from "../ui/PrimaryBtn";
 import SkillLogoSlider from "../ui/SkillLogoSlider";
 import "./Styles.css";
@@ -14,32 +15,39 @@ const HomeAboutme = () => {
               <div className="home-about-heading">
                 <p className="home-about-label">About Me</p>
                 <h2 className="home-about-title">
-                  I Create Digital Experiences That Look Great,{" "}
-                  <span>Work Seamlessly</span> & Help Businesses Grow
+                  <span className="block">Designer by mindset.</span>
+                  <span>Developer by practice.</span>
                 </h2>
               </div>
 
               <p className="home-about-description">
-                I&apos;m Nikhil Kumar, a Web Designer and Frontend Developer
-                who combines thoughtful UI/UX design with modern web
-                development to create websites that are visually engaging,
-                easy to use, responsive across every device, and built around
-                real business goals.
+                I&apos;m Nikhil Kumar S., a UI/UX Designer and Frontend
+                Developer based in Kerala, India. I work at the intersection of
+                design and technology, creating interfaces that are clear,
+                engaging and practical to build. My experience spans website
+                design, product interfaces, frontend development, WordPress and
+                digital experiences for businesses across different industries.
               </p>
             </div>
 
             <div className="home-about-actions-wrap">
               <div className="home-about-actions">
                 <PrimaryBtn
-                  href="tel:+917356112021"
+                  href="#contact"
                   className="home-about-primary-btn !bg-primary !text-white hover:!bg-black hover:!text-white"
                 >
-                  Call Me
+                  More About Me
                 </PrimaryBtn>
 
-                <Link href="#work" className="home-about-link">
-                  Know More
-                </Link>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="home-about-link inline-flex items-center gap-2"
+                >
+                  <span>Download Resume</span>
+                  <FiDownload className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
