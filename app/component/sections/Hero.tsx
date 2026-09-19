@@ -4,8 +4,8 @@ import PrimaryBtn from "../ui/PrimaryBtn";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[100dvh] w-full flex-col justify-between bg-[#F9F9F9] pt-16 pb-[95px] sm:pt-20 lg:pt-20">
-      <div className="site-container flex flex-1 flex-col justify-between gap-8 lg:grid lg:grid-cols-[7fr_3fr] lg:gap-10">
+    <section className="relative flex min-h-[100dvh] w-full flex-col justify-between bg-[#F9F9F9] pt-16 pb-0 sm:pt-20 lg:pt-20">
+      <div className="site-container flex flex-1 flex-col justify-between gap-8 pb-0 lg:grid lg:grid-cols-[7fr_3fr] lg:gap-10">
         <div className="hidden lg:block" />
 
         <div className="flex items-end justify-end pb-0 sm:pb-6 lg:pb-10">
