@@ -9,43 +9,37 @@ import "./Styles.css";
 
 const featuredWorks = [
   {
-    image: "/porfolio/gps/featured.webp",
-    category: "Next.js, UI/UX",
-    title: "GPS Trades & Services — Solar Energy Website",
-    year: "2026",
-  },
-  {
-    image: "/porfolio/GULF-CARGO/FEATURED.webp",
-    category: "React-Native, UI/UX, IOS, Android",
-    title: "Gulf Cargo Logistics Application",
-    year: "2025",
-  },
-  {
-    // image: "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
+    title: "ADVERTO",
+    subtitle: "Creative Agency Website",
+    category: "UI/UX · Web Design · Frontend",
+    description:
+      "A modern digital experience for a creative advertising agency, designed around bold visual communication and clear navigation.",
     video: "/porfolio/adverto/featured-video.mp4",
-    category: "Next JS, UI/UX",
-    title: "Adverto — Creative Advertising Agency Website",
-    year: "2026",
   },
   {
-    image: "/porfolio/GULF-CARGO/web-admin-featured.webp",
-    category: "React JS, UI/UX, Redux, Laravel",
-    title: "Gulf Cargo Logistics Web Application",
-    year: "2025",
+    title: "GULF CARGO",
+    subtitle: "Logistics Platform",
+    category: "UI/UX · Product Design · Frontend",
+    description:
+      "A structured digital experience designed to simplify logistics services and improve information accessibility.",
+    image: "/porfolio/GULF-CARGO/FEATURED.webp",
   },
-   {
-    image: "/porfolio/GULF-CARGO/main-website.webp",
-    category: "Next JS, UI/UX, Laravel",
-    title: "Gulf Cargo Logistics Website",
-    year: "2025",
+  {
+    title: "GPS TRADES",
+    subtitle: "Solar & Energy Website",
+    category: "UI/UX · Web Design · Development",
+    description:
+      "A clean digital presence communicating renewable energy solutions through a modern and approachable interface.",
+    image: "/porfolio/gps/featured.webp",
   },
-     {
+  {
+    title: "AFRIZON",
+    subtitle: "Digital Experience",
+    category: "UI/UX · Web Design · Development",
+    description:
+      "A digital experience built for global trade and sustainable growth solutions.",
     image: "/porfolio/afrizon/afrizon-featured.webp",
-    category: "Next JS, UI/UX, Contract",
-    title: "Afrizon — Global Trade & Sustainable Growth",
-    year: "2026",
   },
- 
 ] as const;
 
 const LazyVideo = ({ src }: { src: string }) => {
@@ -90,75 +84,33 @@ const LazyVideo = ({ src }: { src: string }) => {
   );
 };
 
-const renderAnimatedTitle = (title: string) => {
-  const words = title.split(" ");
-
-  return words.map((word, wordIndex) => (
-    <span
-      key={`${title}-${word}-${wordIndex}`}
-      className="featured-work-title-word"
-    >
-      {Array.from(word).map((char, charIndex) => (
-        <span
-          key={`${title}-${wordIndex}-${charIndex}-${char}`}
-          className="featured-work-title-letter"
-          style={{ transitionDelay: `${(wordIndex * 7 + charIndex) * 12}ms` }}
-        >
-          <span className="featured-work-title-letter-top">{char}</span>
-          <span className="featured-work-title-letter-bottom">{char}</span>
-        </span>
-      ))}
-
-      {wordIndex < words.length - 1 ? (
-        <span className="featured-work-title-space" aria-hidden="true">
-          &nbsp;
-        </span>
-      ) : null}
-    </span>
-  ));
-};
-
 const FeaturedPortfolio = () => {
-  const cursorMotionRef = useRef(
-    new Map<
-      number,
-      {
-        xTo: (value: number) => void;
-        yTo: (value: number) => void;
-      }
-    >(),
-  );
-
-  const getCardCursor = (card: HTMLElement) =>
-    card.querySelector<HTMLElement>(".featured-work-cursor");
+  const getCardCursor = (target: HTMLElement) =>
+    target.querySelector<HTMLElement>(".featured-work-cursor");
 
   const getCursorMotion = (cursor: HTMLElement, index: number) => {
-    const existing = cursorMotionRef.current.get(index);
+    const cachedXTo = (cursor as HTMLElement & { _xTo?: gsap.QuickToFunc })
+      ._xTo;
+    const cachedYTo = (cursor as HTMLElement & { _yTo?: gsap.QuickToFunc })
+      ._yTo;
 
-    if (existing) {
-      return existing;
+    if (cachedXTo && cachedYTo) {
+      return { xTo: cachedXTo, yTo: cachedYTo };
     }
 
-    gsap.set(cursor, {
-      xPercent: -50,
-      yPercent: -50,
-      scale: 0.7,
-      autoAlpha: 0,
-    });
-
     const xTo = gsap.quickTo(cursor, "x", {
-      duration: 0.35,
+      duration: index % 2 === 0 ? 0.35 : 0.45,
       ease: "power3.out",
     });
     const yTo = gsap.quickTo(cursor, "y", {
-      duration: 0.35,
+      duration: index % 2 === 0 ? 0.35 : 0.45,
       ease: "power3.out",
     });
 
-    const motion = { xTo, yTo };
-    cursorMotionRef.current.set(index, motion);
+    (cursor as HTMLElement & { _xTo?: gsap.QuickToFunc })._xTo = xTo;
+    (cursor as HTMLElement & { _yTo?: gsap.QuickToFunc })._yTo = yTo;
 
-    return motion;
+    return { xTo, yTo };
   };
 
   const handlePointerEnter = (
@@ -172,16 +124,14 @@ const FeaturedPortfolio = () => {
     }
 
     const rect = event.currentTarget.getBoundingClientRect();
-    const { xTo, yTo } = getCursorMotion(cursor, index);
+    const pointerX = event.clientX - rect.left;
+    const pointerY = event.clientY - rect.top;
 
-    xTo(event.clientX - rect.left);
-    yTo(event.clientY - rect.top);
-
-    gsap.to(cursor, {
-      xPercent: -20,
-      yPercent: -20,
-      duration: 0.9,
-      ease: "power3.out",
+    gsap.set(cursor, {
+      x: pointerX,
+      y: pointerY,
+      xPercent: -50,
+      yPercent: -50,
     });
 
     gsap.to(cursor, {
@@ -203,22 +153,12 @@ const FeaturedPortfolio = () => {
     }
 
     const rect = event.currentTarget.getBoundingClientRect();
-    const cursorWidth = cursor.offsetWidth + 16;
     const pointerX = event.clientX - rect.left;
     const pointerY = event.clientY - rect.top;
-    const xPercent = pointerX > rect.width - cursorWidth ? -100 : -20;
-    const yPercent = pointerY > rect.height * 0.9 ? -120 : -20;
-    const motion = getCursorMotion(cursor, index);
+    const { xTo, yTo } = getCursorMotion(cursor, index);
 
-    gsap.to(cursor, {
-      xPercent,
-      yPercent,
-      duration: 0.9,
-      ease: "power3.out",
-    });
-
-    motion.xTo(pointerX);
-    motion.yTo(pointerY);
+    xTo(pointerX);
+    yTo(pointerY);
   };
 
   const handlePointerLeave = (event: PointerEvent<HTMLElement>) => {
@@ -239,20 +179,34 @@ const FeaturedPortfolio = () => {
   return (
     <section id="work" className="featured-portfolio-section">
       <div className="site-container">
-        <div className="featured-portfolio-header">
-          <h2>Featured Works</h2>
-          <p>Selected 8 Works</p>
+        <div className="featured-portfolio-header flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12">
+          <div className="flex flex-col items-start">
+            <span className="mb-[10px] text-[18px] font-light text-black">
+              Selected Works
+            </span>
+            <h2 className="text-[clamp(2.2rem,4vw,3.4rem)] font-medium leading-[1.08] tracking-[-0.03em] text-black">
+              Selected <span className="text-primary">projects,</span> designed
+              <br />
+              to solve real problems.
+            </h2>
+          </div>
+
+          <p className="max-w-[22rem] text-[17px] font-light leading-[1.35] text-black md:text-right">
+            A selection of websites, interfaces and digital products I&apos;ve
+            designed and developed across different industries.
+          </p>
         </div>
 
-        <div className="featured-works-grid">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-14">
           {featuredWorks.map((work, index) => (
             <article
               key={`${"video" in work ? work.video : work.image}-${index}`}
-              className="featured-work-card"
+              className="group flex flex-col gap-0"
             >
+              {/* Large Visual */}
               <div
-                className="featured-work-image"
-                data-cursor="Learn more"
+                className="featured-work-image relative aspect-[16/10] overflow-hidden bg-[#f4f1ec]"
+                data-cursor="View Case Study"
                 onPointerEnter={(event) => handlePointerEnter(event, index)}
                 onPointerMove={(event) => handlePointerMove(event, index)}
                 onPointerLeave={handlePointerLeave}
@@ -264,8 +218,8 @@ const FeaturedPortfolio = () => {
                     src={work.image}
                     alt={work.title}
                     fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="featured-work-img"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="featured-work-img object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 )}
 
@@ -274,23 +228,36 @@ const FeaturedPortfolio = () => {
                 </div>
               </div>
 
-              <div className="featured-work-meta">
-                <div className="featured-work-copy">
-                  <span className="featured-work-category">{work.category}</span>
-                  <h3 className="featured-work-title" aria-label={work.title}>
-                    <span className="featured-work-title-text" aria-hidden="true">
-                      {renderAnimatedTitle(work.title)}
-                    </span>
+              {/* Meta details */}
+              <div className="flex flex-col gap-0 pt-0">
+                {/* Heading Left & Subtitle Right */}
+                <div className="flex items-baseline justify-between gap-4 w-full">
+                  <h3 className="text-xl font-bold uppercase tracking-tight text-black">
+                    {work.title}
                   </h3>
+                  <p className="text-base font-medium text-black/70 text-right shrink-0">
+                    {work.subtitle}
+                  </p>
                 </div>
-                <span className="featured-work-year">{work.year}</span>
+
+                {/* Category under heading with 4px padding */}
+                <span className="text-xs font-medium text-primary tracking-wide pt-[4px]">
+                  {work.category}
+                </span>
+
+                {/* Description: 17px font size & 25px line height */}
+                {"description" in work && (
+                  <p className="mt-0 text-[17px] leading-[25px] font-light text-black/80">
+                    {work.description}
+                  </p>
+                )}
               </div>
             </article>
           ))}
         </div>
 
-        <div className="featured-portfolio-cta">
-          <PrimaryBtn>View More Works</PrimaryBtn>
+        <div className="featured-portfolio-cta mt-12 sm:mt-16">
+          <PrimaryBtn href="#contact">View More Works</PrimaryBtn>
         </div>
       </div>
     </section>
