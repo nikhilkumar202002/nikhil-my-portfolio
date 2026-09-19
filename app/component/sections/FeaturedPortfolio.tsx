@@ -229,13 +229,13 @@ const FeaturedPortfolio = () => {
               </div>
 
               {/* Meta details */}
-              <div className="flex flex-col gap-0 pt-0">
+              <div className="flex flex-col gap-0 pt-[10px]">
                 {/* Heading Left & Subtitle Right */}
                 <div className="flex items-baseline justify-between gap-4 w-full">
                   <h3 className="text-xl font-bold uppercase tracking-tight text-black">
                     {work.title}
                   </h3>
-                  <p className="text-base font-medium text-black/70 text-right shrink-0">
+                  <p className="text-base font-normal text-black/70 text-right shrink-0">
                     {work.subtitle}
                   </p>
                 </div>
