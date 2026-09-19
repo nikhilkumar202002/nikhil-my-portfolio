@@ -4,8 +4,8 @@ import PrimaryBtn from "../ui/PrimaryBtn";
 
 const Hero = () => {
   return (
-    <section className="min-h-[540px] bg-[#F9F9F9] py-14 sm:min-h-[600px] sm:py-16 lg:py-16">
-      <div className="site-container flex h-full flex-col justify-between gap-8 lg:grid lg:grid-cols-[7fr_3fr] lg:justify-normal lg:gap-10">
+    <section className="relative flex min-h-[100dvh] w-full flex-col justify-between bg-[#F9F9F9] pt-16 pb-[95px] sm:pt-20 lg:pt-20">
+      <div className="site-container flex flex-1 flex-col justify-between gap-8 lg:grid lg:grid-cols-[7fr_3fr] lg:gap-10">
         <div className="hidden lg:block" />
 
         <div className="flex items-end justify-end pb-0 sm:pb-6 lg:pb-10">
@@ -54,6 +54,10 @@ const Hero = () => {
               Let&apos;s Work Together
             </PrimaryBtn>
           </div>
+
+          <p className="text-xs sm:text-sm font-medium tracking-wide text-black/60">
+            UI/UX &middot; Web Design &middot; Frontend &middot; WordPress &middot; React
+          </p>
         </div>
       </div>
     </section>

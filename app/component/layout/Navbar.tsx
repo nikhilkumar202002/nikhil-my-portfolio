@@ -38,12 +38,13 @@ const Navbar = () => {
     <nav
       className={`fixed left-0 top-0 z-50 w-full transition-colors duration-200 ${
         isScrolled
-          ? "border-b border-black/10 bg-white"
+          ? "border-b border-black/10 bg-white/90 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="site-container">
-        <div className="flex h-12 items-center gap-3 text-[14px] leading-none md:h-10 md:gap-4">
+        <div className="flex h-14 items-center justify-between gap-4 text-[14px] leading-none md:h-14">
+          {/* Logo Left */}
           <Link
             href="/"
             className="shrink-0 whitespace-nowrap font-medium text-black"
@@ -51,7 +52,8 @@ const Navbar = () => {
             Nikhil Kumar S <span className="text-primary">Visualist</span>
           </Link>
 
-          <div className="ml-auto hidden items-center gap-6 text-zinc-600 md:flex md:gap-25">
+          {/* Menu List Center */}
+          <div className="hidden items-center gap-8 text-zinc-600 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -62,21 +64,33 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+          </div>
+
+          {/* Button & Status Indicator Right */}
+          <div className="hidden items-center gap-6 md:flex">
+            <div className="flex items-center gap-2 text-xs font-medium text-black">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+              </span>
+              Available for opportunities
+            </div>
 
             <Link
-              href="#hire-me"
+              href="#contact"
               className="shrink-0 whitespace-nowrap font-medium text-primary transition-colors hover:opacity-80"
             >
-              Hire Me
+              Let&apos;s Talk
             </Link>
           </div>
 
-          <div className="ml-auto flex items-center gap-2 md:hidden">
+          {/* Mobile Actions */}
+          <div className="flex items-center gap-3 md:hidden">
             <Link
-              href="#hire-me"
-              className="shrink-0 whitespace-nowrap font-medium text-primary transition-opacity hover:opacity-80"
+              href="#contact"
+              className="shrink-0 whitespace-nowrap font-medium text-primary transition-opacity hover:opacity-80 text-xs sm:text-sm"
             >
-              Hire Me
+              Let&apos;s Talk
             </Link>
 
             <button
@@ -87,7 +101,11 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen((value) => !value)}
               className="inline-flex h-9 w-9 items-center justify-center text-black transition-colors hover:text-primary"
             >
-              {isMobileMenuOpen ? <FiX className="h-5 w-5" /> : <FiMenu className="h-5 w-5" />}
+              {isMobileMenuOpen ? (
+                <FiX className="h-5 w-5" />
+              ) : (
+                <FiMenu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -96,7 +114,9 @@ const Navbar = () => {
       <div
         id="mobile-navigation"
         className={`fixed inset-0 z-[60] bg-white transition-opacity duration-200 md:hidden ${
-          isMobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          isMobileMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
         }`}
       >
         <div className="site-container flex h-full flex-col pt-12">
@@ -113,26 +133,36 @@ const Navbar = () => {
           </div>
 
           <div className="flex flex-1 flex-col items-end justify-between py-6">
-            <div className="flex flex-col items-end gap-2 text-right">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-[2rem] font-medium leading-none tracking-[-0.04em] text-black transition-colors hover:text-primary"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="flex flex-col items-end gap-6 text-right">
+              <div className="flex items-center gap-2 text-xs font-medium text-black">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                </span>
+                Available for opportunities
+              </div>
+
+              <div className="flex flex-col items-end gap-3">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[2rem] font-medium leading-none tracking-[-0.04em] text-black transition-colors hover:text-primary"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             <div className="pb-6">
               <Link
-                href="tel:+917356112021"
+                href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-flex whitespace-nowrap font-medium text-primary transition-opacity hover:opacity-80"
               >
-                Hire Me
+                Let&apos;s Talk
               </Link>
             </div>
           </div>
