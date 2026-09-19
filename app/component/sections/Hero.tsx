@@ -1,16 +1,47 @@
 import Image from "next/image";
-import Link from "next/link";
 import PrimaryBtn from "../ui/PrimaryBtn";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[100dvh] w-full flex-col justify-between bg-[#F9F9F9] pt-16 pb-0 sm:pt-20 lg:pt-20">
-      <div className="site-container flex flex-1 flex-col justify-between gap-8 pb-0 lg:grid lg:grid-cols-[7fr_3fr] lg:gap-10">
-        <div className="hidden lg:block" />
+    <section className="relative flex h-[100dvh] min-h-[580px] w-full flex-col justify-between overflow-hidden bg-[#F9F9F9] pt-16 pb-4 sm:pt-20 sm:pb-6 lg:pt-20 lg:pb-6">
+      <div className="site-container flex flex-1 flex-col justify-between gap-4 py-2 sm:py-4">
+        {/* Top Content: Main Heading, Subtitle & CTAs */}
+        <div className="flex flex-col items-start pt-2 sm:pt-4">
+          {/* Giant Display Title */}
+          <h1 className="font-bold uppercase tracking-tighter text-black leading-[0.80] text-[clamp(4.2rem,min(14.5vw,15.5vh),13.5rem)]">
+            DESIGN
+            <br />
+            <span className="text-primary">+</span> CODE
+          </h1>
 
-        <div className="flex items-end justify-end pb-0 sm:pb-6 lg:pb-10">
-          <div className="flex w-full items-end justify-end gap-3 sm:gap-6">
-            <p className="w-full max-w-[12rem] self-end pb-1 text-right text-[10px] leading-[1.25] text-black/90 sm:max-w-[22rem] sm:text-[13px] lg:max-w-[22rem] lg:text-[14px]">
+          {/* Subtitle */}
+          <p className="mt-[2vh] text-[clamp(1.45rem,min(3.6vw,3.8vh),3rem)] font-normal leading-[1.08] tracking-[-0.02em] text-black sm:mt-[2.5vh]">
+            I design digital experiences
+            <br />
+            and build them for the web.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-[2.5vh] flex flex-wrap items-center gap-4 sm:mt-[3vh] sm:gap-6">
+            <PrimaryBtn
+              href="#work"
+              className="!bg-primary !text-white px-6 py-3 sm:px-7 sm:py-3.5 hover:!bg-black transition-colors"
+            >
+              View My Work
+            </PrimaryBtn>
+            <PrimaryBtn
+              href="#contact"
+              className="px-2 py-3 sm:py-3.5 hover:text-primary transition-colors"
+            >
+              Let&apos;s Work Together
+            </PrimaryBtn>
+          </div>
+        </div>
+
+        {/* Bottom Right: Bio Text & Portrait Image */}
+        <div className="flex items-end justify-end pb-1 sm:pb-2">
+          <div className="flex items-end justify-end gap-4 sm:gap-6">
+            <p className="max-w-[13rem] text-right text-[clamp(10px,min(1.4vw,1.5vh),13.5px)] leading-[1.35] text-black/90 sm:max-w-[18rem] lg:max-w-[21rem]">
               I&apos;m Nikhil Kumar S., a UI/UX Designer &amp; Frontend
               Developer creating thoughtful interfaces, responsive websites and
               digital products that balance visual clarity with real-world
@@ -18,7 +49,7 @@ const Hero = () => {
             </p>
 
             <div
-              className="relative h-[145px] w-[128px] shrink-0 overflow-hidden sm:h-[190px] sm:w-[180px] lg:h-[210px] lg:w-[190px]"
+              className="relative h-[clamp(210px,34vh,360px)] w-[clamp(155px,25vh,270px)] shrink-0 overflow-hidden"
               data-preloader-hero-image
             >
               <Image
@@ -27,37 +58,10 @@ const Hero = () => {
                 fill
                 priority
                 className="object-cover"
-                sizes="(min-width: 1024px) 190px, (min-width: 640px) 180px, 128px"
+                sizes="(min-width: 1024px) 270px, (min-width: 640px) 220px, 155px"
               />
             </div>
           </div>
-        </div>
-
-        <div className="flex flex-col items-start gap-6 lg:col-span-2">
-          <h1 className="w-full text-[clamp(2.8rem,6.2vw,4.5rem)] font-medium leading-[0.95] tracking-[-0.02em] text-black">
-            I design <span className="text-primary">digital </span>experiences
-            <br />
-            and build them for the <span className="text-primary">web.</span>
-          </h1>
-
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
-            <PrimaryBtn
-              href="#work"
-              className="!bg-primary !text-white px-5 py-3 hover:!bg-black transition-colors"
-            >
-              View My Work
-            </PrimaryBtn>
-            <PrimaryBtn
-              href="#contact"
-              className="px-4 py-3 hover:text-primary transition-colors"
-            >
-              Let&apos;s Work Together
-            </PrimaryBtn>
-          </div>
-
-          <p className="text-xs sm:text-sm font-medium tracking-wide text-black/60">
-            UI/UX &middot; Web Design &middot; Frontend &middot; WordPress &middot; React
-          </p>
         </div>
       </div>
     </section>
@@ -65,4 +69,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
