@@ -70,8 +70,8 @@ const CaseStudy = () => {
             </div>
 
             {/* Metadata Grid */}
-            <div className="space-y-5 pt-1">
-              <div className="grid grid-cols-3 gap-4 sm:gap-6">
+            <div className="pt-1">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
                 <div>
                   <span className="block text-xs font-semibold text-primary sm:text-sm">
                     Role
@@ -98,17 +98,22 @@ const CaseStudy = () => {
                     Figma · React · Next.js
                   </span>
                 </div>
-              </div>
 
-              <div>
-                <span className="block text-xs font-semibold text-primary sm:text-sm">
-                  Focus
-                </span>
-                <span className="mt-1 block text-xs font-normal text-black sm:text-sm">
-                  Visual identity · Responsive experience · Conversion
-                </span>
+                <div>
+                  <span className="block text-xs font-semibold text-primary sm:text-sm">
+                    Focus
+                  </span>
+                  <span className="mt-1 block text-xs font-normal text-black sm:text-sm">
+                    Visual identity · Responsive experience · Conversion
+                  </span>
+                </div>
               </div>
             </div>
+
+            {/* Case Study Overview Paragraph */}
+            <p className="text-sm font-light leading-relaxed text-black/70 sm:text-base">
+              Adverto is a modern digital platform designed to elevate brand visibility and audience engagement. Built with a focus on intuitive navigation, high performance, and responsive UI architecture, this project seamlessly connects strategic visual identity with functional frontend implementation.
+            </p>
 
             {/* Process Steps Pipeline */}
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 pt-2 text-xs sm:text-sm">
