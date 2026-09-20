@@ -4,8 +4,8 @@ import Image from "next/image";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useEffect, useRef, type PointerEvent } from "react";
-import PrimaryBtn from "../ui/PrimaryBtn";
-import "./Styles.css";
+import PrimaryBtn from "../../ui/PrimaryBtn";
+import "../Styles.css";
 
 const featuredWorks = [
   {

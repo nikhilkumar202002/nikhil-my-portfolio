@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./Styles.css";
+import "../Styles.css";
 
 const HomeCta = () => {
   return (

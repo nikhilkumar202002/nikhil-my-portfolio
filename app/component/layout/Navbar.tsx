@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const navItems = [
-  { label: "Work", href: "#work" },
+  { label: "Work", href: "/my-works" },
   { label: "About", href: "#about" },
   { label: "Service", href: "#service" },
   { label: "Contact", href: "#contact" },

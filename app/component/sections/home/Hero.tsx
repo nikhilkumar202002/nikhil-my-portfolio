@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PrimaryBtn from "../ui/PrimaryBtn";
+import PrimaryBtn from "../../ui/PrimaryBtn";
 
 const Hero = () => {
   return (
@@ -69,5 +69,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-

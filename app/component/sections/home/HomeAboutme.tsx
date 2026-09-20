@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import PrimaryBtn from "../ui/PrimaryBtn";
-import "./Styles.css";
+import PrimaryBtn from "../../ui/PrimaryBtn";
+import "../Styles.css";
 
 const HomeAboutme = () => {
   return (

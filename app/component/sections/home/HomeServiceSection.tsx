@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import "./Styles.css";
+import "../Styles.css";
 
 const services = [
   {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./Styles.css";
+import "../Styles.css";
 
 const skills = [
   "Web Design",

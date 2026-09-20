@@ -1,9 +1,15 @@
-import React from 'react'
+import WorksHero from "../component/sections/my-works/WorksHero";
+import AllWorks from "../component/sections/my-works/AllWorks";
+import WorkCta from "../component/sections/my-works/WorkCta";
 
-const page = () => {
+const MyWorksPage = () => {
   return (
-    <div>page</div>
-  )
-}
+    <>
+      <WorksHero />
+      <AllWorks />
+      <WorkCta />
+    </>
+  );
+};
 
-export default page
+export default MyWorksPage;

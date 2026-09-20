@@ -1,14 +1,14 @@
-import Hero from "./component/sections/Hero";
-import HeroStrip from "./component/sections/HeroStrip";
-import FeaturedPortfolio from "./component/sections/FeaturedPortfolio";
-import Differentiator from "./component/sections/Differentiator";
-import WhyWorkWithMe from "./component/sections/WhyWorkWithMe";
-import CaseStudy from "./component/sections/CaseStudy";
-import AboutMe from "./component/sections/HomeAboutme";
-import ExperinceTimeline from "./component/sections/ExperinceTimeline";
-import HomeServiceSection from "./component/sections/HomeServiceSection";
-import SkillsGrids from "./component/sections/SkillsGrids";
-import HomeCta from "./component/sections/HomeCta";
+import Hero from "./component/sections/home/Hero";
+import HeroStrip from "./component/sections/home/HeroStrip";
+import FeaturedPortfolio from "./component/sections/home/FeaturedPortfolio";
+import Differentiator from "./component/sections/home/Differentiator";
+import WhyWorkWithMe from "./component/sections/home/WhyWorkWithMe";
+import CaseStudy from "./component/sections/home/CaseStudy";
+import AboutMe from "./component/sections/home/HomeAboutme";
+import ExperinceTimeline from "./component/sections/home/ExperinceTimeline";
+import HomeServiceSection from "./component/sections/home/HomeServiceSection";
+import SkillsGrids from "./component/sections/home/SkillsGrids";
+import HomeCta from "./component/sections/home/HomeCta";
 
 const page = () => {
   return (
