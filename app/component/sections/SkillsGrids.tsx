@@ -15,6 +15,10 @@ const skillLogos = [
   { name: "Wix", src: "/skill-logos/wix-seeklogo.png", scale: 1.05 },
   { name: "Framer", src: "/skill-logos/framer_logo_icon_169150.png", scale: 1.05 },
   { name: "Figma", src: "/skill-logos/figma.png", scale: 0.9 },
+  { name: "Photoshop", src: "/skill-logos/photoshop.png", scale: 0.9 },
+  { name: "Illustrator", src: "/skill-logos/illustrator.png", scale: 0.9 },
+  { name: "Adobe XD", src: "/skill-logos/xd.png", scale: 0.9 },
+  { name: "GitHub", src: "/skill-logos/github.png", scale: 0.9 },
 ] as const;
 
 export const SkillsGrids = () => {
@@ -32,7 +36,7 @@ export const SkillsGrids = () => {
         </div>
 
         {/* Logos Grid */}
-        <div className="grid grid-cols-2 items-center justify-items-center gap-6 sm:grid-cols-4 md:grid-cols-7 sm:gap-8">
+        <div className="grid grid-cols-3 items-center justify-items-center gap-6 sm:grid-cols-6 md:grid-cols-9 sm:gap-8">
           {skillLogos.map((logo) => (
             <div
               key={logo.name}
