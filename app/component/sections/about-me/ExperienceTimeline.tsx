@@ -27,19 +27,17 @@ const experiences = [
 
 const ExperienceTimeline = () => {
   return (
-    <section className="w-full bg-white py-20 sm:py-28 lg:py-[150px]">
+    <section className="w-full bg-white">
       <div className="site-container">
         {/* Header with Title & Download Link */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-12 lg:mb-16">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-5 lg:mb-5">
           <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-medium leading-[1.05] tracking-tight text-black">
-            Where I&apos;ve worked and
-            <br />
-            <span className="text-primary">what I&apos;ve helped</span> build.
+            Experience
           </h2>
 
           <Link
             href="#resume"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-black hover:text-primary transition-colors duration-300 shrink-0 md:pb-2"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-regular capitalize tracking-[1.2] text-black hover:text-primary transition-colors duration-300 shrink-0 md:pb-2"
           >
             <span>DOWNLOAD RESUME</span>
             <FiDownload className="h-4 w-4" />
@@ -55,14 +53,14 @@ const ExperienceTimeline = () => {
             >
               {/* Column 1: Period */}
               <div className="md:col-span-3 lg:col-span-3">
-                <span className="text-base sm:text-lg font-medium text-black">
+                <span className="text-base sm:text-lg font-regular text-primary">
                   {exp.period}
                 </span>
               </div>
 
               {/* Column 2: Company & Role */}
               <div className="md:col-span-4 lg:col-span-4 flex flex-col">
-                <h3 className="text-lg sm:text-xl font-bold text-black leading-tight">
+                <h3 className="text-lg sm:text-xl font-medium text-black leading-tight">
                   {exp.company}
                 </h3>
                 <p className="text-sm sm:text-base font-normal text-black/60 mt-0.5">
