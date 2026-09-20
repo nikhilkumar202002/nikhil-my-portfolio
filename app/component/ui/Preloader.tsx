@@ -33,7 +33,17 @@ const Preloader = () => {
     );
 
     return phases[phaseIndex];
-  }, [progress]);
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     let raf = 0;

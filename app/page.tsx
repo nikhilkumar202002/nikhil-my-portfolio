@@ -2,6 +2,7 @@ import Hero from "./component/sections/Hero";
 import HeroStrip from "./component/sections/HeroStrip";
 import FeaturedPortfolio from "./component/sections/FeaturedPortfolio";
 import Differentiator from "./component/sections/Differentiator";
+import WhyWorkWithMe from "./component/sections/WhyWorkWithMe";
 import CaseStudy from "./component/sections/CaseStudy";
 import AboutMe from "./component/sections/HomeAboutme";
 import ExperinceTimeline from "./component/sections/ExperinceTimeline";
@@ -21,6 +22,7 @@ const page = () => {
       <ExperinceTimeline />
       <HomeServiceSection />
       <SkillsGrids />
+      <WhyWorkWithMe />
       <HomeCta />
     </>
   );

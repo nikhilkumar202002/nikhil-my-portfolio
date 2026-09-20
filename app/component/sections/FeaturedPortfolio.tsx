@@ -177,7 +177,7 @@ const FeaturedPortfolio = () => {
   };
 
   return (
-    <section id="work" className="featured-portfolio-section">
+    <section id="work" className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         <div className="featured-portfolio-header flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12">
           <div className="flex flex-col items-start">

@@ -3,7 +3,7 @@ import "./Styles.css";
 
 const HomeCta = () => {
   return (
-    <section id="contact" className="home-cta-section">
+    <section id="contact" className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         <div className="home-cta-grid">
           <div className="home-cta-intro">

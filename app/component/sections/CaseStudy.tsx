@@ -40,7 +40,7 @@ const CaseStudy = () => {
   }, []);
 
   return (
-    <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+    <section className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Left Visual Card - Full Container Video */}

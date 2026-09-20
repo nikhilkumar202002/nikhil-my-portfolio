@@ -55,7 +55,7 @@ export const ExperinceTimeline = () => {
   }, []);
 
   return (
-    <section id="experience" className="w-full bg-white pt-0 pb-16 sm:pb-20 lg:pb-28">
+    <section id="experience" className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14">
           {/* Header & Focus List Column (Left) */}

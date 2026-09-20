@@ -5,7 +5,7 @@ import "./Styles.css";
 
 const HomeAboutme = () => {
   return (
-    <section id="about" className="home-about-section">
+    <section id="about" className="w-full bg-white py-0">
       <div className="site-container">
         <div className="home-about-grid">
           <div className="home-about-copy">

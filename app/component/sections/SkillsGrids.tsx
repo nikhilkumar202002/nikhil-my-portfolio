@@ -23,7 +23,7 @@ const skillLogos = [
 
 export const SkillsGrids = () => {
   return (
-    <section className="w-full bg-white py-14 sm:py-16 lg:py-20">
+    <section className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container flex flex-col gap-8 sm:gap-10">
         {/* Section Heading */}
         <div className="flex flex-col gap-2 items-center text-center">

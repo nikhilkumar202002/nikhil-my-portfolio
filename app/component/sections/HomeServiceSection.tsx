@@ -54,7 +54,7 @@ const HomeServiceSection = () => {
   const activeService = services[hoveredServiceIndex];
 
   return (
-    <section id="service" className="home-service-section">
+    <section id="service" className="w-full bg-[#f7f7f5] py-16 sm:py-20 lg:py-24">
       <div className="site-container">
         <div className="home-service-grid">
           <p className="home-service-label">What I Do?</p>
