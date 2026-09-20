@@ -70,16 +70,16 @@ const YourStory = () => {
   return (
     <section className="w-full bg-white py-20 sm:py-28 lg:py-[150px]">
       <div className="site-container">
-        <div className="max-w-[56rem]">
+        <div className="w-full">
           {/* Main Section Heading */}
-          <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold leading-[1.08] tracking-tight text-black mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium leading-[1.08] tracking-tight text-black mb-4 sm:mb-6">
             Where <span className="text-primary">design meets</span> development.
           </h2>
 
           {/* Interactive Scroll-Filling Story Paragraph */}
           <div
             ref={targetRef}
-            className="text-xl sm:text-3xl lg:text-[34px] font-normal leading-[1.3] tracking-tight text-[#a3a3a3]"
+            className="text-2xl sm:text-3xl lg:text-[38px] font-normal leading-[1.25] tracking-tight text-[#a3a3a3]"
           >
             {wordsWithIndex.map((item, idx) => (
               <Word
