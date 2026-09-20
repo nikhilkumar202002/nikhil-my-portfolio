@@ -36,11 +36,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed left-0 top-0 z-50 w-full transition-colors duration-200 ${
-        isScrolled
-          ? "border-b border-black/10 bg-white/90 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      }`}
+      className={`fixed left-0 top-0 z-50 w-full transition-colors duration-200 ${isScrolled
+        ? "border-b border-black/10 bg-white/90 backdrop-blur-md"
+        : "border-b border-transparent bg-transparent"
+        }`}
     >
       <div className="site-container">
         <div className="flex h-14 items-center justify-between gap-4 text-[14px] leading-none md:h-14">
@@ -113,11 +112,10 @@ const Navbar = () => {
 
       <div
         id="mobile-navigation"
-        className={`fixed inset-0 z-[60] bg-white transition-opacity duration-200 md:hidden ${
-          isMobileMenuOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-[60] bg-white transition-opacity duration-200 md:hidden ${isMobileMenuOpen
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0"
+          }`}
       >
         <div className="site-container flex h-full flex-col pt-12">
           <div className="flex items-center justify-between border-b border-black/10 pb-4">
