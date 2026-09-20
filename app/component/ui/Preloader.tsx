@@ -33,6 +33,8 @@ const Preloader = () => {
     );
 
     return phases[phaseIndex];
+  }, [progress]);
+
   useEffect(() => {
     if (isVisible) {
       document.body.style.overflow = "hidden";
