@@ -1,9 +1,11 @@
 import Image from "next/image";
 import PrimaryBtn from "../../ui/PrimaryBtn";
+import HeroRipple from "../../ui/HeroRipple";
 
 const Hero = () => {
   return (
     <section className="relative flex h-[100dvh] min-h-[580px] w-full flex-col justify-between overflow-hidden bg-[#F9F9F9] pt-16 pb-4 sm:pt-20 sm:pb-6 lg:pt-20 lg:pb-6">
+      <HeroRipple />
       <div className="site-container flex flex-1 flex-col justify-between gap-4 py-2 sm:py-4">
         {/* Top Content: Main Heading, Subtitle & CTAs */}
         <div className="flex flex-col items-start pt-2 sm:pt-4">
@@ -64,6 +66,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
     </section>
   );
 };
