@@ -2,13 +2,20 @@ import Image from "next/image";
 import "./SkillLogoSlider.css";
 
 const skillLogos = [
-  { name: "WordPress", src: "/skill-logos/WordPress_logo.png", scale: 1.5 },
-  { name: "Wix", src: "/skill-logos/wix-seeklogo.png", scale: 0.9 },
-  { name: "React Native", src: "/skill-logos/react-native.png", scale: 1.8 },
-  { name: "React", src: "/skill-logos/react-logo.png", scale: 1.5 },
-  { name: "Node.js", src: "/skill-logos/node-js-seeklogo.png", scale: 1.25 },
-  { name: "Next.js", src: "/skill-logos/next-js-seeklogo.png", scale: 1.6 },
-  { name: "Framer", src: "/skill-logos/framer_logo_icon_169150.png", scale: 1.6 },
+  { name: "HTML5", src: "/skill-logos/text.png", scale: 1.05 },
+  { name: "CSS3", src: "/skill-logos/css-3.png", scale: 1.05 },
+  { name: "JavaScript", src: "/skill-logos/js.png", scale: 1.0 },
+  { name: "React", src: "/skill-logos/react-logo.png", scale: 1.1 },
+  { name: "Next.js", src: "/skill-logos/next-js-seeklogo.png", scale: 1.05 },
+  { name: "Node.js", src: "/skill-logos/node-js-seeklogo.png", scale: 1.1 },
+  { name: "NestJS", src: "/skill-logos/NestJS-logo-wordmark.svg", scale: 1.25 },
+  { name: "Tailwind CSS", src: "/skill-logos/tailwind-css.png", scale: 1.1 },
+  { name: "Bootstrap", src: "/skill-logos/bootstrap.png", scale: 1.0 },
+  { name: "React Native", src: "/skill-logos/react-native.png", scale: 1.15 },
+  { name: "WordPress", src: "/skill-logos/WordPress_logo.png", scale: 1.05 },
+  { name: "Wix", src: "/skill-logos/wix-seeklogo.png", scale: 1.15 },
+  { name: "Framer", src: "/skill-logos/framer_logo_icon_169150.png", scale: 1.0 },
+  { name: "Figma", src: "/skill-logos/figma.png", scale: 1.05 },
 ] as const;
 
 const SkillLogoSlider = () => {

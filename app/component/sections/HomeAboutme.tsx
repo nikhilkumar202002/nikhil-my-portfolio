@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import PrimaryBtn from "../ui/PrimaryBtn";
-import SkillLogoSlider from "../ui/SkillLogoSlider";
 import "./Styles.css";
 
 const HomeAboutme = () => {
@@ -59,8 +58,6 @@ const HomeAboutme = () => {
             </div>
           </div>
         </div>
-
-        <SkillLogoSlider />
       </div>
     </section>
   );

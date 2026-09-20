@@ -4,6 +4,7 @@ import FeaturedPortfolio from "./component/sections/FeaturedPortfolio";
 import Differentiator from "./component/sections/Differentiator";
 import CaseStudy from "./component/sections/CaseStudy";
 import AboutMe from "./component/sections/HomeAboutme";
+import SkillsGrids from "./component/sections/SkillsGrids";
 import HomeServiceSection from "./component/sections/HomeServiceSection";
 import HomeCta from "./component/sections/HomeCta";
 
@@ -17,6 +18,7 @@ const page = () => {
       <CaseStudy />
       <AboutMe />
       <HomeServiceSection />
+      <SkillsGrids />
       <HomeCta />
     </>
   );
