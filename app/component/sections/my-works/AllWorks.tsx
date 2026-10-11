@@ -8,7 +8,7 @@ import "../Styles.css";
 
 type CategoryFilter = "ALL" | "UI/UX" | "WEBSITES" | "WEB APPS" | "MOBILE";
 
-interface ProjectItem {
+export interface ProjectItem {
   id: string;
   title: string;
   subtitle: string;
@@ -19,7 +19,7 @@ interface ProjectItem {
   video?: string;
 }
 
-const projectsData: ProjectItem[] = [
+export const projectsData: ProjectItem[] = [
   {
     id: "adverto",
     title: "ADVERTO",

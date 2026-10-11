@@ -17,7 +17,7 @@ const page = () => {
       <HeroStrip />
       <FeaturedPortfolio />
       <Differentiator />
-      <CaseStudy />
+      {/* <CaseStudy /> */}
       <AboutMe />
       <ExperinceTimeline />
       <HomeServiceSection />
