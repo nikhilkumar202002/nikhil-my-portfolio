@@ -38,9 +38,9 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
   return (
     <div className="w-full bg-black text-white min-h-screen">
       {/* =========================================================================
-          SECTION 1: FULL WIDTH BANNER
+          SECTION 1: FULL WIDTH BANNER (100vh height with left-bottom heading)
          ========================================================================= */}
-      <header className="relative w-full h-[78vh] min-h-[580px] sm:h-[84vh] overflow-hidden bg-black flex flex-col justify-between">
+      <header className="relative flex h-[100dvh] min-h-[650px] w-full flex-col justify-between overflow-hidden bg-black">
         {/* Full Bleed Background Visual */}
         <div className="absolute inset-0 z-0">
           {project.video ? (
@@ -64,12 +64,12 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
           )}
 
           {/* Deep Dark Overlay Gradients for crisp readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
         </div>
 
         {/* Top Floating Navigation Bar */}
-        <div className="site-container relative z-20 pt-28 sm:pt-32 w-full flex items-center justify-between">
+        <div className="site-container relative z-20 pt-20 sm:pt-24 w-full flex items-center justify-between">
           <Link
             href="/my-works"
             className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-semibold tracking-wide text-white/90 hover:text-white bg-black/60 hover:bg-black/90 backdrop-blur-md px-4 sm:px-5 py-2.5 rounded-full border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-lg"
@@ -78,19 +78,19 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             <span>All Works</span>
           </Link>
 
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 border border-primary/30 px-4 py-2 rounded-full backdrop-blur-md">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-black/60 border border-primary/30 px-4 py-2 rounded-full backdrop-blur-md">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
             {project.categoryTag}
           </span>
         </div>
 
-        {/* Banner Headline Content */}
-        <div className="site-container relative z-20 w-full pb-8 sm:pb-12">
-          <div className="max-w-4xl">
+        {/* Banner Left Bottom Headline Content */}
+        <div className="site-container relative z-20 w-full pb-12 sm:pb-16 lg:pb-20 text-left">
+          <div className="max-w-5xl">
             <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-primary mb-3 block">
               Case Study
             </span>
-            <h1 className="text-left font-bold uppercase tracking-tight text-white leading-[0.92] text-[clamp(2.8rem,7vw,6.5rem)]">
+            <h1 className="text-left font-bold uppercase tracking-tight text-white leading-[0.90] text-[clamp(3.2rem,8.5vw,7.8rem)]">
               {project.title}
             </h1>
             <p className="mt-4 text-lg sm:text-2xl text-zinc-300 font-light max-w-2xl leading-snug">
@@ -98,68 +98,68 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             </p>
           </div>
         </div>
+      </header>
 
-        {/* Banner Bottom Project Metadata Bar */}
-        <div className="relative z-20 w-full border-t border-white/15 bg-black/75 backdrop-blur-md">
-          <div className="site-container py-5 sm:py-6">
-            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5 items-center">
-              <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-                  Client
-                </span>
-                <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
-                  {project.client}
-                </span>
-              </div>
+      {/* Project Metadata Strip (Immediately below 100vh banner) */}
+      <div className="w-full border-b border-white/10 bg-[#0a0a0a] py-6 sm:py-7">
+        <div className="site-container">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5 items-center">
+            <div>
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
+                Client
+              </span>
+              <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
+                {project.client}
+              </span>
+            </div>
 
-              <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-                  Role
-                </span>
-                <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
-                  {project.role}
-                </span>
-              </div>
+            <div>
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
+                Role
+              </span>
+              <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
+                {project.role}
+              </span>
+            </div>
 
-              <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-                  Year
-                </span>
-                <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
-                  {project.year}
-                </span>
-              </div>
+            <div>
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
+                Year
+              </span>
+              <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
+                {project.year}
+              </span>
+            </div>
 
-              <div>
-                <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-                  Timeline
-                </span>
-                <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
-                  {project.duration}
-                </span>
-              </div>
+            <div>
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
+                Timeline
+              </span>
+              <span className="text-sm sm:text-base font-medium text-white truncate block mt-0.5">
+                {project.duration}
+              </span>
+            </div>
 
-              <div className="col-span-2 sm:col-span-1 flex sm:justify-end">
-                {project.liveUrl ? (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-primary px-5 py-2.5 rounded-full hover:bg-white hover:text-black transition-colors duration-300 shadow-[0_0_20px_rgba(255,94,0,0.35)]"
-                  >
-                    <span>Visit Live</span>
-                    <FiArrowUpRight className="h-4 w-4" />
-                  </a>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-500 uppercase tracking-wider">
-                    Internal Client Project
-                  </span>
-                )}
-              </div>
+            <div className="col-span-2 sm:col-span-1 flex sm:justify-end">
+              {project.liveUrl ? (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-primary px-5 py-2.5 rounded-full hover:bg-white hover:text-black transition-colors duration-300 shadow-[0_0_20px_rgba(255,94,0,0.35)]"
+                >
+                  <span>Visit Live</span>
+                  <FiArrowUpRight className="h-4 w-4" />
+                </a>
+              ) : (
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+                  Internal Client Project
+                </span>
+              )}
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* =========================================================================
           SECTION 2: 2 FULL COLUMN SECTION (Overview & Challenge vs Strategy & Deliverables)
