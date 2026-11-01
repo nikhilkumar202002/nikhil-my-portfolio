@@ -44,7 +44,7 @@
 
 .footer-nav-link:hover,
 .footer-contact-link:hover {
-  color: #fb6c00;
+  color: #FF5E00;
 }
 
 .footer-contact-label {
@@ -87,7 +87,7 @@
   line-height: 0.9;
   font-weight: 400;
   letter-spacing: -0.08em;
-  color: #fb6c00;
+  color: #FF5E00;
 }
 
 .footer-copy {

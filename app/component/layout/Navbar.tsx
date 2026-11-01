@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed left-0 top-0 z-50 w-full transition-colors duration-200 ${isScrolled
-        ? "border-b border-black/10 bg-white/90 backdrop-blur-md"
+        ? "border-b border-white/10 bg-black/85 backdrop-blur-md"
         : "border-b border-transparent bg-transparent"
         }`}
     >
@@ -46,19 +46,19 @@ const Navbar = () => {
           {/* Logo Left */}
           <Link
             href="/"
-            className="shrink-0 whitespace-nowrap font-medium text-black"
+            className="shrink-0 whitespace-nowrap font-medium text-white"
           >
-            Nikhil Kumar S <span className="text-primary">Visualist</span>
+            Nikhil Kumar S <span className="text-primary font-semibold">Visualist</span>
           </Link>
 
           {/* Menu List Center */}
-          <div className="hidden items-center gap-8 text-zinc-600 md:flex">
+          <div className="hidden items-center gap-8 text-zinc-400 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="whitespace-nowrap transition-colors hover:text-black"
+                className="whitespace-nowrap transition-colors hover:text-white"
               >
                 {item.label}
               </Link>
@@ -67,7 +67,7 @@ const Navbar = () => {
 
           {/* Button & Status Indicator Right */}
           <div className="hidden items-center gap-6 md:flex">
-            <div className="flex items-center gap-2 text-xs font-medium text-black">
+            <div className="flex items-center gap-2 text-xs font-medium text-zinc-300">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -77,7 +77,7 @@ const Navbar = () => {
 
             <Link
               href="#contact"
-              className="shrink-0 whitespace-nowrap font-medium text-primary transition-colors hover:opacity-80"
+              className="shrink-0 whitespace-nowrap font-medium text-primary transition-colors hover:brightness-125"
             >
               Let&apos;s Talk
             </Link>
@@ -98,7 +98,7 @@ const Navbar = () => {
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation"
               onClick={() => setIsMobileMenuOpen((value) => !value)}
-              className="inline-flex h-9 w-9 items-center justify-center text-black transition-colors hover:text-primary"
+              className="inline-flex h-9 w-9 items-center justify-center text-white transition-colors hover:text-primary"
             >
               {isMobileMenuOpen ? (
                 <FiX className="h-5 w-5" />
@@ -112,19 +112,19 @@ const Navbar = () => {
 
       <div
         id="mobile-navigation"
-        className={`fixed inset-0 z-[60] bg-white transition-opacity duration-200 md:hidden ${isMobileMenuOpen
+        className={`fixed inset-0 z-[60] bg-black transition-opacity duration-200 md:hidden ${isMobileMenuOpen
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0"
           }`}
       >
         <div className="site-container flex h-full flex-col pt-12">
-          <div className="flex items-center justify-between border-b border-black/10 pb-4">
-            <p className="text-[14px] font-medium text-black">Menu</p>
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <p className="text-[14px] font-medium text-white">Menu</p>
             <button
               type="button"
               aria-label="Close navigation menu"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="inline-flex h-9 w-9 items-center justify-center text-black transition-colors hover:text-primary"
+              className="inline-flex h-9 w-9 items-center justify-center text-white transition-colors hover:text-primary"
             >
               <FiX className="h-5 w-5" />
             </button>
@@ -132,7 +132,7 @@ const Navbar = () => {
 
           <div className="flex flex-1 flex-col items-end justify-between py-6">
             <div className="flex flex-col items-end gap-6 text-right">
-              <div className="flex items-center gap-2 text-xs font-medium text-black">
+              <div className="flex items-center gap-2 text-xs font-medium text-zinc-300">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -146,7 +146,7 @@ const Navbar = () => {
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[2rem] font-medium leading-none tracking-[-0.04em] text-black transition-colors hover:text-primary"
+                    className="text-[2rem] font-medium leading-none tracking-[-0.04em] text-white transition-colors hover:text-primary"
                   >
                     {item.label}
                   </Link>

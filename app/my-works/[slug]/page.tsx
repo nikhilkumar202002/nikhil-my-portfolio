@@ -1,11 +1,17 @@
 import React from "react";
 import SlugBanner from "../../component/sections/my-works/SlugBanner";
-import { projectsData } from "../../component/sections/my-works/AllWorks";
+import { projectsData } from "../../component/sections/my-works/projectsData";
 
 interface PageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  return projectsData.map((item) => ({
+    slug: item.id,
+  }));
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {

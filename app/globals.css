@@ -2,7 +2,7 @@
 
 @theme inline {
   --font-sans: var(--font-helvetica-neue);
-  --color-primary: #FB6C00;
+  --color-primary: #FF5E00;
 }
 
 .site-container {
@@ -27,13 +27,20 @@
   }
 }
 
+html {
+  background: #000000;
+  color-scheme: dark;
+}
+
 body {
   font-family: var(--font-sans);
-  background: #ffffff;
+  background: #000000;
+  color: #ffffff;
 }
 
 .site-main {
   position: relative;
   z-index: 1;
-  background: #ffffff;
+  background: #000000;
+  color: #ffffff;
 }

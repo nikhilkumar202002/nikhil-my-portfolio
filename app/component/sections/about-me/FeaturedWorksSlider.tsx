@@ -39,12 +39,12 @@ const marqueeItems = [...projects, ...projects, ...projects, ...projects];
 
 const FeaturedWorksSlider = () => {
   return (
-    <section className="w-full bg-white overflow-hidden pb-16 sm:pb-20 lg:pb-[150px]">
+    <section className="w-full bg-black border-t border-white/5 overflow-hidden py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         {/* Left Aligned Heading */}
-        <div className="mb-4 sm:mb-4">
-          <h2 className="text-[clamp(2.2rem,4.5vw,3.8rem)] font-medium leading-[1.08] tracking-tight text-black">
-            Selected <span className="text-primary">Works</span>
+        <div className="mb-8 sm:mb-10">
+          <h2 className="text-[clamp(2.2rem,4.5vw,3.8rem)] font-medium leading-[1.08] tracking-tight text-white">
+            Selected <span className="text-primary font-semibold">Works</span>
           </h2>
         </div>
 
@@ -66,7 +66,7 @@ const FeaturedWorksSlider = () => {
               >
                 <article className="flex flex-col gap-0 h-full">
                   {/* Increased Height Media Container */}
-                  <div className="relative h-[260px] sm:h-[340px] lg:h-[380px] w-full bg-[#f4f1ec] overflow-hidden">
+                  <div className="relative h-[260px] sm:h-[340px] lg:h-[380px] w-full bg-[#141414] border border-white/10 rounded-xl overflow-hidden shadow-lg">
                     {work.video ? (
                       <video
                         src={work.video}
@@ -88,15 +88,15 @@ const FeaturedWorksSlider = () => {
                   {/* Metadata */}
                   <div className="flex flex-col pt-3">
                     <div className="flex items-baseline justify-between gap-2 w-full">
-                      <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-black">
+                      <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-white">
                         {work.title}
                       </h3>
-                      <p className="text-xs sm:text-sm font-normal text-black/70 text-right shrink-0">
+                      <p className="text-xs sm:text-sm font-normal text-zinc-400 text-right shrink-0">
                         {work.subtitle}
                       </p>
                     </div>
 
-                    <span className="text-[11px] sm:text-xs font-medium text-primary tracking-wide pt-1">
+                    <span className="text-[11px] sm:text-xs font-semibold text-primary tracking-wide pt-1">
                       {work.category}
                     </span>
                   </div>

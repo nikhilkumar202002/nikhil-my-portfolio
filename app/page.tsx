@@ -3,7 +3,6 @@ import HeroStrip from "./component/sections/home/HeroStrip";
 import FeaturedPortfolio from "./component/sections/home/FeaturedPortfolio";
 import Differentiator from "./component/sections/home/Differentiator";
 import WhyWorkWithMe from "./component/sections/home/WhyWorkWithMe";
-import CaseStudy from "./component/sections/home/CaseStudy";
 import AboutMe from "./component/sections/home/HomeAboutme";
 import ExperinceTimeline from "./component/sections/home/ExperinceTimeline";
 import HomeServiceSection from "./component/sections/home/HomeServiceSection";
@@ -17,7 +16,6 @@ const page = () => {
       <HeroStrip />
       <FeaturedPortfolio />
       <Differentiator />
-      {/* <CaseStudy /> */}
       <AboutMe />
       <ExperinceTimeline />
       <HomeServiceSection />

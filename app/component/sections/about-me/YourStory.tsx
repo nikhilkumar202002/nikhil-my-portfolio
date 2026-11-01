@@ -15,7 +15,7 @@ const Character = ({
   progress: MotionValue<number>;
   range: [number, number];
 }) => {
-  const color = useTransform(progress, range, ["#a3a3a3", "#000000"]);
+  const color = useTransform(progress, range, ["#3f3f46", "#ffffff"]);
   return <motion.span style={{ color }}>{char}</motion.span>;
 };
 
@@ -68,18 +68,18 @@ const YourStory = () => {
   });
 
   return (
-    <section className="w-full bg-white py-20 sm:py-28 lg:py-[150px]">
+    <section className="w-full bg-black border-t border-white/5 py-20 sm:py-28 lg:py-[150px]">
       <div className="site-container">
         <div className="w-full">
           {/* Main Section Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium leading-[1.08] tracking-tight text-black mb-4 sm:mb-6">
-            Where <span className="text-primary">design meets</span> development.
+          <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium leading-[1.08] tracking-tight text-white mb-4 sm:mb-6">
+            Where <span className="text-primary font-semibold">design meets</span> development.
           </h2>
 
           {/* Interactive Scroll-Filling Story Paragraph */}
           <div
             ref={targetRef}
-            className="text-2xl sm:text-3xl lg:text-[38px] font-normal leading-[1.25] tracking-tight text-[#a3a3a3]"
+            className="text-2xl sm:text-3xl lg:text-[38px] font-normal leading-[1.25] tracking-tight text-[#3f3f46]"
           >
             {wordsWithIndex.map((item, idx) => (
               <Word

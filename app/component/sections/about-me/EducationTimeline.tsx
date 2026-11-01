@@ -33,17 +33,17 @@ const educationData = [
 
 const EducationTimeline = () => {
   return (
-    <section className="w-full bg-white pt-16 sm:pt-20 lg:pt-24">
+    <section className="w-full bg-black pt-16 sm:pt-20 lg:pt-24 pb-16">
       <div className="site-container">
         {/* Header Title */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-5 lg:mb-5">
-          <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-medium leading-[1.05] tracking-tight text-black">
+          <h2 className="text-[clamp(2.4rem,5vw,4.5rem)] font-medium leading-[1.05] tracking-tight text-white">
             Education
           </h2>
         </div>
 
         {/* Education Rows Table */}
-        <div className="border-t border-b border-black/15 divide-y divide-black/15">
+        <div className="border-t border-b border-white/10 divide-y divide-white/10">
           {educationData.map((edu, index) => (
             <div
               key={index}
@@ -51,24 +51,24 @@ const EducationTimeline = () => {
             >
               {/* Column 1: Period */}
               <div className="md:col-span-3 lg:col-span-3">
-                <span className="text-base sm:text-lg font-normal text-primary">
+                <span className="text-base sm:text-lg font-semibold text-primary">
                   {edu.period}
                 </span>
               </div>
 
               {/* Column 2: Institution & Degree */}
               <div className="md:col-span-4 lg:col-span-4 flex flex-col">
-                <h3 className="text-lg sm:text-xl font-medium text-black leading-tight">
+                <h3 className="text-lg sm:text-xl font-medium text-white leading-tight">
                   {edu.institution}
                 </h3>
-                <p className="text-sm sm:text-base font-normal text-black/60 mt-0.5">
+                <p className="text-sm sm:text-base font-normal text-zinc-400 mt-0.5">
                   {edu.degree}
                 </p>
               </div>
 
               {/* Column 3: Description */}
               <div className="md:col-span-5 lg:col-span-5">
-                <p className="text-sm sm:text-base font-light text-black/80 leading-relaxed">
+                <p className="text-sm sm:text-base font-light text-zinc-300 leading-relaxed">
                   {edu.description}
                 </p>
               </div>

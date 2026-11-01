@@ -13,7 +13,7 @@
 
 .skill-logo-slider-heading {
   margin: 0;
-  color: #111111;
+  color: #ffffff;
   font-size: 35px;
   font-weight: 400;
   line-height: 1;
@@ -43,7 +43,7 @@
   width: var(--skill-logo-item-width);
   flex: 0 0 var(--skill-logo-item-width);
   padding: 18px 0;
-  color: #111111;
+  color: #ffffff;
   font-size: 14px;
   line-height: 1;
   white-space: nowrap;
@@ -56,7 +56,7 @@
   flex: 0 0 auto;
   place-items: center;
   border-radius: 8px;
-  background: #ffffff;
+  background: #141414; border: 1px solid rgba(255,255,255,0.08);
 }
 
 .skill-logo-slider-image {

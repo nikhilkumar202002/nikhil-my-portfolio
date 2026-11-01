@@ -3,46 +3,36 @@
 import Image from "next/image";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
-import { useEffect, useRef, type PointerEvent } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
 import PrimaryBtn from "../../ui/PrimaryBtn";
 import "../Styles.css";
 
 const featuredWorks = [
   {
     title: "ADVERTO",
-    subtitle: "Creative Agency Website",
-    category: "UI/UX · Web Design · Frontend",
-    description:
-      "A modern digital experience for a creative advertising agency, designed around bold visual communication and clear navigation.",
     video: "/porfolio/adverto/featured-video.mp4",
   },
   {
     title: "GULF CARGO",
-    subtitle: "Logistics Platform",
-    category: "UI/UX · Product Design · Frontend",
-    description:
-      "A structured digital experience designed to simplify logistics services and improve information accessibility.",
     image: "/porfolio/GULF-CARGO/FEATURED.webp",
   },
   {
     title: "GPS TRADES",
-    subtitle: "Solar & Energy Website",
-    category: "UI/UX · Web Design · Development",
-    description:
-      "A clean digital presence communicating renewable energy solutions through a modern and approachable interface.",
     image: "/porfolio/gps/featured.webp",
   },
   {
     title: "AFRIZON",
-    subtitle: "Digital Experience",
-    category: "UI/UX · Web Design · Development",
-    description:
-      "A digital experience built for global trade and sustainable growth solutions.",
     image: "/porfolio/afrizon/afrizon-featured.webp",
   },
 ] as const;
 
-const LazyVideo = ({ src }: { src: string }) => {
+const LazyVideo = ({
+  src,
+  isFocused,
+}: {
+  src: string;
+  isFocused?: boolean;
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -58,8 +48,11 @@ const LazyVideo = ({ src }: { src: string }) => {
           return;
         }
 
-        video.src = src;
-        video.load();
+        if (!video.src || video.src === "") {
+          video.src = src;
+          video.load();
+        }
+        video.play().catch(() => {});
         observer.disconnect();
       },
       { rootMargin: "200px 0px" },
@@ -69,6 +62,15 @@ const LazyVideo = ({ src }: { src: string }) => {
 
     return () => observer.disconnect();
   }, [src]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isFocused) {
+      video.play().catch(() => {});
+    }
+  }, [isFocused]);
 
   return (
     <video
@@ -85,6 +87,8 @@ const LazyVideo = ({ src }: { src: string }) => {
 };
 
 const FeaturedPortfolio = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const getCardCursor = (target: HTMLElement) =>
     target.querySelector<HTMLElement>(".featured-work-cursor");
 
@@ -117,6 +121,7 @@ const FeaturedPortfolio = () => {
     event: PointerEvent<HTMLElement>,
     index: number,
   ) => {
+    setHoveredIndex(index);
     const cursor = getCardCursor(event.currentTarget);
 
     if (!cursor) {
@@ -162,6 +167,7 @@ const FeaturedPortfolio = () => {
   };
 
   const handlePointerLeave = (event: PointerEvent<HTMLElement>) => {
+    setHoveredIndex(null);
     const cursor = getCardCursor(event.currentTarget);
 
     if (!cursor) {
@@ -177,87 +183,108 @@ const FeaturedPortfolio = () => {
   };
 
   return (
-    <section id="work" className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
-      <div className="site-container">
-        <div className="featured-portfolio-header flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12">
+    <section
+      id="work"
+      className="relative w-full bg-black py-16 sm:py-20 lg:py-[150px] transition-colors duration-500 overflow-hidden"
+    >
+      {/* Ambient Dimming Backdrop when any project is focused */}
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-0 z-0 bg-black/85 backdrop-blur-[4px] transition-opacity duration-500 ease-out ${
+          hoveredIndex !== null ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
+      <div className="site-container relative z-10">
+        <div
+          className={`featured-portfolio-header flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12 transition-opacity duration-500 ${
+            hoveredIndex !== null ? "opacity-35" : "opacity-100"
+          }`}
+        >
           <div className="flex flex-col items-start">
-            <span className="mb-[10px] text-[18px] font-light text-black">
+            <span className="mb-[10px] text-[18px] font-medium text-primary tracking-wide">
               Selected Works
             </span>
-            <h2 className="text-[clamp(2.2rem,4vw,3.4rem)] font-medium leading-[1.08] tracking-[-0.03em] text-black">
-              Selected <span className="text-primary">projects,</span> designed
+            <h2 className="text-[clamp(2.2rem,4vw,3.4rem)] font-medium leading-[1.08] tracking-[-0.03em] text-white">
+              Selected <span className="text-primary font-semibold">projects,</span> designed
               <br />
               to solve real problems.
             </h2>
           </div>
 
-          <p className="max-w-[22rem] text-[17px] font-light leading-[1.35] text-black md:text-right">
+          <p className="max-w-[22rem] text-[17px] font-light leading-[1.35] text-zinc-400 md:text-right">
             A selection of websites, interfaces and digital products I&apos;ve
             designed and developed across different industries.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-14">
-          {featuredWorks.map((work, index) => (
-            <article
-              key={`${"video" in work ? work.video : work.image}-${index}`}
-              className="group flex flex-col gap-0"
-            >
-              {/* Large Visual */}
-              <div
-                className="featured-work-image relative aspect-[16/10] overflow-hidden bg-[#f4f1ec]"
-                data-cursor="View Case Study"
-                onPointerEnter={(event) => handlePointerEnter(event, index)}
-                onPointerMove={(event) => handlePointerMove(event, index)}
-                onPointerLeave={handlePointerLeave}
+        <div
+          className="grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:grid-cols-3"
+          onPointerLeave={() => setHoveredIndex(null)}
+        >
+          {featuredWorks.map((work, index) => {
+            const isHovered = hoveredIndex === index;
+            const isAnyHovered = hoveredIndex !== null;
+            const isDimmed = isAnyHovered && !isHovered;
+
+            return (
+              <article
+                key={`${"video" in work ? work.video : work.image}-${index}`}
+                className={`group relative flex flex-col gap-0 transition-all duration-500 ease-out focus-visible:outline-none ${
+                  isHovered
+                    ? "z-30 scale-[1.03] sm:scale-[1.04]"
+                    : isDimmed
+                    ? "z-10 scale-[0.98] opacity-25 blur-[1px]"
+                    : "z-10 scale-100 opacity-100"
+                }`}
+                onFocus={() => setHoveredIndex(index)}
+                onBlur={() => setHoveredIndex(null)}
+                tabIndex={0}
               >
-                {"video" in work ? (
-                  <LazyVideo src={work.video} />
-                ) : (
-                  <Image
-                    src={work.image}
-                    alt={work.title}
-                    fill
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="featured-work-img object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                )}
+                {/* Large Visual Card */}
+                <div
+                  className={`featured-work-image relative aspect-[16/10] overflow-hidden bg-[#141414] border border-white/10 transition-all duration-500 ${
+                    isHovered
+                      ? "shadow-[0_0_50px_rgba(255,94,0,0.35)] !border-primary"
+                      : "shadow-none"
+                  }`}
+                  data-cursor="View Case Study"
+                  onPointerEnter={(event) => handlePointerEnter(event, index)}
+                  onPointerMove={(event) => handlePointerMove(event, index)}
+                  onPointerLeave={handlePointerLeave}
+                >
+                  {"video" in work ? (
+                    <LazyVideo src={work.video} isFocused={isHovered} />
+                  ) : (
+                    <Image
+                      src={work.image}
+                      alt={work.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="featured-work-img object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
 
-                <div className="featured-work-cursor" aria-hidden="true">
-                  <FiArrowUpRight className="featured-work-cursor-icon" />
+                  <div className="featured-work-cursor" aria-hidden="true">
+                    <FiArrowUpRight className="featured-work-cursor-icon" />
+                  </div>
                 </div>
-              </div>
-
-              {/* Meta details */}
-              <div className="flex flex-col gap-0 pt-[10px]">
-                {/* Heading Left & Subtitle Right */}
-                <div className="flex items-baseline justify-between gap-4 w-full">
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-black">
-                    {work.title}
-                  </h3>
-                  <p className="text-base font-normal text-black/70 text-right shrink-0">
-                    {work.subtitle}
-                  </p>
-                </div>
-
-                {/* Category under heading with 4px padding */}
-                <span className="text-xs font-medium text-primary tracking-wide pt-[4px]">
-                  {work.category}
-                </span>
-
-                {/* Description: 17px font size & 25px line height */}
-                {"description" in work && (
-                  <p className="mt-0 text-[17px] leading-[25px] font-light text-black/80">
-                    {work.description}
-                  </p>
-                )}
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
-        <div className="featured-portfolio-cta mt-12 sm:mt-16">
-          <PrimaryBtn href="#contact">View More Works</PrimaryBtn>
+        <div
+          className={`featured-portfolio-cta mt-12 sm:mt-16 transition-opacity duration-500 ${
+            hoveredIndex !== null ? "opacity-35" : "opacity-100"
+          }`}
+        >
+          <PrimaryBtn
+            href="#contact"
+            className="!bg-primary !text-black px-7 py-3.5 hover:!bg-white hover:!text-black font-semibold transition-colors shadow-[0_0_24px_rgba(255,94,0,0.3)]"
+          >
+            View More Works
+          </PrimaryBtn>
         </div>
       </div>
     </section>

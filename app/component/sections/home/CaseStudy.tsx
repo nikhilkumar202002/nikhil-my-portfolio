@@ -40,11 +40,11 @@ const CaseStudy = () => {
   }, []);
 
   return (
-    <section className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
+    <section className="w-full bg-black border-t border-white/5 py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Left Visual Card - Full Container Video */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-none bg-black lg:col-span-6">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-black lg:col-span-6 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
             <video
               ref={videoRef}
               src="/porfolio/adverto/featured-video.mp4"
@@ -61,10 +61,10 @@ const CaseStudy = () => {
           <div className="flex flex-col justify-center space-y-7 lg:col-span-6 lg:pl-2">
             {/* Title & Subtitle */}
             <div>
-              <h2 className="text-2xl font-bold uppercase tracking-tight text-black sm:text-3xl">
+              <h2 className="text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
                 ADVERTO
               </h2>
-              <p className="mt-1 text-base font-normal text-[#666666] sm:text-lg">
+              <p className="mt-1 text-base font-normal text-zinc-400 sm:text-lg">
                 From concept to production.
               </p>
             </div>
@@ -76,7 +76,7 @@ const CaseStudy = () => {
                   <span className="block text-xs font-semibold text-primary sm:text-sm">
                     Role
                   </span>
-                  <span className="mt-1 block text-xs font-normal text-black sm:text-sm">
+                  <span className="mt-1 block text-xs font-normal text-white sm:text-sm">
                     UI/UX · Frontend
                   </span>
                 </div>
@@ -85,7 +85,7 @@ const CaseStudy = () => {
                   <span className="block text-xs font-semibold text-primary sm:text-sm">
                     Platform
                   </span>
-                  <span className="mt-1 block text-xs font-normal text-black sm:text-sm">
+                  <span className="mt-1 block text-xs font-normal text-white sm:text-sm">
                     Web
                   </span>
                 </div>
@@ -94,7 +94,7 @@ const CaseStudy = () => {
                   <span className="block text-xs font-semibold text-primary sm:text-sm">
                     Tools
                   </span>
-                  <span className="mt-1 block text-xs font-normal text-black sm:text-sm">
+                  <span className="mt-1 block text-xs font-normal text-white sm:text-sm">
                     Figma · React · Next.js
                   </span>
                 </div>
@@ -103,7 +103,7 @@ const CaseStudy = () => {
                   <span className="block text-xs font-semibold text-primary sm:text-sm">
                     Focus
                   </span>
-                  <span className="mt-1 block text-xs font-normal text-black sm:text-sm">
+                  <span className="mt-1 block text-xs font-normal text-white sm:text-sm">
                     Visual identity · Responsive experience · Conversion
                   </span>
                 </div>
@@ -111,7 +111,7 @@ const CaseStudy = () => {
             </div>
 
             {/* Case Study Overview Paragraph */}
-            <p className="text-sm font-light leading-relaxed text-black/70 sm:text-base">
+            <p className="text-sm font-light leading-relaxed text-zinc-400 sm:text-base">
               Adverto is a modern digital platform designed to elevate brand visibility and audience engagement. Built with a focus on intuitive navigation, high performance, and responsive UI architecture, this project seamlessly connects strategic visual identity with functional frontend implementation.
             </p>
 
@@ -119,9 +119,9 @@ const CaseStudy = () => {
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 pt-2 text-xs sm:text-sm">
               {processSteps.map((item, index) => (
                 <div key={item.step} className="inline-flex items-center gap-1.5 sm:gap-2">
-                  <span className="text-black">
-                    <strong className="font-bold">{item.step}</strong>{" "}
-                    <span className="font-normal">{item.name}</span>
+                  <span className="text-white">
+                    <strong className="font-bold text-primary">{item.step}</strong>{" "}
+                    <span className="font-normal text-zinc-300">{item.name}</span>
                   </span>
                   {index < processSteps.length - 1 && (
                     <span className="font-medium text-primary sm:mx-1">→</span>
@@ -134,7 +134,7 @@ const CaseStudy = () => {
             <div className="pt-2">
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-none bg-primary px-6 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-orange-600 sm:text-base"
+                className="inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-sm font-semibold text-black transition-colors duration-200 hover:bg-white sm:text-base shadow-[0_0_24px_rgba(255,94,0,0.3)]"
               >
                 <span>Read Case Study</span>
                 <FiArrowRight className="h-4 w-4" />

@@ -1,52 +1,51 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+
+const focusAreas = [
+  "Visual Design · Design Systems",
+  "Product Thinking · User Experience",
+  "Frontend Architecture · Clean Code",
+  "Component Libraries · Responsive Web",
+  "Interface Usability · Motion Design",
+  "Digital Products · Brand Systems",
+  "Interactive Prototypes · Web Apps",
+];
 
 const experiences = [
   {
-    date: "2023",
-    role: "Graphics Designer Intern",
-    company: "ISPG Technologies",
-    position: "justify-end", // Bottom position
+    date: "2024 — Present",
+    role: "Visual Designer & Frontend Developer",
+    company: "Freelance",
+    position: "justify-start",
   },
   {
-    date: "April 2024 — Dec 2024",
-    role: "Web Developer",
-    company: "OrigoNXT Solutions PVT LTD",
-    position: "justify-center", // Middle position
+    date: "2023 — 2024",
+    role: "UI/UX & Web Designer",
+    company: "Design Studio",
+    position: "justify-center",
   },
   {
-    date: "Jan 2025 — Present",
-    role: "Full-Stack Developer",
-    company: "Domain Dude",
-    position: "justify-start", // Top position
+    date: "2022 — 2023",
+    role: "Junior Web Developer",
+    company: "Tech Agency",
+    position: "justify-end",
   },
 ];
 
-const focusAreas = [
-  "Design thinking",
-  "Frontend development",
-  "Visual communication",
-  "Responsive design",
-  "Client understanding",
-  "Problem solving",
-];
+const ExperinceTimeline = () => {
+  const getRandomIndices = () => {
+    return focusAreas.map((item) => {
+      const words = item.split(" ");
+      return Math.floor(Math.random() * words.length);
+    });
+  };
 
-export const ExperinceTimeline = () => {
-  // Store the active highlighted word index for each focus area line
   const [highlightIndices, setHighlightIndices] = useState<number[]>([]);
 
   useEffect(() => {
-    // Initial random assignment on client mount
-    const getRandomIndices = () =>
-      focusAreas.map((item) => {
-        const wordCount = item.split(" ").length;
-        return Math.floor(Math.random() * wordCount);
-      });
-
     setHighlightIndices(getRandomIndices());
 
-    // Periodically change theme color highlights randomly
     const interval = setInterval(() => {
       setHighlightIndices(getRandomIndices());
     }, 2500);
@@ -55,17 +54,17 @@ export const ExperinceTimeline = () => {
   }, []);
 
   return (
-    <section id="experience" className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
+    <section id="experience" className="w-full bg-black border-t border-white/5 py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14">
           {/* Header & Focus List Column (Left) */}
           <div className="flex flex-col justify-start lg:col-span-4 lg:pr-6">
-            <h2 className="text-6xl font-normal leading-[0.78] tracking-tight text-black sm:text-7xl lg:text-[6.5rem]">
+            <h2 className="text-6xl font-normal leading-[0.78] tracking-tight text-white sm:text-7xl lg:text-[6.5rem]">
               EXP
               <br />
               ERIE
               <br />
-              NCE
+              <span className="text-primary font-semibold">NCE</span>
             </h2>
 
             <ul className="mt-8 flex flex-col gap-1 text-sm font-normal leading-tight sm:text-base">
@@ -82,8 +81,8 @@ export const ExperinceTimeline = () => {
                           key={wordIndex}
                           className={`transition-colors duration-500 ${
                             isHighlighted
-                              ? "text-primary font-medium"
-                              : "text-black/90"
+                              ? "text-primary font-semibold drop-shadow-[0_0_10px_rgba(255,94,0,0.6)]"
+                              : "text-zinc-500"
                           }`}
                         >
                           {word}
@@ -102,18 +101,18 @@ export const ExperinceTimeline = () => {
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col ${exp.position} space-y-0.5`}
+                  className={`flex flex-col ${exp.position} space-y-0.5 p-4 rounded-lg bg-[#0d0d0d] border border-white/5 hover:border-primary/40 transition-colors`}
                 >
                   <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary flex-shrink-0" />
-                    <span className="text-[20px] font-normal leading-tight text-black">
+                    <span className="h-2 w-2 rounded-full bg-primary flex-shrink-0 shadow-[0_0_8px_rgba(255,94,0,0.9)]" />
+                    <span className="text-[20px] font-medium leading-tight text-white">
                       {exp.date}
                     </span>
                   </div>
-                  <h3 className="text-[18px] font-bold leading-tight text-black">
+                  <h3 className="text-[18px] font-bold leading-tight text-white pt-1">
                     {exp.role}
                   </h3>
-                  <p className="text-[16px] font-normal leading-tight text-black/70">
+                  <p className="text-[16px] font-normal leading-tight text-zinc-400">
                     {exp.company}
                   </p>
                 </div>

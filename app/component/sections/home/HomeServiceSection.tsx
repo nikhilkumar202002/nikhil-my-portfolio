@@ -54,10 +54,10 @@ const HomeServiceSection = () => {
   const activeService = services[hoveredServiceIndex];
 
   return (
-    <section id="service" className="w-full bg-[#f7f7f5] py-16 sm:py-20 lg:py-[150px]">
+    <section id="service" className="w-full bg-[#0a0a0a] border-t border-white/5 py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container">
         <div className="home-service-grid">
-          <p className="home-service-label">What I Do?</p>
+          <p className="home-service-label text-primary font-medium tracking-wide">What I Do?</p>
 
           <div
             className="home-service-list"
@@ -84,7 +84,7 @@ const HomeServiceSection = () => {
             className="home-service-media home-service-media--animated"
             aria-label="Service previews"
           >
-            <div className="home-service-media-card home-service-media-card--single">
+            <div className="home-service-media-card home-service-media-card--single border border-white/10 bg-[#121212] shadow-[0_0_30px_rgba(0,0,0,0.8)]">
               <Image
                 src={activeService.image.src}
                 alt={activeService.image.alt}

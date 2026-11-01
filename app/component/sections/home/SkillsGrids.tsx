@@ -23,32 +23,32 @@ const skillLogos = [
 
 export const SkillsGrids = () => {
   return (
-    <section className="w-full bg-white py-16 sm:py-20 lg:py-[150px]">
+    <section className="w-full bg-black border-t border-white/5 py-16 sm:py-20 lg:py-[150px]">
       <div className="site-container flex flex-col gap-8 sm:gap-10">
         {/* Section Heading */}
         <div className="flex flex-col gap-2 items-center text-center">
-          <p className="text-xs font-normal capitalize tracking-normal text-primary sm:text-sm">
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary sm:text-sm">
             Tech Stack
           </p>
-          <h2 className="text-3xl font-normal tracking-tight text-black sm:text-4xl lg:text-5xl">
-            Tools and Technology
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-4xl lg:text-5xl">
+            Tools and <span className="text-primary font-semibold">Technology</span>
           </h2>
         </div>
 
         {/* Logos Grid */}
-        <div className="grid grid-cols-3 items-center justify-items-center gap-6 sm:grid-cols-6 md:grid-cols-9 sm:gap-8">
+        <div className="grid grid-cols-3 items-center justify-items-center gap-4 sm:grid-cols-6 md:grid-cols-9 sm:gap-6">
           {skillLogos.map((logo) => (
             <div
               key={logo.name}
-              className="flex h-12 w-full items-center justify-center transition-transform duration-300 hover:scale-110"
+              className="flex h-16 w-full items-center justify-center rounded-xl bg-[#0f0f0f] border border-white/5 p-2 transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:shadow-[0_0_24px_rgba(255,94,0,0.25)]"
             >
-              <div className="relative flex h-9 w-full max-w-[90px] items-center justify-center">
+              <div className="relative flex h-10 w-full max-w-[90px] items-center justify-center">
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   width={90}
                   height={36}
-                  className="max-h-9 w-auto object-contain"
+                  className="max-h-9 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
                   style={{ transform: `scale(${logo.scale})` }}
                 />
               </div>
