@@ -3,7 +3,7 @@
 import Image from "next/image";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
-import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { useEffect, useRef, type PointerEvent } from "react";
 import PrimaryBtn from "../../ui/PrimaryBtn";
 import "../Styles.css";
 
@@ -26,13 +26,7 @@ const featuredWorks = [
   },
 ] as const;
 
-const LazyVideo = ({
-  src,
-  isFocused,
-}: {
-  src: string;
-  isFocused?: boolean;
-}) => {
+const LazyVideo = ({ src }: { src: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -63,15 +57,6 @@ const LazyVideo = ({
     return () => observer.disconnect();
   }, [src]);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (isFocused) {
-      video.play().catch(() => {});
-    }
-  }, [isFocused]);
-
   return (
     <video
       ref={videoRef}
@@ -87,8 +72,6 @@ const LazyVideo = ({
 };
 
 const FeaturedPortfolio = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const getCardCursor = (target: HTMLElement) =>
     target.querySelector<HTMLElement>(".featured-work-cursor");
 
@@ -119,9 +102,7 @@ const FeaturedPortfolio = () => {
 
   const handlePointerEnter = (
     event: PointerEvent<HTMLElement>,
-    index: number,
   ) => {
-    setHoveredIndex(index);
     const cursor = getCardCursor(event.currentTarget);
 
     if (!cursor) {
@@ -167,7 +148,6 @@ const FeaturedPortfolio = () => {
   };
 
   const handlePointerLeave = (event: PointerEvent<HTMLElement>) => {
-    setHoveredIndex(null);
     const cursor = getCardCursor(event.currentTarget);
 
     if (!cursor) {
@@ -185,22 +165,10 @@ const FeaturedPortfolio = () => {
   return (
     <section
       id="work"
-      className="relative w-full bg-black py-16 sm:py-20 lg:py-[150px] transition-colors duration-500 overflow-hidden"
+      className="relative w-full bg-black py-16 sm:py-20 lg:py-[150px] overflow-hidden"
     >
-      {/* Ambient Dimming Backdrop when any project is focused */}
-      <div
-        aria-hidden="true"
-        className={`pointer-events-none absolute inset-0 z-0 bg-black/85 backdrop-blur-[4px] transition-opacity duration-500 ease-out ${
-          hoveredIndex !== null ? "opacity-100" : "opacity-0"
-        }`}
-      />
-
       <div className="site-container relative z-10">
-        <div
-          className={`featured-portfolio-header flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12 transition-opacity duration-500 ${
-            hoveredIndex !== null ? "opacity-35" : "opacity-100"
-          }`}
-        >
+        <div className="featured-portfolio-header flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12">
           <div className="flex flex-col items-start">
             <span className="mb-[10px] text-[18px] font-medium text-primary tracking-wide">
               Selected Works
@@ -218,50 +186,31 @@ const FeaturedPortfolio = () => {
           </p>
         </div>
 
-        <div
-          className="grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:grid-cols-3"
-          onPointerLeave={() => setHoveredIndex(null)}
-        >
+        <div className="grid grid-cols-1 gap-[20px] sm:grid-cols-2 lg:grid-cols-3">
           {featuredWorks.map((work, index) => {
-            const isHovered = hoveredIndex === index;
-            const isAnyHovered = hoveredIndex !== null;
-            const isDimmed = isAnyHovered && !isHovered;
-
             return (
               <article
                 key={`${"video" in work ? work.video : work.image}-${index}`}
-                className={`group relative flex flex-col gap-0 transition-all duration-500 ease-out focus-visible:outline-none ${
-                  isHovered
-                    ? "z-30 scale-[1.03] sm:scale-[1.04]"
-                    : isDimmed
-                    ? "z-10 scale-[0.98] opacity-25 blur-[1px]"
-                    : "z-10 scale-100 opacity-100"
-                }`}
-                onFocus={() => setHoveredIndex(index)}
-                onBlur={() => setHoveredIndex(null)}
+                className="group relative flex flex-col gap-0 focus-visible:outline-none"
                 tabIndex={0}
               >
                 {/* Large Visual Card */}
                 <div
-                  className={`featured-work-image relative aspect-[16/10] overflow-hidden bg-[#141414] border border-white/10 transition-all duration-500 ${
-                    isHovered
-                      ? "shadow-[0_0_50px_rgba(255,94,0,0.35)] !border-primary"
-                      : "shadow-none"
-                  }`}
+                  className="featured-work-image relative aspect-[16/10] overflow-hidden bg-[#141414] border border-white/10"
                   data-cursor="View Case Study"
-                  onPointerEnter={(event) => handlePointerEnter(event, index)}
+                  onPointerEnter={handlePointerEnter}
                   onPointerMove={(event) => handlePointerMove(event, index)}
                   onPointerLeave={handlePointerLeave}
                 >
                   {"video" in work ? (
-                    <LazyVideo src={work.video} isFocused={isHovered} />
+                    <LazyVideo src={work.video} />
                   ) : (
                     <Image
                       src={work.image}
                       alt={work.title}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="featured-work-img object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="featured-work-img object-cover"
                     />
                   )}
 
@@ -274,11 +223,7 @@ const FeaturedPortfolio = () => {
           })}
         </div>
 
-        <div
-          className={`featured-portfolio-cta mt-12 sm:mt-16 transition-opacity duration-500 ${
-            hoveredIndex !== null ? "opacity-35" : "opacity-100"
-          }`}
-        >
+        <div className="featured-portfolio-cta mt-12 sm:mt-16">
           <PrimaryBtn
             href="#contact"
             className="!bg-primary !text-black px-7 py-3.5 hover:!bg-white hover:!text-black font-semibold transition-colors shadow-[0_0_24px_rgba(255,94,0,0.3)]"
