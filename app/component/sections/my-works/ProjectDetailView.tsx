@@ -176,52 +176,43 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
       </section>
 
       {/* =========================================================================
-          SECTION 3: GALLERY (2 ROWS with 20px GAPS)
-          - 1st Row: 2 Columns
-          - 2nd Row: 3 Columns
+          SECTION 3: GALLERY (2 ROWS with 20px GAPS, 3:4 ratio, sharp corners, no hover)
+          - 1st Row: 2 Columns (aspect-[3/4])
+          - 2nd Row: 3 Columns (aspect-[3/4])
          ========================================================================= */}
-      <section className="w-full bg-[#050505] py-20 sm:py-28 lg:py-32 border-b border-white/10">
+      <section className="w-full bg-[#050505] py-16 sm:py-24 lg:py-28 border-b border-white/10">
         <div className="site-container">
-          <div className="flex flex-col gap-2 max-w-2xl mb-10 sm:mb-14">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              Visual Showcase
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-[1.1]">
-              Interfaces &amp; Responsive Views
-            </h2>
-          </div>
-
-          {/* 1st Row - 2 Columns with 20px gap */}
+          {/* 1st Row - 2 Columns with 20px gap, 3:4 ratio, sharp corners, no hover */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
             {project.gallery.slice(0, 2).map((imgUrl, idx) => (
               <div
                 key={`gallery-row1-${idx}`}
-                className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-[#141414] border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl group"
+                className="relative aspect-[3/4] overflow-hidden bg-[#141414] border border-white/10"
               >
                 <Image
                   src={imgUrl}
                   alt={`${project.title} gallery showcase ${idx + 1}`}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  className="object-cover object-center"
                 />
               </div>
             ))}
           </div>
 
-          {/* 2nd Row - 3 Columns with 20px gap */}
+          {/* 2nd Row - 3 Columns with 20px gap, 3:4 ratio, sharp corners, no hover */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] mt-[20px]">
             {project.gallery.slice(2, 5).map((imgUrl, idx) => (
               <div
                 key={`gallery-row2-${idx}`}
-                className="relative aspect-[16/11] sm:aspect-[4/3] rounded-2xl overflow-hidden bg-[#141414] border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl group"
+                className="relative aspect-[3/4] overflow-hidden bg-[#141414] border border-white/10"
               >
                 <Image
                   src={imgUrl}
                   alt={`${project.title} gallery showcase ${idx + 3}`}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  className="object-cover object-center"
                 />
               </div>
             ))}
