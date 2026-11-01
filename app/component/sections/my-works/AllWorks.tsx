@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useRef, useEffect, type PointerEvent } from "react";
+import { useRef, useEffect, type PointerEvent } from "react";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
 import "../Styles.css";
@@ -14,14 +14,6 @@ import {
 
 export type { CategoryFilter, ProjectItem };
 export { projectsData };
-
-const filterCategories: CategoryFilter[] = [
-  "ALL",
-  "UI/UX",
-  "WEBSITES",
-  "WEB APPS",
-  "MOBILE",
-];
 
 const LazyVideo = ({ src }: { src: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -59,12 +51,6 @@ const LazyVideo = ({ src }: { src: string }) => {
 };
 
 const AllWorks = () => {
-  const [activeFilter, setActiveFilter] = useState<CategoryFilter>("ALL");
-
-  const filteredProjects = projectsData.filter((project) =>
-    project.categories.includes(activeFilter)
-  );
-
   const getCardCursor = (target: HTMLElement) =>
     target.querySelector<HTMLElement>(".featured-work-cursor");
 
@@ -146,32 +132,11 @@ const AllWorks = () => {
   };
 
   return (
-    <section className="w-full bg-black border-t border-white/5 pb-20 sm:pb-24 lg:pb-[150px]">
+    <section className="w-full bg-black border-t border-white/5 pt-10 sm:pt-14 pb-20 sm:pb-24 lg:pb-[150px]">
       <div className="site-container">
-        {/* Category Filter Bar */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-10 sm:mb-12">
-          {filterCategories.map((cat) => {
-            const isActive = activeFilter === cat;
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveFilter(cat)}
-                className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold uppercase tracking-[0px] rounded-full transition-all duration-300 ${
-                  isActive
-                    ? "bg-primary text-white shadow-[0_0_20px_rgba(255,94,0,0.4)]"
-                    : "bg-[#111111] text-zinc-400 border border-white/5 hover:text-white hover:border-primary/40"
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-
         {/* 3-Column Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-          {filteredProjects.map((work, index) => (
+          {projectsData.map((work, index) => (
             <article
               key={work.id}
               className="group flex flex-col gap-0 transition-opacity duration-300"

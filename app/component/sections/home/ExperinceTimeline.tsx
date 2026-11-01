@@ -101,15 +101,15 @@ const ExperinceTimeline = () => {
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col ${exp.position} space-y-0.5 p-4 rounded-lg bg-[#0d0d0d] border border-white/5 hover:border-primary/40 transition-colors`}
+                  className={`flex flex-col ${exp.position} space-y-1`}
                 >
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-primary flex-shrink-0 shadow-[0_0_8px_rgba(255,94,0,0.9)]" />
-                    <span className="text-[20px] font-medium leading-tight text-white">
+                    <span className="text-[20px] font-normal leading-tight text-white">
                       {exp.date}
                     </span>
                   </div>
-                  <h3 className="text-[18px] font-bold leading-tight text-white pt-1">
+                  <h3 className="text-[18px] font-bold leading-tight text-white">
                     {exp.role}
                   </h3>
                   <p className="text-[16px] font-normal leading-tight text-zinc-400">
