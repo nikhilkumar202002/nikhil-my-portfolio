@@ -24,6 +24,13 @@ export interface ProjectFeature {
   desc: string;
 }
 
+export interface TechnologyItem {
+  name: string;
+  category: string;
+  role: string;
+  icon?: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -38,6 +45,7 @@ export interface ProjectItem {
   role: string;
   duration: string;
   liveUrl?: string;
+  overviewSentence: string;
   overview: string;
   challenge: string;
   solution: string;
@@ -46,6 +54,7 @@ export interface ProjectItem {
   colorPalette: ColorSwatch[];
   typography: TypographySpec;
   features: ProjectFeature[];
+  technologies: TechnologyItem[];
 }
 
 export const projectsData: ProjectItem[] = [
@@ -64,6 +73,8 @@ export const projectsData: ProjectItem[] = [
     role: "UI/UX Designer & Frontend Developer",
     duration: "2 Months",
     liveUrl: "https://adverto.example.com",
+    overviewSentence:
+      "Adverto is a dynamic digital experience engineered for a high-impact creative agency, blending cinematic video transitions with responsive brand storytelling and seamless client acquisition. Crafted to disrupt conventional agency portfolio norms, the platform emphasizes tactile micro-interactions, responsive media delivery, and bold typography that commands attention across all screen sizes. Every section is built with speed and performance at its foundation, allowing rich creative assets to load instantaneously while guiding prospective enterprise partners through an intuitive inquiry funnel.",
     overview:
       "Adverto is a forward-thinking creative agency requiring a high-impact digital presence that commands attention. The project demanded immersive visual transitions, high-contrast typography, and fluid micro-interactions to showcase their brand campaigns and creative capabilities.",
     challenge:
@@ -80,6 +91,8 @@ export const projectsData: ProjectItem[] = [
       "/images/249d1779c161e64afc73693bd4efffc4.webp",
       "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
       "/images/90ff774dded2c8e8e90c82237929704e.webp",
+      "/service/graphics-designing.webp",
+      "/service/ui-ux.webp",
     ],
     colorPalette: [
       { name: "Neon Orange", hex: "#FF5E00", role: "Primary Brand Accent" },
@@ -110,6 +123,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Frictionless contact pathways with direct calendaring and inquiry management.",
       },
     ],
+    technologies: [
+      {
+        name: "Next.js",
+        category: "Framework",
+        role: "Server-side rendering, routing and static asset optimization",
+        icon: "/skill-logos/next-js-seeklogo.png",
+      },
+      {
+        name: "React",
+        category: "Library",
+        role: "Modular UI architecture and state-driven components",
+        icon: "/skill-logos/react-logo.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Custom design tokens, fluid clamp sizing, and responsive grid",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "GSAP",
+        category: "Animation",
+        role: "High-performance timeline animations and smooth cursor tracking",
+        icon: "/skill-logos/js.png",
+      },
+      {
+        name: "Figma",
+        category: "Design",
+        role: "Wireframing, design system tokens, and interactive prototypes",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "Photoshop",
+        category: "Media",
+        role: "Color correction, visual asset masking, and mockup composition",
+        icon: "/skill-logos/photoshop.png",
+      },
+    ],
   },
   {
     id: "gulf-cargo",
@@ -125,6 +176,8 @@ export const projectsData: ProjectItem[] = [
     role: "Lead UI/UX Designer & Frontend Developer",
     duration: "3 Months",
     liveUrl: "https://gulfcargo.example.com",
+    overviewSentence:
+      "Gulf Cargo is an international shipping and freight logistics platform designed to simplify complex consignment tracking, automated rate estimation, and global cargo operations into a seamless digital experience. By unifying real-time container telemetry with self-service quotation tools, the platform eliminates operational friction for enterprise supply chain managers across the Middle East and Asia. The architecture prioritizes data clarity and high-speed responsiveness, transforming heavy freight logistics data into an accessible, human-centered product that drives self-service booking.",
     overview:
       "Gulf Cargo is an established international shipping and cargo logistics enterprise operating across the Gulf and Asian trade corridors. The project overhauled their customer portal and public platform, converting complex supply chain workflows into an accessible, responsive web application.",
     challenge:
@@ -141,6 +194,8 @@ export const projectsData: ProjectItem[] = [
       "/porfolio/GULF-CARGO/FEATURED.webp",
       "/porfolio/GULF-CARGO/main-website.webp",
       "/porfolio/GULF-CARGO/web-admin-featured.webp",
+      "/service/ui-ux.webp",
+      "/service/web-development.webp",
     ],
     colorPalette: [
       { name: "Safety Orange", hex: "#FF5E00", role: "Primary Interactive Accent" },
@@ -171,6 +226,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Secure customer repository for customs declarations, invoices, and bill of lading records.",
       },
     ],
+    technologies: [
+      {
+        name: "Next.js",
+        category: "Framework",
+        role: "Production App Router, dynamic metadata, and performance optimization",
+        icon: "/skill-logos/next-js-seeklogo.png",
+      },
+      {
+        name: "React",
+        category: "Frontend",
+        role: "Component hierarchy and reactive shipment status state management",
+        icon: "/skill-logos/react-logo.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Rapid UI layout, high-contrast dark palette, and custom utility classes",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "Figma",
+        category: "UI/UX Design",
+        role: "Complete user journeys, interactive wireframes, and design system tokens",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "Node.js",
+        category: "Backend API",
+        role: "Microservices for real-time airway bill tracking and status lookups",
+        icon: "/skill-logos/node-js-seeklogo.png",
+      },
+      {
+        name: "GitHub",
+        category: "DevOps",
+        role: "Version control, CI/CD automated deployments, and code reviews",
+        icon: "/skill-logos/github.png",
+      },
+    ],
   },
   {
     id: "gps-trades",
@@ -186,6 +279,8 @@ export const projectsData: ProjectItem[] = [
     role: "Web Designer & Frontend Engineer",
     duration: "6 Weeks",
     liveUrl: "https://gpstrades.example.com",
+    overviewSentence:
+      "GPS Trades is a modern clean-energy web platform engineered to communicate renewable solar power solutions, interactive cost savings estimations, and engineering credibility to commercial and residential clients. The platform bridges the gap between intricate technical solar engineering specifications and accessible consumer decision-making. Through interactive financial payback models and transparent case studies, it empowers property owners to transition confidently to sustainable clean energy.",
     overview:
       "GPS Trades is an engineering and solar power contractor providing turnkey commercial and residential renewable solutions. The project objective was to position them as modern green energy innovators through a crisp, trustworthy online portal.",
     challenge:
@@ -202,6 +297,8 @@ export const projectsData: ProjectItem[] = [
       "/porfolio/gps/featured.webp",
       "/service/web-development.webp",
       "/service/ui-ux.webp",
+      "/images/249d1779c161e64afc73693bd4efffc4.webp",
+      "/service/digital-marketing.webp",
     ],
     colorPalette: [
       { name: "Solar Orange", hex: "#FF5E00", role: "Energy Accent & Highlights" },
@@ -232,6 +329,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Direct calendar booking for on-site feasibility and engineering assessments.",
       },
     ],
+    technologies: [
+      {
+        name: "WordPress",
+        category: "CMS",
+        role: "Custom theme development and client content editing workflows",
+        icon: "/skill-logos/WordPress_logo.png",
+      },
+      {
+        name: "JavaScript",
+        category: "Language",
+        role: "Custom energy calculation algorithms and dynamic slider events",
+        icon: "/skill-logos/js.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Modular CSS utility framework for swift responsive scaling",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "Figma",
+        category: "UI Design",
+        role: "Component library, high-contrast layouts, and client design reviews",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "Illustrator",
+        category: "Vector Graphics",
+        role: "Custom solar diagram iconography and engineering schematics",
+        icon: "/skill-logos/illustrator.png",
+      },
+      {
+        name: "GitHub",
+        category: "Version Control",
+        role: "Repository management and deployment automation",
+        icon: "/skill-logos/github.png",
+      },
+    ],
   },
   {
     id: "afrizon",
@@ -247,6 +382,8 @@ export const projectsData: ProjectItem[] = [
     role: "Product Designer & Frontend Developer",
     duration: "2 Months",
     liveUrl: "https://afrizon.example.com",
+    overviewSentence:
+      "Afrizon is a digital trade platform built to connect emerging market producers with global trade corridors, providing verified supplier directories and interactive route intelligence. The system establishes institutional trust through transparent compliance verification, real-time shipment milestones, and structured export bid management. Designed with international corporate buyers in mind, the platform delivers high-density commodity intelligence across a clean and responsive digital interface.",
     overview:
       "Afrizon facilitates cross-border commodity trade, agribusiness export, and industrial partnerships between emerging markets and global hubs. Their digital presence needed to reflect international trust and financial strength.",
     challenge:
@@ -263,6 +400,8 @@ export const projectsData: ProjectItem[] = [
       "/porfolio/afrizon/afrizon-featured.webp",
       "/service/graphics-designing.webp",
       "/service/ui-ux.webp",
+      "/porfolio/GULF-CARGO/main-website.webp",
+      "/service/web-development.webp",
     ],
     colorPalette: [
       { name: "Vibrant Orange", hex: "#FF5E00", role: "Action & Interactive Focus" },
@@ -293,6 +432,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Structured submission portal for enterprise trade bids and bulk supply inquiries.",
       },
     ],
+    technologies: [
+      {
+        name: "React",
+        category: "Framework",
+        role: "Modular interface components and interactive corridor mapping",
+        icon: "/skill-logos/react-logo.png",
+      },
+      {
+        name: "Next.js",
+        category: "Platform",
+        role: "High-speed static generation with Edge CDN deployment",
+        icon: "/skill-logos/next-js-seeklogo.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Custom typography scales and fluid layout utilities",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "Figma",
+        category: "Design",
+        role: "Interactive prototypes, design tokens, and user flow blueprints",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "Illustrator",
+        category: "Vector",
+        role: "Custom vector map illustrations and supply chain icons",
+        icon: "/skill-logos/illustrator.png",
+      },
+      {
+        name: "Node.js",
+        category: "Backend",
+        role: "REST endpoints handling tender requests and supplier lead capture",
+        icon: "/skill-logos/node-js-seeklogo.png",
+      },
+    ],
   },
   {
     id: "neo-vault",
@@ -308,6 +485,8 @@ export const projectsData: ProjectItem[] = [
     role: "Lead Mobile UI/UX Designer",
     duration: "3 Months",
     liveUrl: "https://neovault.example.com",
+    overviewSentence:
+      "Neo Vault is an intuitive fintech mobile application engineered to bring complete financial transparency, frictionless peer-to-peer transfers, and predictive budget forecasting to modern users. Built dark-mode first, the application strips away conventional banking anxiety by replacing dense financial ledgers with visual asset allocation cards and automated micro-savings algorithms. Every interaction is designed with biometric security and immediate feedback at its core.",
     overview:
       "Neo Vault is a next-generation neo-banking app designed for digitally native individuals and modern business owners. The goal was to eliminate banking friction and replace anxiety with financial clarity.",
     challenge:
@@ -324,6 +503,8 @@ export const projectsData: ProjectItem[] = [
       "/service/app-development.webp",
       "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
       "/service/ui-ux.webp",
+      "/porfolio/GULF-CARGO/web-admin-featured.webp",
+      "/service/web-development.webp",
     ],
     colorPalette: [
       { name: "Neon Flame", hex: "#FF5E00", role: "Transaction Accent & Highlights" },
@@ -354,6 +535,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Predictive cashflow timeline forecasting month-end balances based on recurring subscriptions.",
       },
     ],
+    technologies: [
+      {
+        name: "Figma",
+        category: "Product Design",
+        role: "Comprehensive iOS & Android component design system",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "React Native",
+        category: "Mobile",
+        role: "Cross-platform mobile application architecture",
+        icon: "/skill-logos/react-native.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Design token implementation via NativeWind styling engine",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "JavaScript",
+        category: "Language",
+        role: "State management, financial calculation math, and biometric hooks",
+        icon: "/skill-logos/js.png",
+      },
+      {
+        name: "Photoshop",
+        category: "Visuals",
+        role: "High-resolution 3D card render assets and app store screenshots",
+        icon: "/skill-logos/photoshop.png",
+      },
+      {
+        name: "GitHub",
+        category: "Collaboration",
+        role: "Mobile build versioning and pull request tracking",
+        icon: "/skill-logos/github.png",
+      },
+    ],
   },
   {
     id: "lumina-dashboard",
@@ -369,6 +588,8 @@ export const projectsData: ProjectItem[] = [
     role: "Senior Product Designer & System Architect",
     duration: "4 Months",
     liveUrl: "https://lumina.example.com",
+    overviewSentence:
+      "Lumina UI is an enterprise analytics dashboard and design system architected to render complex user metrics, high-density data tables, and customizable charting widgets with zero latency. Created to solve deep design debt across large engineering teams, the component architecture provides over 80 accessible, token-synchronized modules that adapt flawlessly to multi-tenant dark environments. The virtualized rendering engine sustains thousands of live rows while maintaining fluid 60fps interactivity.",
     overview:
       "Lumina Analytics develops data orchestration and user intelligence tools for SaaS enterprises. They needed a unified, scalable design system capable of powering over 40 distinct analytics screens with uniform visual hierarchy.",
     challenge:
@@ -385,6 +606,8 @@ export const projectsData: ProjectItem[] = [
       "/service/ui-ux.webp",
       "/porfolio/GULF-CARGO/web-admin-featured.webp",
       "/service/web-development.webp",
+      "/images/90ff774dded2c8e8e90c82237929704e.webp",
+      "/service/app-development.webp",
     ],
     colorPalette: [
       { name: "Lumina Orange", hex: "#FF5E00", role: "Active Selection & Alerts" },
@@ -415,6 +638,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Shared JSON tokens synchronizing Figma styles with Tailwind and CSS custom properties.",
       },
     ],
+    technologies: [
+      {
+        name: "React",
+        category: "UI Architecture",
+        role: "Modular component tokens and accessible compound components",
+        icon: "/skill-logos/react-logo.png",
+      },
+      {
+        name: "Next.js",
+        category: "Framework",
+        role: "Documentation platform and Storybook live sandbox hosting",
+        icon: "/skill-logos/next-js-seeklogo.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Design System",
+        role: "Multi-theme variables, dark/light modes, and spacing scales",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "Figma",
+        category: "System Design",
+        role: "80+ atomic components with variants, auto-layout, and token definitions",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "Node.js",
+        category: "Tooling",
+        role: "Build scripts generating production npm component packages",
+        icon: "/skill-logos/node-js-seeklogo.png",
+      },
+      {
+        name: "GitHub",
+        category: "Version Control",
+        role: "Monorepo management, visual regression tests, and continuous delivery",
+        icon: "/skill-logos/github.png",
+      },
+    ],
   },
   {
     id: "pulse-health",
@@ -430,6 +691,8 @@ export const projectsData: ProjectItem[] = [
     role: "Mobile UI/UX & Interaction Designer",
     duration: "2 Months",
     liveUrl: "https://pulsehealth.example.com",
+    overviewSentence:
+      "Pulse Health is a modern fitness tracking application translating wearable biometrics into proactive daily recovery scores, audio-guided interval workouts, and motivating habit streaks. By transforming complex cardiovascular metrics like HRV and VO2 max into approachable, color-coded visual loops, the platform encourages sustainable health habits. The interface couples high-contrast dark styling with tactile haptic cues, ensuring flawless legibility during high-intensity training.",
     overview:
       "Pulse Health connects wearable fitness monitors with AI-driven training recommendations. The goal was to transform passive biometric tracking into proactive, motivational health journeys.",
     challenge:
@@ -446,6 +709,8 @@ export const projectsData: ProjectItem[] = [
       "/service/digital-marketing.webp",
       "/service/app-development.webp",
       "/images/249d1779c161e64afc73693bd4efffc4.webp",
+      "/service/ui-ux.webp",
+      "/images/13bc6008a2291aad1c529e9b574dd3ce.webp",
     ],
     colorPalette: [
       { name: "Pulse Orange", hex: "#FF5E00", role: "Active Heartbeat & Calories" },
@@ -476,6 +741,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Weekly and monthly habit heatmaps celebrating consistency and personal record breakthroughs.",
       },
     ],
+    technologies: [
+      {
+        name: "React Native",
+        category: "Mobile",
+        role: "Cross-platform mobile application development",
+        icon: "/skill-logos/react-native.png",
+      },
+      {
+        name: "Figma",
+        category: "Interaction Design",
+        role: "Motion curves, tactile feedback maps, and mobile screen designs",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Dark mode design tokens and responsive mobile layout system",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "JavaScript",
+        category: "Logic",
+        role: "Biometric mathematical formulas and sensor API integration",
+        icon: "/skill-logos/js.png",
+      },
+      {
+        name: "Illustrator",
+        category: "Vector",
+        role: "Custom exercise illustration vectors and milestone achievement badges",
+        icon: "/skill-logos/illustrator.png",
+      },
+      {
+        name: "GitHub",
+        category: "Repository",
+        role: "Fastlane automated build distribution and team code reviews",
+        icon: "/skill-logos/github.png",
+      },
+    ],
   },
   {
     id: "nexus-saas",
@@ -491,6 +794,8 @@ export const projectsData: ProjectItem[] = [
     role: "Full-Stack UI Developer & Product Designer",
     duration: "4 Months",
     liveUrl: "https://nexuscloud.example.com",
+    overviewSentence:
+      "Nexus Cloud is an infrastructure cockpit empowering DevOps teams to orchestrate multi-cloud clusters, automated CI/CD deployment pipelines, and live telemetry from a unified workspace. Designed to eliminate context switching across fragmented cloud providers, the interface features a drag-and-drop pipeline canvas and real-time WebSocket health feeds. The architecture emphasizes high-density visual clarity, giving engineering leaders complete operational command over critical services.",
     overview:
       "Nexus Cloud empowers DevOps teams to orchestrate multi-cloud infrastructure and automated deployment pipelines from a single intuitive command cockpit.",
     challenge:
@@ -507,6 +812,8 @@ export const projectsData: ProjectItem[] = [
       "/service/web-development.webp",
       "/porfolio/GULF-CARGO/main-website.webp",
       "/service/ui-ux.webp",
+      "/porfolio/GULF-CARGO/web-admin-featured.webp",
+      "/images/249d1779c161e64afc73693bd4efffc4.webp",
     ],
     colorPalette: [
       { name: "Signal Orange", hex: "#FF5E00", role: "Cluster Alerts & Key Actions" },
@@ -537,6 +844,44 @@ export const projectsData: ProjectItem[] = [
         desc: "Role-based permissions with audit trails, SSO integration, and API token management.",
       },
     ],
+    technologies: [
+      {
+        name: "Next.js",
+        category: "Framework",
+        role: "High-concurrency full-stack web application architecture",
+        icon: "/skill-logos/next-js-seeklogo.png",
+      },
+      {
+        name: "React",
+        category: "Frontend",
+        role: "Canvas state handling for interactive node graph visualizer",
+        icon: "/skill-logos/react-logo.png",
+      },
+      {
+        name: "Node.js",
+        category: "Backend Engine",
+        role: "WebSocket cluster telemetry streaming service and cloud webhooks",
+        icon: "/skill-logos/node-js-seeklogo.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Technical UI system with dark console themes and high-density panels",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "Figma",
+        category: "Product Design",
+        role: "Complex data architecture layouts, node diagrams, and component specs",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "GitHub",
+        category: "DevOps",
+        role: "Container image CI/CD pipelines and deployment orchestration",
+        icon: "/skill-logos/github.png",
+      },
+    ],
   },
   {
     id: "kerala-crafts",
@@ -552,6 +897,8 @@ export const projectsData: ProjectItem[] = [
     role: "WordPress Architect & UI Designer",
     duration: "2 Months",
     liveUrl: "https://keralacrafts.example.com",
+    overviewSentence:
+      "Kerala Crafts is an authentic e-commerce portal connecting indigenous master artisans with international collectors through narrative brand storytelling and custom WordPress architecture. Each product narrative honors the individual craftsman, documenting sustainable heritage techniques through multimedia essays and transparent provenance records. The platform pairs cultural authenticity with modern global commerce, integrating multi-currency checkout and international courier tracking.",
     overview:
       "Kerala Crafts is an initiative connecting traditional artisans and indigenous craft guilds with conscious global consumers seeking handcrafted home decor and heritage artworks.",
     challenge:
@@ -568,6 +915,8 @@ export const projectsData: ProjectItem[] = [
       "/service/wordpress.webp",
       "/service/graphics-designing.webp",
       "/images/90ff774dded2c8e8e90c82237929704e.webp",
+      "/service/digital-marketing.webp",
+      "/service/ui-ux.webp",
     ],
     colorPalette: [
       { name: "Earthy Orange", hex: "#FF5E00", role: "Warm Terracotta Accent" },
@@ -596,6 +945,44 @@ export const projectsData: ProjectItem[] = [
       {
         title: "Eco-Packaging Guarantee",
         desc: "Transparent sustainability badges documenting zero-plastic packaging and fair-trade verification.",
+      },
+    ],
+    technologies: [
+      {
+        name: "WordPress",
+        category: "CMS Platform",
+        role: "Custom theme templating, custom post types, and editorial control",
+        icon: "/skill-logos/WordPress_logo.png",
+      },
+      {
+        name: "JavaScript",
+        category: "Frontend",
+        role: "Dynamic currency conversions, cart interactions, and smooth transitions",
+        icon: "/skill-logos/js.png",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        role: "Modern utility styling integrated into WordPress PHP templates",
+        icon: "/skill-logos/tailwind-css.png",
+      },
+      {
+        name: "Figma",
+        category: "UI Design",
+        role: "E-commerce wireframing, typography pairing, and checkout flow design",
+        icon: "/skill-logos/figma.png",
+      },
+      {
+        name: "Photoshop",
+        category: "Image Editing",
+        role: "Product photo enhancement, color grading, and texture asset generation",
+        icon: "/skill-logos/photoshop.png",
+      },
+      {
+        name: "GitHub",
+        category: "Version Control",
+        role: "Theme versioning and automated deployment to staging servers",
+        icon: "/skill-logos/github.png",
       },
     ],
   },
