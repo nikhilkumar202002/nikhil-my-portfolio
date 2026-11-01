@@ -11,6 +11,7 @@ import {
   FiCopy,
 } from "react-icons/fi";
 import type { ProjectItem } from "./projectsData";
+import Breadcrumbs from "../../ui/Breadcrumbs";
 import WorkCta from "./WorkCta";
 import "../../sections/Styles.css";
 
@@ -68,28 +69,20 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
         </div>
 
-        {/* Top Floating Navigation Bar */}
-        <div className="site-container relative z-20 pt-20 sm:pt-24 w-full flex items-center justify-between">
-          <Link
-            href="/my-works"
-            className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-semibold tracking-wide text-white/90 hover:text-white bg-black/60 hover:bg-black/90 backdrop-blur-md px-4 sm:px-5 py-2.5 rounded-full border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-lg"
-          >
-            <FiArrowLeft className="h-4 w-4 text-primary" />
-            <span>All Works</span>
-          </Link>
-
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-black/60 border border-primary/30 px-4 py-2 rounded-full backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            {project.categoryTag}
-          </span>
+        {/* Top Breadcrumbs Navigation (Home / Works / Slug) */}
+        <div className="site-container relative z-20 pt-20 sm:pt-24 w-full">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Works", href: "/my-works" },
+              { label: project.title },
+            ]}
+          />
         </div>
 
         {/* Banner Left Bottom Headline Content */}
         <div className="site-container relative z-20 w-full pb-12 sm:pb-16 lg:pb-20 text-left">
           <div className="max-w-5xl">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-primary mb-3 block">
-              Case Study
-            </span>
             <h1 className="text-left font-bold uppercase tracking-tight text-white leading-[0.90] text-[clamp(3.2rem,8.5vw,7.8rem)]">
               {project.title}
             </h1>
