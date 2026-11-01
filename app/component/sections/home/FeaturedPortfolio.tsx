@@ -226,7 +226,7 @@ const FeaturedPortfolio = () => {
         <div className="featured-portfolio-cta mt-12 sm:mt-16">
           <PrimaryBtn
             href="#contact"
-            className="!bg-primary !text-black px-7 py-3.5 hover:!bg-white hover:!text-black font-semibold transition-colors shadow-[0_0_24px_rgba(255,94,0,0.3)]"
+            className="!bg-primary !text-white px-7 py-3.5 hover:!bg-white hover:!text-black font-semibold transition-colors shadow-[0_0_24px_rgba(255,94,0,0.3)]"
           >
             View More Works
           </PrimaryBtn>

@@ -40,15 +40,15 @@ const ContactMessage = () => {
           </div>
 
           {/* Right Column - Neon Orange Card 40% (2/5) */}
-          <div className="bg-primary p-8 sm:p-12 lg:p-14 text-black rounded-2xl lg:col-span-2 flex flex-col justify-center gap-8 sm:gap-10 shadow-[0_0_40px_rgba(255,94,0,0.3)]">
+          <div className="bg-primary p-8 sm:p-12 lg:p-14 text-white rounded-2xl lg:col-span-2 flex flex-col justify-center gap-8 sm:gap-10 shadow-[0_0_40px_rgba(255,94,0,0.3)]">
             {/* Email */}
             <div className="flex flex-col items-start gap-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-black/70 sm:text-sm">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/80 sm:text-sm">
                 Email
               </span>
               <a
                 href="mailto:nikhilkumars12343@gmail.com"
-                className="text-lg font-bold text-black hover:underline sm:text-xl lg:text-2xl break-all"
+                className="text-lg font-bold text-white hover:underline sm:text-xl lg:text-2xl break-all"
               >
                 nikhilkumars12343@gmail.com
               </a>
@@ -56,14 +56,14 @@ const ContactMessage = () => {
 
             {/* LinkedIn */}
             <div className="flex flex-col items-start gap-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-black/70 sm:text-sm">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/80 sm:text-sm">
                 LinkedIn
               </span>
               <a
                 href="https://linkedin.com/in/nikhilkumars2002"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-bold text-black hover:underline sm:text-xl lg:text-2xl"
+                className="text-lg font-bold text-white hover:underline sm:text-xl lg:text-2xl"
               >
                 nikhilkumars2002
               </a>
@@ -71,14 +71,14 @@ const ContactMessage = () => {
 
             {/* Github */}
             <div className="flex flex-col items-start gap-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-black/70 sm:text-sm">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/80 sm:text-sm">
                 Github
               </span>
               <a
                 href="https://github.com/nikhilkumar202002"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-bold text-black hover:underline sm:text-xl lg:text-2xl"
+                className="text-lg font-bold text-white hover:underline sm:text-xl lg:text-2xl"
               >
                 nikhilkumar202002
               </a>

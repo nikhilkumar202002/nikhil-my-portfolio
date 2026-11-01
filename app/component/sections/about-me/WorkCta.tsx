@@ -7,17 +7,17 @@ const WorkCta = () => {
     <section className="w-full bg-black pb-16 sm:pb-24 lg:pb-28">
       <div className="site-container flex flex-col gap-16 sm:gap-24 lg:gap-28">
         {/* Top Orange Box Card Banner */}
-        <div className="w-full bg-primary p-8 sm:p-14 lg:p-20 text-black rounded-2xl shadow-[0_0_50px_rgba(255,94,0,0.3)]">
+        <div className="w-full bg-primary p-8 sm:p-14 lg:p-20 text-white rounded-2xl shadow-[0_0_50px_rgba(255,94,0,0.3)]">
           <div className="relative z-10 flex flex-col items-start max-w-[36rem]">
             {/* Title */}
-            <h2 className="text-[clamp(2.4rem,5.2vw,4.8rem)] font-bold leading-[1.05] tracking-tight text-black">
+            <h2 className="text-[clamp(2.4rem,5.2vw,4.8rem)] font-bold leading-[1.05] tracking-tight text-white">
               Open To The
               <br />
               Next Challenge.
             </h2>
 
             {/* Description Paragraph */}
-            <p className="mt-4 sm:mt-6 text-xs sm:text-sm lg:text-[15px] font-medium leading-relaxed text-black/85 max-w-[30rem]">
+            <p className="mt-4 sm:mt-6 text-xs sm:text-sm lg:text-[15px] font-medium leading-relaxed text-white/90 max-w-[30rem]">
               I&apos;m Open To Opportunities Where I Can Contribute Across UI/UX
               Design, Web Design And Frontend Development While Continuing To Grow
               As A Product-Focused Designer And Developer.
@@ -35,7 +35,7 @@ const WorkCta = () => {
 
               <Link
                 href="tel:+917356112021"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-black transition-opacity duration-300 hover:opacity-75"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white transition-opacity duration-300 hover:opacity-75"
               >
                 <span>Let&apos;s Talk</span>
                 <FiArrowRight className="h-4 w-4 shrink-0" />
@@ -58,7 +58,7 @@ const WorkCta = () => {
 
           <Link
             href="tel:+917356112021"
-            className="mt-6 sm:mt-8 inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-xs sm:text-sm font-semibold text-black transition-colors duration-300 hover:bg-white shadow-[0_0_24px_rgba(255,94,0,0.3)]"
+            className="mt-6 sm:mt-8 inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-xs sm:text-sm font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-black shadow-[0_0_24px_rgba(255,94,0,0.3)]"
           >
             <span>Start a conversation</span>
             <FiArrowRight className="h-4 w-4 shrink-0" />

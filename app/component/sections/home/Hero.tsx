@@ -27,7 +27,7 @@ const Hero = () => {
           <div className="mt-[2.5vh] flex flex-wrap items-center gap-4 sm:mt-[3vh] sm:gap-6">
             <PrimaryBtn
               href="#work"
-              className="!bg-primary !text-black px-6 py-3 sm:px-7 sm:py-3.5 hover:!bg-white hover:!text-black transition-colors font-semibold shadow-[0_0_24px_rgba(255,94,0,0.4)]"
+              className="!bg-primary !text-white px-6 py-3 sm:px-7 sm:py-3.5 hover:!bg-white hover:!text-black transition-colors font-semibold shadow-[0_0_24px_rgba(255,94,0,0.4)]"
             >
               View My Work
             </PrimaryBtn>

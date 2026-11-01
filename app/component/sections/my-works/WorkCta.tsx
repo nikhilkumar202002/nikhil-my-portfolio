@@ -4,12 +4,12 @@ import "../Styles.css";
 
 const WorkCta = () => {
   return (
-    <section id="contact" className="w-full bg-primary py-20 sm:py-24 lg:py-28 text-black shadow-[0_0_50px_rgba(255,94,0,0.3)] relative z-10">
+    <section id="contact" className="w-full bg-primary py-20 sm:py-24 lg:py-28 text-white shadow-[0_0_50px_rgba(255,94,0,0.3)] relative z-10">
       <div className="site-container">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           {/* Left Main Title */}
           <div className="flex flex-col">
-            <h2 className="text-[clamp(2.6rem,5.2vw,5rem)] font-bold leading-[1.02] tracking-tight text-black">
+            <h2 className="text-[clamp(2.6rem,5.2vw,5rem)] font-bold leading-[1.02] tracking-tight text-white">
               Have A Project
               <br />
               Worth Building?
@@ -18,7 +18,7 @@ const WorkCta = () => {
 
           {/* Right Subtitle & CTA Button */}
           <div className="flex flex-col items-start md:items-end text-left md:text-right">
-            <p className="max-w-[25rem] text-sm sm:text-base lg:text-[18px] font-medium leading-snug text-black/80">
+            <p className="max-w-[25rem] text-sm sm:text-base lg:text-[18px] font-medium leading-snug text-white/90">
               Let&apos;s Turn The Next Idea Into A Thoughtful
               <br className="hidden sm:inline" /> Digital Experience.
             </p>

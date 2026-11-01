@@ -159,7 +159,7 @@ const AllWorks = () => {
                 onClick={() => setActiveFilter(cat)}
                 className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold uppercase tracking-[0px] rounded-full transition-all duration-300 ${
                   isActive
-                    ? "bg-primary text-black shadow-[0_0_20px_rgba(255,94,0,0.4)]"
+                    ? "bg-primary text-white shadow-[0_0_20px_rgba(255,94,0,0.4)]"
                     : "bg-[#111111] text-zinc-400 border border-white/5 hover:text-white hover:border-primary/40"
                 }`}
               >

@@ -28,7 +28,7 @@ const HomeAboutme = () => {
               <div className="home-about-actions">
                 <PrimaryBtn
                   href="tel:+917356112021"
-                  className="home-about-primary-btn !bg-primary !text-black hover:!bg-white hover:!text-black font-semibold shadow-[0_0_24px_rgba(255,94,0,0.3)] transition-colors"
+                  className="home-about-primary-btn !bg-primary !text-white hover:!bg-white hover:!text-black font-semibold shadow-[0_0_24px_rgba(255,94,0,0.3)] transition-colors"
                 >
                   More About Me
                 </PrimaryBtn>

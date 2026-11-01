@@ -134,7 +134,7 @@ const CaseStudy = () => {
             <div className="pt-2">
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-sm font-semibold text-black transition-colors duration-200 hover:bg-white sm:text-base shadow-[0_0_24px_rgba(255,94,0,0.3)]"
+                className="inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-black sm:text-base shadow-[0_0_24px_rgba(255,94,0,0.3)]"
               >
                 <span>Read Case Study</span>
                 <FiArrowRight className="h-4 w-4" />
