@@ -40,7 +40,7 @@ export const SkillsGrids = () => {
           {skillLogos.map((logo) => (
             <div
               key={logo.name}
-              className="flex h-16 w-full items-center justify-center rounded-xl bg-[#0f0f0f] border border-white/5 p-2 transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:shadow-[0_0_24px_rgba(255,94,0,0.25)]"
+              className="flex h-16 w-full items-center justify-center rounded-xl bg-white border border-white/20 p-2 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(255,255,255,0.35)]"
             >
               <div className="relative flex h-10 w-full max-w-[90px] items-center justify-center">
                 <Image
@@ -48,7 +48,7 @@ export const SkillsGrids = () => {
                   alt={logo.name}
                   width={90}
                   height={36}
-                  className="max-h-9 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+                  className="max-h-9 w-auto object-contain"
                   style={{ transform: `scale(${logo.scale})` }}
                 />
               </div>

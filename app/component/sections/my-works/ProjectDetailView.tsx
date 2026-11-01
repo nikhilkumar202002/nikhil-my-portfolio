@@ -251,7 +251,7 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                   className="p-6 rounded-2xl bg-[#0c0c0c] border border-white/10 hover:border-primary/40 transition-colors duration-300 flex flex-col justify-between gap-5 group"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="h-12 w-12 rounded-xl bg-[#141414] border border-white/10 flex items-center justify-center p-2.5 shrink-0 group-hover:border-primary/40 transition-colors">
+                    <div className="h-12 w-12 rounded-xl bg-white border border-white/20 flex items-center justify-center p-2 shrink-0 group-hover:border-primary transition-colors shadow-sm">
                       {tech.icon ? (
                         <Image
                           src={tech.icon}
@@ -261,7 +261,7 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                           className="max-h-7 w-auto object-contain"
                         />
                       ) : (
-                        <span className="font-bold text-primary font-mono text-base">
+                        <span className="font-bold text-black font-mono text-base">
                           {tech.name.substring(0, 2).toUpperCase()}
                         </span>
                       )}
