@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useEffect, useRef, type PointerEvent } from "react";
@@ -9,18 +10,22 @@ import "../Styles.css";
 
 const featuredWorks = [
   {
+    slug: "adverto",
     title: "ADVERTO",
     video: "/porfolio/adverto/featured-video.mp4",
   },
   {
+    slug: "gulf-cargo",
     title: "GULF CARGO",
     image: "/porfolio/GULF-CARGO/FEATURED.webp",
   },
   {
+    slug: "gps-trades",
     title: "GPS TRADES",
     image: "/porfolio/gps/featured.webp",
   },
   {
+    slug: "afrizon",
     title: "AFRIZON",
     image: "/porfolio/afrizon/afrizon-featured.webp",
   },
@@ -195,8 +200,9 @@ const FeaturedPortfolio = () => {
                 tabIndex={0}
               >
                 {/* Large Visual Card */}
-                <div
-                  className="featured-work-image relative aspect-[16/10] overflow-hidden bg-[#141414] border border-white/10"
+                <Link
+                  href={`/my-works/${work.slug}`}
+                  className="block featured-work-image relative aspect-[16/10] overflow-hidden bg-[#141414] border border-white/10 hover:border-primary/50 transition-colors duration-300"
                   data-cursor="View Case Study"
                   onPointerEnter={handlePointerEnter}
                   onPointerMove={(event) => handlePointerMove(event, index)}
@@ -217,7 +223,7 @@ const FeaturedPortfolio = () => {
                   <div className="featured-work-cursor" aria-hidden="true">
                     <FiArrowUpRight className="featured-work-cursor-icon" />
                   </div>
-                </div>
+                </Link>
               </article>
             );
           })}

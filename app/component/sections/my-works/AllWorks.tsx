@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect, type PointerEvent } from "react";
 import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -142,8 +143,9 @@ const AllWorks = () => {
               className="group flex flex-col gap-0 transition-opacity duration-300"
             >
               {/* Visual Container */}
-              <div
-                className="featured-work-image relative aspect-[16/10] overflow-hidden bg-[#141414] border border-white/10 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(255,94,0,0.25)] transition-all duration-300"
+              <Link
+                href={`/my-works/${work.id}`}
+                className="block featured-work-image relative aspect-[16/10] overflow-hidden bg-[#141414] border border-white/10 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(255,94,0,0.25)] transition-all duration-300"
                 data-cursor="View Case Study"
                 onPointerEnter={(event) => handlePointerEnter(event, index)}
                 onPointerMove={(event) => handlePointerMove(event, index)}
@@ -164,15 +166,17 @@ const AllWorks = () => {
                 <div className="featured-work-cursor" aria-hidden="true">
                   <FiArrowUpRight className="featured-work-cursor-icon" />
                 </div>
-              </div>
+              </Link>
 
               {/* Meta details */}
               <div className="flex flex-col gap-0 pt-[10px]">
                 {/* Heading Left & Subtitle Right */}
                 <div className="flex items-baseline justify-between gap-3 w-full">
-                  <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white">
-                    {work.title}
-                  </h3>
+                  <Link href={`/my-works/${work.id}`}>
+                    <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors">
+                      {work.title}
+                    </h3>
+                  </Link>
                   <p className="text-sm sm:text-base font-normal text-zinc-400 text-right shrink-0">
                     {work.subtitle}
                   </p>
