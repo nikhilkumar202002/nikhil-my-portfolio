@@ -1,38 +1,19 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { portfolioData } from "@/app/dataset/Portfolio";
 
-const projects = [
-  {
-    id: "adverto",
-    title: "ADVERTO",
-    subtitle: "Creative Agency Website",
-    category: "UI/UX · Web Design · Frontend",
-    video: "/porfolio/adverto/featured-video.mp4",
-  },
-  {
-    id: "gulf-cargo",
-    title: "GULF CARGO",
-    subtitle: "Logistics Platform",
-    category: "UI/UX · Product Design · Frontend",
-    image: "/porfolio/GULF-CARGO/FEATURED.webp",
-  },
-  {
-    id: "gps-trades",
-    title: "GPS TRADES",
-    subtitle: "Solar & Energy Website",
-    category: "UI/UX · Web Design · Development",
-    image: "/porfolio/gps/featured.webp",
-  },
-  {
-    id: "afrizon",
-    title: "AFRIZON",
-    subtitle: "Digital Experience",
-    category: "UI/UX · Web Design · Development",
-    image: "/porfolio/afrizon/afrizon-featured.webp",
-  },
-];
+const projects = portfolioData.map((p) => ({
+  id: p.id,
+  title: p.title,
+  subtitle: p.subtitle,
+  category: p.categoryTag,
+  image: p.image ?? p.gallery[0] ?? "",
+  video: p.video,
+}));
 
 // Duplicate projects array for seamless continuous infinite loop
 const marqueeItems = [...projects, ...projects, ...projects, ...projects];
@@ -64,9 +45,12 @@ const FeaturedWorksSlider = () => {
                 key={`${work.id}-${idx}`}
                 className="w-[280px] sm:w-[360px] lg:w-[420px] shrink-0 flex flex-col gap-0"
               >
-                <article className="flex flex-col gap-0 h-full">
+                <Link
+                  href={`/my-works/${work.id}`}
+                  className="group flex flex-col gap-0 h-full"
+                >
                   {/* Increased Height Media Container */}
-                  <div className="relative h-[260px] sm:h-[340px] lg:h-[380px] w-full bg-[#141414] border border-white/10 rounded-xl overflow-hidden shadow-lg">
+                  <div className="relative h-[260px] sm:h-[340px] lg:h-[380px] w-full bg-[#141414] border border-white/10 rounded-xl overflow-hidden shadow-lg group-hover:border-primary/50 transition-colors">
                     {work.video ? (
                       <video
                         src={work.video}
@@ -77,10 +61,12 @@ const FeaturedWorksSlider = () => {
                         playsInline
                       />
                     ) : (
-                      <img
+                      <Image
                         src={work.image}
                         alt={work.title}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(min-width: 1024px) 420px, 360px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     )}
                   </div>
@@ -88,7 +74,7 @@ const FeaturedWorksSlider = () => {
                   {/* Metadata */}
                   <div className="flex flex-col pt-3">
                     <div className="flex items-baseline justify-between gap-2 w-full">
-                      <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-white">
+                      <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors">
                         {work.title}
                       </h3>
                       <p className="text-xs sm:text-sm font-normal text-zinc-400 text-right shrink-0">
@@ -100,7 +86,7 @@ const FeaturedWorksSlider = () => {
                       {work.category}
                     </span>
                   </div>
-                </article>
+                </Link>
               </div>
             ))}
           </motion.div>

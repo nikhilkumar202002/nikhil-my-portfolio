@@ -32,7 +32,7 @@ const Hero = () => {
               View My Work
             </PrimaryBtn>
             <PrimaryBtn
-              href="#contact"
+              href="/contact-me"
               className="px-2 py-3 sm:py-3.5 text-white hover:text-primary transition-colors"
             >
               Let&apos;s Work Together

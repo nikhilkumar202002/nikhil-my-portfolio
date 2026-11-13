@@ -34,7 +34,7 @@ const WorkCta = () => {
               </Link>
 
               <Link
-                href="tel:+917356112021"
+                href="/contact-me"
                 className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white transition-opacity duration-300 hover:opacity-75"
               >
                 <span>Let&apos;s Talk</span>
@@ -57,7 +57,7 @@ const WorkCta = () => {
           </p>
 
           <Link
-            href="tel:+917356112021"
+            href="/contact-me"
             className="mt-6 sm:mt-8 inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-xs sm:text-sm font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-black shadow-[0_0_24px_rgba(255,94,0,0.3)]"
           >
             <span>Start a conversation</span>

@@ -10,10 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Me", href: "#about" },
-  { label: "Works", href: "#work" },
-  { label: "Services", href: "#service" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "About Me", href: "/about-me" },
+  { label: "Works", href: "/my-works" },
+  { label: "Services", href: "/#service" },
+  { label: "Contact Us", href: "/contact-me" },
 ];
 
 const Footer = () => {

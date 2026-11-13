@@ -4,11 +4,11 @@ export const portfolioData: ProjectItem[] = [
   {
     id: "gulf-cargo-app",
     title: "GULF CARGO APP",
-    subtitle: "Mobile Logistics Application",
-    categoryTag: "UI/UX · Mobile Design · Product",
+    subtitle: "Internal Field Billing Application",
+    categoryTag: "UI/UX · Mobile App · Internal Tool",
     categories: ["ALL", "MOBILE", "UI/UX"],
     description:
-      "A purpose-built mobile application for Gulf Cargo's international logistics clients, enabling real-time shipment tracking and instant booking on the go.",
+      "An internal mobile billing application built for Gulf Cargo field staff to take orders, inspect cargo, and generate instant invoices directly from customers' homes.",
     image: "/porfolio/GULF-CARGO/application/featured.jpg",
     bannerImage: "/porfolio/GULF-CARGO/application/cover.jpg",
     client: "Gulf Cargo Logistics L.L.C",
@@ -17,18 +17,18 @@ export const portfolioData: ProjectItem[] = [
     duration: "2 Months",
     liveUrl: "https://gulfcargo.example.com/app",
     overviewSentence:
-      "Gulf Cargo App is a native-grade mobile logistics experience that puts real-time container tracking, instant quotation tools, and document management into the hands of enterprise freight clients across the Middle East and Asia. Designed from the ground up for speed and clarity, the app eliminates the need for phone calls and paper trails by surfacing live consignment milestones, automated rate estimates, and secure document uploads directly on a smartphone screen. Every interaction is optimised for one-handed use, with accessible typography, high-contrast status indicators, and gesture-driven navigation that makes complex freight data effortless to consume on the move.",
+      "Gulf Cargo App is an internal mobile operations tool engineered for logistics field staff who visit customers' homes to inspect cargo, take booking orders, and generate instant billing invoices on the spot. Designed to replace manual paper receipts and telephone rate confirmations, the application gives staff real-time volumetric pricing, digital manifest capture, and immediate receipt generation on their smartphones. Every workflow is optimized for fast, error-free data entry during doorstep collections, complete with offline mode for areas with poor connectivity.",
     overview:
-      "Gulf Cargo required a companion mobile application to extend their web logistics platform to field agents, enterprise account managers, and retail shippers who operate on the go. The mobile product needed to surface the same real-time cargo intelligence as the desktop portal while offering a touch-first, gesture-driven interface optimised for quick task completion in demanding work environments.",
+      "Gulf Cargo required a dedicated internal mobile billing application to empower their field staff who visit customers' homes to collect shipments. Previously, agents relied on physical receipt booklets, manual weight approximations, and delayed billing reconciliations, leading to pricing discrepancies and logistical bottlenecks. The new application equips staff with a touch-first tool to measure packages, calculate exact freight charges, and generate verified digital invoices directly in front of the customer.",
     challenge:
-      "Logistics professionals frequently operate in warehouses, ports, and transit hubs where desktop access is impractical. The key challenge was distilling complex freight data — container statuses, volumetric pricing, customs documentation — into a compact, thumb-friendly mobile experience without sacrificing information density or functional depth.",
+      "Field staff conduct home collections under time constraints in diverse residential environments where fast, dependable interaction is critical. The key challenge was designing an interface that simplifies multi-variable freight tariffs — factoring in volumetric weight, destination customs rules, fragile packaging add-ons, and spot discounts — while ensuring full offline functionality when cellular reception is weak inside residential buildings.",
     solution:
-      "We designed a modular mobile UI system built around a persistent tracking dashboard, a swipe-based shipment timeline, and a one-tap rate calculator. Colour-coded status rings and progressive disclosure panels keep the interface uncluttered while ensuring critical cargo milestones are always a single tap away.",
+      "We architected an agent-centered doorstep billing flow: Customer Lookup & Address Verification, Package Dimension & Automated Rate Calculation, and Instant Billing & Receipting. The app incorporates offline data persistence, Bluetooth thermal printer integration for physical slips, and direct WhatsApp and SMS invoice delivery to customers.",
     deliverables: [
-      "Mobile UI/UX Design System",
+      "Field Staff Mobile UI/UX Design",
+      "Doorstep Order Intake & Billing Flow",
+      "Offline Tariff Calculation Architecture",
       "Interactive High-Fidelity Prototype",
-      "Shipment Tracking & Notification Flows",
-      "Rate Calculator & Booking Screens",
     ],
     gallery: [
       "/porfolio/GULF-CARGO/application/featured.jpg",
@@ -39,53 +39,53 @@ export const portfolioData: ProjectItem[] = [
     ],
     features: [
       {
-        title: "Real-Time Shipment Tracker",
-        desc: "Live GPS-pinned container milestones with push notifications at every status change.",
+        title: "Doorstep Rate & Dimension Calculator",
+        desc: "Instant volumetric pricing engine with automated dimensional weight vs actual weight tariff comparisons.",
       },
       {
-        title: "Instant Rate Calculator",
-        desc: "One-tap volumetric pricing for air, sea, and land cargo with multi-currency output.",
+        title: "On-the-Spot Invoice & Receipting",
+        desc: "Instant digital invoice delivery via SMS and WhatsApp, alongside Bluetooth thermal receipt printing.",
       },
       {
-        title: "Secure Document Vault",
-        desc: "In-app upload and retrieval of customs declarations, invoices, and bills of lading.",
+        title: "Offline Mode & Dispatch Sync",
+        desc: "Enables staff to complete orders without cellular connectivity, automatically queuing and syncing once back online.",
       },
     ],
     technologies: [
       {
         name: "Figma",
         category: "UI Design",
-        role: "End-to-end mobile UI design, component library, and interactive prototyping",
+        role: "Field staff workflow mapping, component design system, and interactive mobile prototyping",
         icon: "/skill-logos/figma.png",
       },
       {
         name: "React Native",
         category: "Mobile Framework",
-        role: "Cross-platform iOS and Android development with native performance",
+        role: "Cross-platform Android and iOS application engineered for fast field deployment",
         icon: "/skill-logos/react.png",
       },
       {
         name: "TypeScript",
         category: "Language",
-        role: "Type-safe component architecture and API integration layer",
+        role: "Type-safe data models for complex cargo tariffs, multi-currency rates, and billing logic",
         icon: "/skill-logos/ts.png",
       },
       {
         name: "Node.js",
         category: "Backend",
-        role: "REST API services for tracking data, rate engine, and authentication",
+        role: "Secure REST APIs for order synchronization, staff authentication, and dispatch logs",
         icon: "/skill-logos/nodejs.png",
       },
       {
         name: "Tailwind CSS",
         category: "Styling",
-        role: "Utility-first styling for the web preview and admin companion portal",
+        role: "Utility-first interface styling for administrative reporting and companion web portal",
         icon: "/skill-logos/tailwind-css.png",
       },
       {
         name: "GitHub",
         category: "DevOps",
-        role: "Source control, CI/CD pipelines, and automated mobile build distribution",
+        role: "Source control, continuous integration, and automated internal app distribution",
         icon: "/skill-logos/github.png",
       },
     ],

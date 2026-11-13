@@ -76,7 +76,7 @@ const Navbar = () => {
             </div>
 
             <Link
-              href="#contact"
+              href="/contact-me"
               className="shrink-0 whitespace-nowrap font-medium text-primary transition-colors hover:brightness-125"
             >
               Let&apos;s Talk
@@ -86,7 +86,7 @@ const Navbar = () => {
           {/* Mobile Actions */}
           <div className="flex items-center gap-3 md:hidden">
             <Link
-              href="#contact"
+              href="/contact-me"
               className="shrink-0 whitespace-nowrap font-medium text-primary transition-opacity hover:opacity-80 text-xs sm:text-sm"
             >
               Let&apos;s Talk
@@ -156,7 +156,7 @@ const Navbar = () => {
 
             <div className="pb-6">
               <Link
-                href="#contact"
+                href="/contact-me"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-flex whitespace-nowrap font-medium text-primary transition-opacity hover:opacity-80"
               >

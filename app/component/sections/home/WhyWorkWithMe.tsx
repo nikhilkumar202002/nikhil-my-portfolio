@@ -39,7 +39,7 @@ const WhyWorkWithMe = () => {
 
             <div className="pt-8 lg:pt-0">
               <Link
-                href="#contact"
+                href="/contact-me"
                 className="inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-black shadow-[0_0_24px_rgba(255,94,0,0.3)]"
               >
                 <span>Let&apos;s Talk</span>

@@ -24,7 +24,7 @@ const WorkCta = () => {
             </p>
 
             <Link
-              href="tel:+917356112021"
+              href="/contact-me"
               className="mt-6 sm:mt-8 inline-flex items-center gap-2.5 bg-black px-7 py-4 text-sm sm:text-base font-semibold text-white transition-colors duration-300 hover:bg-white hover:text-black shadow-xl"
             >
               <span>Let&apos;s Talk</span>
