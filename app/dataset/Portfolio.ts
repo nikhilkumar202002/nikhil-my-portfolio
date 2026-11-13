@@ -37,21 +37,6 @@ export const portfolioData: ProjectItem[] = [
       "/porfolio/GULF-CARGO/application/3.jpg",
       "/porfolio/GULF-CARGO/application/4.jpg",
     ],
-    colorPalette: [
-      { name: "Safety Orange", hex: "#FF5E00", role: "Primary CTA & Status Active" },
-      { name: "Deep Charcoal", hex: "#0A0A0A", role: "App Background" },
-      { name: "Cargo Slate", hex: "#18181B", role: "Card & Bottom Sheet Surface" },
-      { name: "Pure White", hex: "#FFFFFF", role: "Primary Headings & Labels" },
-      { name: "Steel Muted", hex: "#71717A", role: "Secondary Metadata & Timestamps" },
-    ],
-    typography: {
-      fontFamily: "SF Pro Display",
-      category: "System Geometric Sans",
-      weights: ["Regular 400", "Medium 500", "Semibold 600"],
-      sampleText: "Aa Bb Cc Dd Ee Ff 1234567890",
-      description:
-        "SF Pro Display ensures pixel-perfect legibility at small mobile sizes while lending the app a native, platform-confident personality.",
-    },
     features: [
       {
         title: "Real-Time Shipment Tracker",
@@ -140,21 +125,6 @@ export const portfolioData: ProjectItem[] = [
       "/porfolio/merchem/2.jpg",
       "/porfolio/merchem/3.jpg",
     ],
-    colorPalette: [
-      { name: "Brand Orange", hex: "#FF5E00", role: "Primary CTA & Accent" },
-      { name: "Deep Black", hex: "#0A0A0A", role: "Main Background" },
-      { name: "Surface Slate", hex: "#18181B", role: "Card & Section Surface" },
-      { name: "Pure White", hex: "#FFFFFF", role: "Headings & Primary Text" },
-      { name: "Zinc Grey", hex: "#71717A", role: "Body Copy & Metadata" },
-    ],
-    typography: {
-      fontFamily: "Helvetica Neue",
-      category: "Modern Grotesk Sans",
-      weights: ["Regular 400", "Medium 500", "Bold 700"],
-      sampleText: "Aa Bb Cc Dd Ee Ff Gg 1234567890",
-      description:
-        "Selected for its clean, authoritative tone — ideal for technical B2B content that must balance professionalism with approachability.",
-    },
     features: [
       {
         title: "Structured Product Catalogue",
@@ -243,21 +213,6 @@ export const portfolioData: ProjectItem[] = [
       "/porfolio/gps/2.jpg",
       "/porfolio/gps/featured.webp",
     ],
-    colorPalette: [
-      { name: "Neon Orange", hex: "#FF5E00", role: "Primary Brand Accent & CTA" },
-      { name: "Void Black", hex: "#000000", role: "Main Background" },
-      { name: "Dark Surface", hex: "#141414", role: "Card & Section Containers" },
-      { name: "Pure White", hex: "#FFFFFF", role: "Headings & Primary Labels" },
-      { name: "Muted Zinc", hex: "#A1A1AA", role: "Body Text & Descriptions" },
-    ],
-    typography: {
-      fontFamily: "Helvetica Neue",
-      category: "Modern Grotesk Sans",
-      weights: ["Regular 400", "Medium 500", "Bold 700"],
-      sampleText: "Aa Bb Cc Dd Trading 1234567890",
-      description:
-        "Clean and neutral grotesk chosen to project professionalism across product listings, procurement forms, and corporate overview sections.",
-    },
     features: [
       {
         title: "Multi-Sector Product Catalogue",
