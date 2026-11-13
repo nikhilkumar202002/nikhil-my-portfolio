@@ -7,29 +7,14 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { useEffect, useRef, type PointerEvent } from "react";
 import PrimaryBtn from "../../ui/PrimaryBtn";
 import "../Styles.css";
+import { portfolioData } from "@/app/dataset/Portfolio";
 
-const featuredWorks = [
-  {
-    slug: "adverto",
-    title: "ADVERTO",
-    video: "/porfolio/adverto/featured-video.mp4",
-  },
-  {
-    slug: "gulf-cargo",
-    title: "GULF CARGO",
-    image: "/porfolio/GULF-CARGO/FEATURED.webp",
-  },
-  {
-    slug: "gps-trades",
-    title: "GPS TRADES",
-    image: "/porfolio/gps/featured.webp",
-  },
-  {
-    slug: "afrizon",
-    title: "AFRIZON",
-    image: "/porfolio/afrizon/afrizon-featured.webp",
-  },
-] as const;
+const featuredWorks = portfolioData.map((p) => ({
+  slug: p.id,
+  title: p.title,
+  image: p.image ?? p.gallery[0] ?? "",
+  video: p.video,
+}));
 
 const LazyVideo = ({ src }: { src: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -195,7 +180,7 @@ const FeaturedPortfolio = () => {
           {featuredWorks.map((work, index) => {
             return (
               <article
-                key={`${"video" in work ? work.video : work.image}-${index}`}
+                key={`${work.slug}-${index}`}
                 className="group relative flex flex-col gap-0 focus-visible:outline-none"
                 tabIndex={0}
               >
@@ -208,7 +193,7 @@ const FeaturedPortfolio = () => {
                   onPointerMove={(event) => handlePointerMove(event, index)}
                   onPointerLeave={handlePointerLeave}
                 >
-                  {"video" in work ? (
+                  {work.video ? (
                     <LazyVideo src={work.video} />
                   ) : (
                     <Image

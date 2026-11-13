@@ -1,3 +1,5 @@
+import { portfolioData } from "@/app/dataset/Portfolio";
+
 export type CategoryFilter =
   | "ALL"
   | "UI/UX"
@@ -39,6 +41,7 @@ export interface ProjectItem {
   categories: CategoryFilter[];
   description: string;
   image?: string;
+  bannerImage?: string;
   video?: string;
   client: string;
   year: string;
@@ -51,8 +54,8 @@ export interface ProjectItem {
   solution: string;
   deliverables: string[];
   gallery: string[];
-  colorPalette: ColorSwatch[];
-  typography: TypographySpec;
+  colorPalette?: ColorSwatch[];
+  typography?: TypographySpec;
   features: ProjectFeature[];
   technologies: TechnologyItem[];
 }
@@ -193,9 +196,9 @@ export const projectsData: ProjectItem[] = [
     gallery: [
       "/porfolio/GULF-CARGO/FEATURED.webp",
       "/porfolio/GULF-CARGO/main-website.webp",
-      "/porfolio/GULF-CARGO/web-admin-featured.webp",
-      "/service/ui-ux.webp",
-      "/service/web-development.webp",
+      "/porfolio/GULF-CARGO/application/featured.jpg",
+      "/porfolio/GULF-CARGO/application/2.jpg",
+      "/porfolio/GULF-CARGO/application/3.jpg",
     ],
     colorPalette: [
       { name: "Safety Orange", hex: "#FF5E00", role: "Primary Interactive Accent" },
@@ -274,6 +277,7 @@ export const projectsData: ProjectItem[] = [
     description:
       "A clean digital presence communicating renewable energy solutions through a modern and approachable interface.",
     image: "/porfolio/gps/featured.webp",
+    bannerImage: "/porfolio/gps/cover.jpg",
     client: "GPS Trades Renewable Power",
     year: "2024",
     role: "Web Designer & Frontend Engineer",
@@ -295,10 +299,10 @@ export const projectsData: ProjectItem[] = [
     ],
     gallery: [
       "/porfolio/gps/featured.webp",
-      "/service/web-development.webp",
-      "/service/ui-ux.webp",
-      "/images/249d1779c161e64afc73693bd4efffc4.webp",
-      "/service/digital-marketing.webp",
+      "/porfolio/gps/cover.jpg",
+      "/porfolio/gps/1.jpg",
+      "/porfolio/gps/2.jpg",
+      "/porfolio/gps/featured.webp",
     ],
     colorPalette: [
       { name: "Solar Orange", hex: "#FF5E00", role: "Energy Accent & Highlights" },
@@ -986,4 +990,5 @@ export const projectsData: ProjectItem[] = [
       },
     ],
   },
+  ...portfolioData,
 ];

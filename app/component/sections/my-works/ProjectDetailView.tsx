@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FiArrowLeft,
   FiArrowRight,
-  FiCheck,
-  FiCopy,
 } from "react-icons/fi";
 import type { ProjectItem } from "./projectsData";
 import Breadcrumbs from "../../ui/Breadcrumbs";
@@ -88,15 +86,7 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
   prevProject,
   nextProject,
 }) => {
-  const [copiedHex, setCopiedHex] = useState<string | null>(null);
-
-  const handleCopy = (hex: string) => {
-    navigator.clipboard.writeText(hex);
-    setCopiedHex(hex);
-    setTimeout(() => setCopiedHex(null), 2000);
-  };
-
-  const bgImage = project.image || project.gallery[0] || "/porfolio/GULF-CARGO/FEATURED.webp";
+  const bgImage = project.bannerImage || project.image || project.gallery[0] || "/porfolio/GULF-CARGO/FEATURED.webp";
 
   return (
     <div className="w-full bg-black text-white min-h-screen">
@@ -286,169 +276,9 @@ const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
         </div>
       </section>
 
-      {/* =========================================================================
-          SECTION 5: COLOR PALETTE (Interactive Swatches with Hex & Roles)
-         ========================================================================= */}
-      <section className="w-full bg-[#050505] py-20 sm:py-28 lg:py-32 border-b border-white/10">
-        <div className="site-container">
-          <div className="flex flex-col gap-3 max-w-2xl mb-12 sm:mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              Visual Identity &amp; System
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-[1.1]">
-              Color Palette
-            </h2>
-            <p className="text-sm sm:text-base text-zinc-400 font-light">
-              Carefully calibrated color tokens engineered for WCAG contrast compliance and striking visual hierarchy.
-            </p>
-          </div>
-
-          {/* 5 Swatches Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-            {project.colorPalette.map((swatch, idx) => {
-              const isCopied = copiedHex === swatch.hex;
-
-              return (
-                <div
-                  key={idx}
-                  onClick={() => handleCopy(swatch.hex)}
-                  className="group relative flex flex-col rounded-2xl bg-[#0c0c0c] border border-white/10 p-3 sm:p-4 hover:border-primary/60 transition-all duration-300 cursor-pointer shadow-lg"
-                  title="Click to copy hex code"
-                >
-                  {/* Swatch preview box */}
-                  <div
-                    className="h-28 sm:h-32 rounded-xl w-full border border-white/10 flex items-center justify-center relative overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]"
-                    style={{ backgroundColor: swatch.hex }}
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/75 backdrop-blur-sm text-white text-[11px] font-semibold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md">
-                      {isCopied ? (
-                        <>
-                          <FiCheck className="text-primary h-3 w-3" />
-                          <span>Copied</span>
-                        </>
-                      ) : (
-                        <>
-                          <FiCopy className="h-3 w-3" />
-                          <span>Copy</span>
-                        </>
-                      )}
-                    </span>
-                  </div>
-
-                  {/* Swatch Details */}
-                  <div className="mt-3 flex flex-col gap-0.5">
-                    <span className="text-sm sm:text-base font-semibold text-white truncate">
-                      {swatch.name}
-                    </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-primary">
-                      {swatch.hex}
-                    </span>
-                    <span className="text-[11px] text-zinc-500 font-normal leading-tight mt-0.5">
-                      {swatch.role}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* =========================================================================
-          SECTION 6: FONT FAMILY & TYPOGRAPHY SYSTEM
-         ========================================================================= */}
-      <section className="w-full bg-black py-20 sm:py-28 lg:py-32 border-b border-white/10">
-        <div className="site-container">
-          <div className="flex flex-col gap-3 max-w-2xl mb-12 sm:mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              Typographic System
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-[1.1]">
-              Font Family &amp; Hierarchy
-            </h2>
-            <p className="text-sm sm:text-base text-zinc-400 font-light">
-              {project.typography.description}
-            </p>
-          </div>
-
-          {/* Typographic Specimen Showcase Container */}
-          <div className="p-8 sm:p-12 lg:p-16 rounded-3xl bg-[#0a0a0a] border border-white/10 flex flex-col gap-12 sm:gap-16">
-            {/* Type Family Header */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between border-b border-white/10 pb-8">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-primary mb-1 block">
-                  Primary Typeface
-                </span>
-                <h3 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
-                  {project.typography.fontFamily}
-                </h3>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-xs uppercase font-semibold text-primary px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20">
-                  {project.typography.category}
-                </span>
-                <span className="text-xs font-semibold text-zinc-400 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
-                  Web &amp; Display
-                </span>
-              </div>
-            </div>
-
-            {/* Specimen Glyphs */}
-            <div className="flex flex-col gap-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                Alphabet Specimen
-              </span>
-              <p className="text-2xl sm:text-4xl lg:text-5xl font-normal text-zinc-200 tracking-tight leading-tight break-all">
-                Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
-              </p>
-              <p className="text-lg sm:text-2xl font-mono text-zinc-400 tracking-wider pt-2">
-                0123456789 • !@#$%^&amp;*()_+=-[]&lbrace;&rbrace;
-              </p>
-            </div>
-
-            {/* Weights & Hierarchy Comparison Rows */}
-            <div className="flex flex-col gap-6 border-t border-white/10 pt-8">
-              <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                Weights in Application
-              </span>
-
-              {/* Regular 400 */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
-                <span className="text-xs text-primary font-mono shrink-0 uppercase tracking-wider w-28">
-                  Regular 400
-                </span>
-                <p className="text-base sm:text-lg font-normal text-zinc-300 leading-relaxed">
-                  Design is not merely what it looks like and feels like. Design is how it works under real-world conditions.
-                </p>
-              </div>
-
-              {/* Medium 500 */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 border-t border-white/5 pt-6">
-                <span className="text-xs text-primary font-mono shrink-0 uppercase tracking-wider w-28">
-                  Medium 500
-                </span>
-                <p className="text-base sm:text-lg font-medium text-white leading-relaxed">
-                  Every interaction, micro-animation, and transition reinforces the user&apos;s journey and intent.
-                </p>
-              </div>
-
-              {/* Bold 700 */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 border-t border-white/5 pt-6">
-                <span className="text-xs text-primary font-mono shrink-0 uppercase tracking-wider w-28">
-                  Bold 700
-                </span>
-                <p className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
-                  High-performance digital products engineered to solve real enterprise challenges.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          SECTION 7: NEXT / PREVIOUS PROJECT NAVIGATION & CALL TO ACTION
+          SECTION 5: NEXT / PREVIOUS PROJECT NAVIGATION & CALL TO ACTION
          ========================================================================= */}
       <section className="w-full bg-[#050505] py-16 sm:py-20 border-b border-white/10">
         <div className="site-container">
