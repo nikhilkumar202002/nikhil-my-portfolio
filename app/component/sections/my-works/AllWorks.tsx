@@ -7,14 +7,11 @@ import gsap from "gsap";
 import { FiArrowUpRight } from "react-icons/fi";
 import "../Styles.css";
 
-import {
-  type CategoryFilter,
-  type ProjectItem,
-  projectsData,
-} from "./projectsData";
+import { portfolioData } from "@/app/dataset/Portfolio";
+import type { CategoryFilter, ProjectItem } from "./projectsData";
 
 export type { CategoryFilter, ProjectItem };
-export { projectsData };
+export { portfolioData };
 
 const LazyVideo = ({ src }: { src: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -137,7 +134,7 @@ const AllWorks = () => {
       <div className="site-container">
         {/* 3-Column Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-          {projectsData.map((work, index) => (
+          {portfolioData.map((work, index) => (
             <article
               key={work.id}
               className="group flex flex-col gap-0 transition-opacity duration-300"
